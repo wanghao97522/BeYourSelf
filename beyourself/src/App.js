@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import './assets/styles/reset.css'
 
-import Index from './pages/index/Index'
+import MyRouter from './pages/Router'
+
 
 export default class App extends Component {
   render() {
     return (
-      <Index></Index>
+      <Router>
+        <MyRouter></MyRouter>
+      </Router>
     )
   }
 }

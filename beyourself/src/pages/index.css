@@ -1,0 +1,54 @@
+.normal{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.home{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/zhuye-xz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.home_active{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/zhuye-wxz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.growing{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/chengzhang-wxz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.growing_active{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/chengzhang-xz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.journey{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/lucheng-xz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.journey_active{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/lucheng-wxz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.profile{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/wode-xz@2x.png") no-repeat;
+    background-size: 20px;
+}
+.profile_active{
+    height: 35px;
+    width: 20px;
+    background: url("../assets/images/wode-wxz@2x.png") no-repeat;
+    background-size: 20px;
+}
