@@ -5,50 +5,50 @@
     justify-content: center;
 }
 .home{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/zhuye-xz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .home_active{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/zhuye-wxz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .growing{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/chengzhang-wxz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .growing_active{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/chengzhang-xz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .journey{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/lucheng-xz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .journey_active{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/lucheng-wxz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .profile{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/wode-xz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }
 .profile_active{
-    height: 35px;
-    width: 20px;
+    height: .35rem;
+    width: .20rem;
     background: url("../assets/images/wode-wxz@2x.png") no-repeat;
-    background-size: 20px;
+    background-size: .20rem;
 }

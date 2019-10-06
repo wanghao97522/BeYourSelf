@@ -11,15 +11,15 @@ const Container = styled.div`
 
 
 const Main = styled.div`
-    font-size : 14px;
+    font-size : .14rem;
     color: black;
     flex : 1;
 `
 
 const Footer = styled.div`  
-    font-size : 12px;
+    font-size : .12rem;
     color: black;
-    height : 49px;
+    height : .49rem;
     background : #FFFFFF;
     display : flex;
 `
