@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { BodyContainer, HeadContainer, CubeOneContainer, MainContainer } from './StyledHome'
+import { BodyContainer, HeadContainer, CubeOneContainer, MainContainer, CubeTwoContainer, TodayContainer, EmptyContainer } from './StyledHome'
+
 import Add from './components/Add'
+import Habit from './components/Habit'
 
 export default class Home extends Component {
     render() {
         let { match } = this.props
-        console.log(this.props)
         return (
             <BodyContainer>
                 <HeadContainer>
@@ -34,6 +35,29 @@ export default class Home extends Component {
                             </div>
                         </NavLink>
                     </CubeOneContainer>
+                    <CubeTwoContainer>
+                        <NavLink to={`${match.path}/letter`}>
+                            <h1>开启您的一天</h1>
+                            <p>要如何弃旧迎新培养好习惯，并锻炼出坚韧的意志？</p>
+                            <div>戳我查看</div>
+                        </NavLink>
+                    </CubeTwoContainer>
+                    <TodayContainer>
+                        <h1>今天</h1>
+                        <span></span>
+                    </TodayContainer>
+                    <Habit className="morning"></Habit>
+                    <Habit className="noon"></Habit>
+                    {/* <GrayCirclContainer>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </GrayCirclContainer> */}
+                    <Habit className="afternoon"></Habit>
+                    <EmptyContainer></EmptyContainer>
                 </MainContainer>
             </BodyContainer>
         )

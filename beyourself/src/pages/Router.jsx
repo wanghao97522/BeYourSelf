@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
-import { Route , Switch , Redirect } from 'react-router-dom'
+import { Route , Switch } from 'react-router-dom'
 
 import Index from './Index'
 import Details from './Details'
 import Page404 from './Page404'
+
+import Morning from './home/habits/Morning'
+import Noon from './home/habits/Noon'
+import Afternoon from './home/habits/Afternoon'
 
 export default class MyRouter extends Component {
     render() {
@@ -12,8 +16,12 @@ export default class MyRouter extends Component {
             <>
                 <Switch>
                     <Route path='/detials' component={Details} ></Route>
+                    <Route path='/morning' component={Morning} ></Route>
+                    <Route path='/noon' component={Noon} ></Route>
+                    <Route path='/afternoon' component={Afternoon} ></Route>
+
                     <Route path='/index' component={Index} ></Route>
-                    <Redirect from='/' exact to='/index/home'></Redirect> 
+                    {/* <Redirect from='/' exact to='/index/home'></Redirect>  */}
                     <Route component={Page404} ></Route>
                 </Switch>
             </>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     font-size : 14px;
     display : flex;
-    text-align : center;
+    /* text-align : center; */
     flex-direction : column;
     height : 100%;
     width: 100%;
@@ -13,6 +13,7 @@ const Container = styled.div`
 const Main = styled.div`
     font-size : .14rem;
     color: black;
+    overflow: hidden;
     flex : 1;
 `
 
