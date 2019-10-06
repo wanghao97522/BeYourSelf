@@ -15,7 +15,7 @@ import Profile from './profile/Profile'
 export default class Index extends PureComponent {
     render() {
         let { match } = this.props
-        console.log(this.props.location)
+        // console.log(this.props.location)
         return (
             <Container>
                 <Main>
