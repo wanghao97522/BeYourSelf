@@ -24,6 +24,4 @@ const Footer = styled.div`
     display : flex;
 `
 
-
-
 export { Container , Main , Footer }

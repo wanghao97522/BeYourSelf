@@ -11,7 +11,7 @@ export default class MyRouter extends Component {
         return (
             <>
                 <Switch>
-                    <Route path='/detials' component={Details} ></Route>
+                    <Route path='/details' component={Details} ></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
