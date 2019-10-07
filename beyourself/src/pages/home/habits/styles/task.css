@@ -1,0 +1,33 @@
+.am-action-sheet-mask {
+  background-color:rgba(31,31,31,.64) !important;
+}
+.am-action-sheet{
+  margin: 0 .15rem .15rem .16rem !important;
+  width:3.45rem;
+  background:rgba(255,255,255,1);
+  border-radius:.14rem .14rem .14rem .14rem;
+}
+.am-action-sheet-button-list{
+  font-weight:400;
+  color:rgba(252,180,8,1) !important;
+  font-size:.18rem;
+  font-family:PingFangSC-Semibold,PingFangSC;
+}
+.am-action-sheet-destructive-button{
+  color:rgba(252,180,8,1) !important;
+}
+.am-action-sheet-button-list-item{
+  height:.44rem;
+}
+.am-action-sheet-button-list-item::before{
+  content: '';
+  height: 0 !important;
+}
+.am-action-sheet-cancel-button{
+  padding: 0 !important;
+  font-weight:600;
+}
+.am-action-sheet-cancel-button-mask{
+  height: 0 !important;
+}
+
