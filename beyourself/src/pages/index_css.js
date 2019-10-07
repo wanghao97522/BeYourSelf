@@ -13,7 +13,7 @@ const Container = styled.div`
 const Main = styled.div`
     font-size : .14rem;
     color: black;
-    overflow: hidden;
+    overflow: scroll;
     flex : 1;
 `
 

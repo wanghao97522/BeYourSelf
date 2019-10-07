@@ -9,9 +9,10 @@ class Head extends Component {
     time: ''
   }
   render() {
+    let { className } = this.props
     return (
       <HeadContainer>
-        <div className={this.state.title}>
+        <div className={className}>
           <div className="title-container">
             <div className="back" onClick={()=>this.back()}></div>
             <div className="title">

@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 
-export default class Noon extends Component {
+import Head from './components/Head'
+import TaskNum from './components/TaskNum'
+import OpenBT from './components/OpenBT'
+
+import { BodyContainer } from './StyledHabits'
+
+export default class Morning extends Component {
   render() {
     return (
-      <div>
-        noon
-      </div>
+      <BodyContainer>
+        <Head className="noon"></Head>
+        {/* 根据任务组件传回来的任务数量来确定num值 */}
+        <TaskNum num="1"></TaskNum>
+        <OpenBT className="noon"></OpenBT>
+      </BodyContainer>
     )
   }
 }
