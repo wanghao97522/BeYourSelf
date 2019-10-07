@@ -8,10 +8,9 @@ const Container = styled.div`
     height : 100%;
     width: 100%;
 `
-
-
 const Main = styled.div`
     font-size : .14rem;
+    overflow: scroll;
     color: black;
     flex : 1;
 `

@@ -7,7 +7,6 @@ const Body = styled.div`
     display: flex;
     text-align: center;
     flex-direction: column;
-    overflow: scroll;
     height: 100%;
     width: 100%;
 `
@@ -25,19 +24,13 @@ const Title = styled.div`
 const DegreeOfCompletion = styled.div`
     height: .5rem;
     margin-top: .36rem;
+    padding: 0 .75rem;
     display: flex;
+    justify-content: space-between;
 `
 const Done = styled.div`
     height: .5rem;
-    width: .36rem;
-    margin-left: .75rem;
-    display: flex;
-    flex-direction: column;
-`
-const Doing = styled.div`
-    height: .5rem;
-    width: .72rem;
-    margin-left: 1.34rem;
+    width: max-content;
     display: flex;
     flex-direction: column;
 `
@@ -48,12 +41,27 @@ const Word = styled.div`
     color: white;
     text-align: center;
 `
-// const TaskList = styled.div``
-const Task = styled.span`
-display: inline-block;
+const TaskList = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    padding: .2rem 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #3174CB;
 `
-
-
-
-
-export { Body , Bg , Title , DegreeOfCompletion , Done , Doing , Word , Task }
+const Task = styled.div`
+    height: .87rem;
+    width: .87rem;
+    margin: .15rem 0;
+    background: #5A8FD5;
+    border-radius: 50%;
+`
+const Point = styled.div`
+    height: .05rem;
+    width: .05rem;
+    margin: .05rem 0;
+    background: white;
+    border-radius: 50%; 
+`
+export { Body , Bg , Title , DegreeOfCompletion , Done , Word , TaskList , Task , Point }
