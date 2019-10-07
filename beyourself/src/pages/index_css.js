@@ -14,8 +14,8 @@ const Main = styled.div`
     color: black;
     overflow: scroll;
     flex : 1;
+    overflow:hidden;
 `
-
 const Footer = styled.div`  
     font-size : .12rem;
     color: black;

@@ -5,6 +5,7 @@ import { Route , Switch , Redirect  } from 'react-router-dom'
 import Index from './Index'
 import Details from './Details'
 import Page404 from './Page404'
+<<<<<<< HEAD
 
 import Morning from './home/habits/Morning'
 import Noon from './home/habits/Noon'
@@ -12,11 +13,15 @@ import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
 import ReEditTask from './home/task/ReEditTask'
 
+=======
+import Timeline from './growing/views/TimelineContainer';
+>>>>>>> qiumingzhu
 export default class MyRouter extends Component {
     render() {
         return (
             <>
                 <Switch>
+<<<<<<< HEAD
                     {/* <Route path='/details' component={Details} ></Route> */}
                     <Route path='/detials' component={Details} ></Route>
                     <Route path='/morning' component={Morning} ></Route>
@@ -25,6 +30,10 @@ export default class MyRouter extends Component {
                     <Route path='/AddTask' component={AddTask} ></Route>
                     <Route path='/ReEditTask' component={ReEditTask} ></Route>
 
+=======
+                    <Route path="/timeline" component={Timeline}></Route>
+                    <Route path='/detials' component={Details}></Route>
+>>>>>>> qiumingzhu
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
