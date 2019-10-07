@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 import { Container , Main , Footer } from './index_css'
 
-import { Route , NavLink , Redirect } from 'react-router-dom'
+import { Route , NavLink } from 'react-router-dom'
 
 import './index.css'
 

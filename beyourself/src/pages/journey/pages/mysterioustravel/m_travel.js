@@ -56,4 +56,4 @@ display: inline-block;
 
 
 
-export { Body , Bg , Title , DegreeOfCompletion , Done , Doing , Word}
+export { Body , Bg , Title , DegreeOfCompletion , Done , Doing , Word , Task }
