@@ -5,13 +5,14 @@ import { Route , Switch , Redirect } from 'react-router-dom'
 import Index from './Index'
 import Details from './Details'
 import Page404 from './Page404'
-
+import Timeline from './growing/views/TimelineContainer';
 export default class MyRouter extends Component {
     render() {
         return (
             <>
                 <Switch>
-                    <Route path='/detials' component={Details} ></Route>
+                    <Route path="/timeline" component={Timeline}></Route>
+                    <Route path='/detials' component={Details}></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
