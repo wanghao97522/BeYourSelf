@@ -17,7 +17,6 @@ export default class MysteriousTravel extends Component {
                             <Word>成就实现</Word>
                         </Doing>
                     </DegreeOfCompletion>
-                    
                 </Bg>
             </Body>
         )

@@ -23,7 +23,7 @@ export default class Index extends PureComponent {
                     <Route path={`${match.path}/growing`} component={Growing} ></Route>
                     <Route path={`${match.path}/journey`} component={Journey} ></Route>
                     <Route path={`${match.path}/profile`} component={Profile} ></Route>
-                    <Redirect to={`${match.path}/home`} ></Redirect>    
+                    {/* <Redirect to={`${match.path}/home`} ></Redirect>     */}
                 </Main>
                 <Footer>
                     <NavLink className='normal' to={`${match.path}/home`}>
