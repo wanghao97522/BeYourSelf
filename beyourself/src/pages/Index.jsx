@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 import { Container , Main , Footer } from './index_css'
 
-import { Route , NavLink , Redirect } from 'react-router-dom'
+import { Route , NavLink } from 'react-router-dom'
 
 import './index.css'
 
@@ -15,7 +15,6 @@ import Profile from './profile/Profile'
 export default class Index extends PureComponent {
     render() {
         let { match } = this.props
-        console.log(this.props.location)
         return (
             <Container>
                 <Main>
@@ -23,7 +22,7 @@ export default class Index extends PureComponent {
                     <Route path={`${match.path}/growing`} component={Growing} ></Route>
                     <Route path={`${match.path}/journey`} component={Journey} ></Route>
                     <Route path={`${match.path}/profile`} component={Profile} ></Route>
-                    <Redirect to={`${match.path}/home`} ></Redirect>    
+                    {/* <Redirect to={`${match.path}/home`} ></Redirect>     */}
                 </Main>
                 <Footer>
                     <NavLink className='normal' to={`${match.path}/home`}>

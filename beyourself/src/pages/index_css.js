@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const Container = styled.div`
     font-size : 14px;
     display : flex;
-    text-align : center;
     flex-direction : column;
     height : 100%;
     width: 100%;
