@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import quxiao from '../../../../assets/images/grow/quxiao.png';
+import guanbi from '../../../../assets/images/grow/icon-guanbi.png';
 const TimestyContainer =styled.div`
     width:100%;
     height:100%;
@@ -7,7 +9,7 @@ const TimestyContainer =styled.div`
         width:100%;
         height:100%;
         overflow:scroll;
-        background:url(${props=>props.quxiao}) no-repeat;
+        background:url(${quxiao}) no-repeat;
         .top{
             margin-top:0.22rem;
             padding-left:0.37rem;
@@ -21,7 +23,7 @@ const TimestyContainer =styled.div`
                 width:0.16rem;
                 height:0.25rem;
                 line-height:0.25rem;
-                background:url(${props=>props.guanbi}) no-repeat;
+                background:url(${guanbi}) no-repeat;
                 background-size:100%;
                 background-position:center;
             }

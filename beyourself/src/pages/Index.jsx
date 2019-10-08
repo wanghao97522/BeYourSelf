@@ -7,8 +7,7 @@ import { Route , NavLink } from 'react-router-dom'
 import './index.css'
 
 import Home from './home/Home'
-// import Growing from './growing/Growing'
-import Growing from "./growing/views/ProfileContainer";
+import Growing from "./growing/views/profile/ProfileContainer";
 import Journey from './journey/Journey'
 import Profile from './profile/Profile'
 
