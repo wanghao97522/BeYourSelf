@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Route , Switch , Redirect  } from 'react-router-dom'
 
 import Index from './Index'
-import Details from './Details'
+// import Details from './Details'
 import Page404 from './Page404'
 
 import Morning from './home/habits/Morning'
