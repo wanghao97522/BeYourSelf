@@ -12,6 +12,12 @@ import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
 import ReEditTask from './home/task/ReEditTask'
 
+
+import Drink from 'journey/habits/Drink'
+import Challenge from 'journey/habits/task/Challenge'
+import Action from 'journey/habits/task/Action'
+
+
 export default class MyRouter extends Component {
     render() {
         return (
@@ -24,6 +30,11 @@ export default class MyRouter extends Component {
                     <Route path='/afternoon' component={Afternoon} ></Route>
                     <Route path='/AddTask' component={AddTask} ></Route>
                     <Route path='/ReEditTask' component={ReEditTask} ></Route>
+
+                    <Route path='/drink' component={Drink} ></Route>
+                    <Route path='/challenge' component={Challenge} ></Route>
+                    <Route path='/action' component={Action} ></Route>
+
 
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
