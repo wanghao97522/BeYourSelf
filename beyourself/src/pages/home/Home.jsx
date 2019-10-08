@@ -8,18 +8,19 @@ import Habit from './components/Habit'
 
 export default class Home extends Component {
     render() {
-        let { match } = this.props
         return (
             <BodyContainer>
                 <HeadContainer>
                     <div className="head-index">主页</div>
-                    <NavLink to={`${match.path}/newHabit`}>
+                    {/* 跳转到添加新的习惯 */}
+                    <NavLink to="/newHabit">
                         <Add></Add>
                     </NavLink>
                 </HeadContainer>
                 <MainContainer>
                     <CubeOneContainer>
-                        <NavLink to='/drink'>
+                        {/* 跳转到旅程中的喝水 */}
+                        <NavLink to={'/index/journey/drinkWater'}>
                             <h1>您的旅途标签</h1>
                             <p>在一个星期内进行此项任务3次，迈向成功。</p>
                             <div className="cube-page">
@@ -36,14 +37,15 @@ export default class Home extends Component {
                         </NavLink>
                     </CubeOneContainer>
                     <CubeTwoContainer>
-                        <NavLink to={`${match.path}/letter`}>
+                        {/* 一封信跳转 */}
+                        <NavLink to="/letter">
                             <h1>开启您的一天</h1>
                             <p>要如何弃旧迎新培养好习惯，并锻炼出坚韧的意志？</p>
                             <div>戳我查看</div>
                         </NavLink>
                     </CubeTwoContainer>
                     <TodayContainer>
-                        <h1>今天</h1>
+                        <h1 className="today">今天</h1>
                         <span></span>
                     </TodayContainer>
                     <Habit className="morning"></Habit>

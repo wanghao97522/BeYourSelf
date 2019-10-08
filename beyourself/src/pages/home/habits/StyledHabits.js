@@ -1,5 +1,15 @@
 import styled from 'styled-components'
 
+import bgMorningHabit from 'assets/images/home/bg-zaochenxiguan@3x.png'
+import bgNoonHabit from 'assets/images/home/bg-xiawuxiguan@3x.png'
+import bgAfternonnHabit from 'assets/images/home/bg-huanghunxiguan@3x.png'
+import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
+import iconBack from 'assets/images/home/icon-fanhui@3x.png'
+import iconTime from 'assets/images/home/icon-naozhong@3x.png'
+import iconMore from 'assets/images/home/icon-bianjilan@3x.png'
+import bgEmpty from 'assets/images/home/bg-hanakongxingye@3x.png'
+
+
 const BodyContainer = styled.div`
   height: 100%;
   background: #fff;
@@ -8,18 +18,18 @@ const BodyContainer = styled.div`
 const HeadContainer = styled.div` 
   .morning{
   height: 100%;
-  background-image: url(http://a2.qpic.cn/psb?/V14bP3rD4bc7Q4/YbImYi*eIMmEoVx2N5U2w1fq4khH1A3aaM4Bk9*s*RA!/m/dEkBAAAAAAAAnull&bo=ZQRtAgAAAAADByw!&rf=photolist&t=5);
+  background-image: url(${bgMorningHabit});
   background-size: cover;
 
   }
   .noon{
     height: 100%;
-    background-image: url(http://a1.qpic.cn/psb?/V14bP3rD4bc7Q4/LEqdw7cl0xKsgvdbOlWsmUsKKXCqafv3KV1qxAvbjhA!/m/dLgAAAAAAAAAnull&bo=ZQRqAgAAAAADBys!&rf=photolist&t=5);
+    background-image: url(${bgNoonHabit});
     background-size: cover;
   }
   .afternoon{
     height: 100%;
-    background-image: url(http://a1.qpic.cn/psb?/V14bP3rD4bc7Q4/R1AxeLjieJ0FZSsY1XlmzcewSRE5bK7ibAelYBDEgM0!/m/dFABAAAAAAAAnull&bo=ZQRqAgAAAAADBys!&rf=photolist&t=5);
+    background-image: url(${bgAfternonnHabit});
     background-size: cover;
   }
   height:2.00rem;
@@ -31,13 +41,13 @@ const HeadContainer = styled.div`
     .back{
       width:.13rem;
       height:.22rem;
-      background-image: url(http://a1.qpic.cn/psb?/V14bP3rD4bc7Q4/tkAgyYnyNb3H8bY3iO6qLZuimJIPq5Gwn7oPk61dy4k!/m/dMQAAAAAAAAAnull&bo=JwBCAAAAAAADB0c!&rf=photolist&t=5);
+      background-image: url(${iconBack});
       background-size: cover;
       margin-top: .16rem;
       margin-left: .15rem;
     }
     .title{
-      width:.73rem;
+      width:max-content;
       height:.25rem;
       font-size:.18rem;
       font-family:PingFangSC-Semibold,PingFangSC;
@@ -55,7 +65,7 @@ const HeadContainer = styled.div`
     bottom: .16rem;
     .notice{
       margin-left: .15rem;
-      background-image: url(http://a2.qpic.cn/psb?/V14bP3rD4bc7Q4/CB9PsSoE.Aw.hBfI67d1a0P0EWWzV0nNZlaQNISaksI!/m/dFEBAAAAAAAAnull&bo=QgBCAAAAAAADByI!&rf=photolist&t=5);
+      background-image: url(${iconTime});
       background-size: .22rem .22rem;
       background-repeat: no-repeat;
       span{
@@ -70,7 +80,7 @@ const HeadContainer = styled.div`
       }
     }
     .time{
-      width:.61rem;
+      width:max-content;
       height:.20rem;
       font-size:.14rem;
       font-family:PingFangSC-Regular,PingFangSC;
@@ -101,7 +111,7 @@ const TaskNumContainer = styled.div`
       display: inline-block;
       height: .22rem;
       width: .22rem;
-      background-image: url(http://a4.qpic.cn/psb?/V14bP3rD4bc7Q4/IJdnBMNwwskgVXJjS2iVxVE9u4QK1hE687qVpHaVmiM!/m/dL8AAAAAAAAAnull&bo=QgBCAAAAAAADByI!&rf=photolist&t=5);
+      background-image: url(${iconAdd});
       background-size: cover;
     }
     .more{
@@ -109,19 +119,27 @@ const TaskNumContainer = styled.div`
       margin-left: .16rem;
       height: .22rem;
       width: .21rem;
-      background-image: url(http://a1.qpic.cn/psb?/V14bP3rD4bc7Q4/Wgbr7pYHJudP1MPCYzwhsx5djCDypjV0vfLHHo4Pjsk!/m/dLgAAAAAAAAAnull&bo=QgAMAAAAAAADB2w!&rf=photolist&t=5);
+      background-image: url(${iconMore});
       background-size: .22rem;
       background-repeat: no-repeat;
       background-position: center;
     }
     &.time{
       width:max-content;
+<<<<<<< HEAD
       height:.2rem;
+=======
+      height:.20rem;
+>>>>>>> pu
       font-size:.14rem;
       font-family:PingFangSC-Regular,PingFangSC;
       font-weight:400;
       color:rgba(0,0,0,1);
+<<<<<<< HEAD
       line-height:.2rem;
+=======
+      line-height:.20rem;
+>>>>>>> pu
     }
   }
 `
@@ -146,14 +164,69 @@ const OpenBTContainer = styled.div`
       background:linear-gradient(180deg,rgba(54,112,219,1) 0%,rgba(141,89,182,1) 100%);
     }
     span{
+<<<<<<< HEAD
       width:1.28rem;
+=======
+      width:max-content;
+>>>>>>> pu
       height:.22rem;
       font-size:.16rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(255,255,255,1);
       line-height:.22rem;
+<<<<<<< HEAD
+=======
     }
+  }
+`
+
+const TaskContainer = styled.div`
+  padding: .32rem .15rem 0 .15rem;
+  div{
+    margin-bottom: .17rem;
+    display: flex;
+    .icon-task{
+      display: inline-block;
+      width:.14rem;
+      height:.20rem;
+>>>>>>> pu
+    }
+    .icon-status{
+      display: inline-block;
+      width:.22rem;
+      height:.22rem;
+    }
+    span{
+      flex: 1;
+      padding-left: .2rem;
+      height:.20rem;
+      font-size:.14rem;
+      font-family:PingFangSC-Regular,PingFangSC;
+      font-weight:400;
+      color:rgba(73,73,73,1);
+      line-height:.20rem;
+    }
+  }
+`
+
+const EmptyTaskContainer = styled.div`
+  width:2.49rem;
+  height:2.10rem;
+  background-image: url(${bgEmpty});
+  background-size: cover;
+  margin: .52rem .63rem 0 .63rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    width:max-content;
+    height:.22rem;
+    font-size:.16rem;
+    font-family:PingFangSC-Semibold,PingFangSC;
+    font-weight:600;
+    color:rgba(119,119,119,1);
+    line-height:.22rem;
   }
 `
 
@@ -161,5 +234,7 @@ export {
   BodyContainer,
   HeadContainer,
   TaskNumContainer,
-  OpenBTContainer
+  OpenBTContainer,
+  TaskContainer,
+  EmptyTaskContainer
 }

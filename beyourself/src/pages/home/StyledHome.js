@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+import bgTrip from '../../assets/images/home/bg-trip@3x.png'
+import bgEveryday from '../../assets/images/home/bg-everyday@3x.png'
+import bgMorning from '../../assets/images/home/bg-morning@3x.png'
+import bgAfternoon from '../../assets/images/home/bg-afternoon@3x.png'
+import bgNight from '../../assets/images/home/bg-night@3x.png'
+
 const BodyContainer = styled.div`
   height: 100%;
   overflow-y: scroll;
@@ -40,7 +46,7 @@ const HeadContainer = styled.div`
   padding: 0 .15rem;
   align-items: center;
   .head-index{
-    width: .40rem;
+    width: max-content;
     height: .28rem;
     font-size: .20rem;
     font-family: PingFangSC-Semibold,PingFangSC;
@@ -57,7 +63,7 @@ const MainContainer = styled.div`
 `
 
 const CubeOneContainer = styled.div`
-  background-image: url(http://a3.qpic.cn/psb?/V14bP3rD4bc7Q4/0gpDBMu3scVNmCJtgdC7t3.93YsNRqn0QvX6DqNd77M!/m/dFIBAAAAAAAAnull&bo=CwSkAQAAAAADB4g!&rf=photolist&t=5);
+  background-image: url(${bgTrip});
   margin-top: .2rem;
   width:3.45rem;
   height:1.40rem;
@@ -70,7 +76,7 @@ const CubeOneContainer = styled.div`
     width: 100%;
   }
   h1{
-    width:1.09rem;
+    width:max-content;
     height:.25rem;
     font-size:.18rem;
     font-family:PingFangSC-Semibold,PingFangSC;
@@ -121,7 +127,7 @@ const CubeTwoContainer = styled.div`
   width:3.45rem;
   height:2.40rem;
   border-radius:.14rem;
-  background-image: url(http://a3.qpic.cn/psb?/V14bP3rD4bc7Q4/6xsjxijWvldykhb8wHAiNEjGUwBqthgue7h5*ApKlUs!/m/dLYAAAAAAAAAnull&bo=CwTQAgAAAAADB*8!&rf=photolist&t=5);
+  background-image: url(${bgEveryday});
   background-size: contain;
   position: relative;
   a{
@@ -130,7 +136,7 @@ const CubeTwoContainer = styled.div`
     width: 100%;
   }
   h1{
-    width:1.09rem;
+    width:max-content;
     height:.25rem;
     font-size:.18rem;
     font-family:PingFangSC-Semibold,PingFangSC;
@@ -155,7 +161,7 @@ const CubeTwoContainer = styled.div`
     bottom: .16rem;
     left: 50%;
     margin-left: -.24rem;
-    width:.48rem;
+    width:max-content;
     height:.17rem;
     font-size:.12rem;
     font-family:PingFangSC-Medium,PingFangSC;
@@ -170,8 +176,9 @@ const TodayContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1{
-      width:.37rem;
+    h1.today{
+      margin:0;
+      width:max-content;
       height:.25rem;
       font-size:.18rem;
       font-family:PingFangSC-Semibold,PingFangSC;
@@ -210,7 +217,7 @@ const HabitContainer = styled.div`
     align-items: center;
     margin:.16rem 0 .16rem .4rem;
     h1{
-      width:.73rem;
+      width:max-content;
       height:.25rem;
       font-size:.18rem;
       font-family:PingFangSC-Semibold,PingFangSC;
@@ -223,7 +230,7 @@ const HabitContainer = styled.div`
   .morning{
     margin-top: .12rem;
     .habits{
-      background-image: url(http://a3.qpic.cn/psb?/V14bP3rD4bc7Q4/7gbSOFb7l9Lk*ANc*YxUNWXMGmgz7jLORN5tu9gzxes!/m/dL4AAAAAAAAAnull&bo=kAOEAAAAAAADBzU!&rf=photolist&t=5);
+      background-image: url(${bgMorning});
       background-size: contain;
     }
     span{
@@ -232,7 +239,7 @@ const HabitContainer = styled.div`
   }
   .noon{
     .habits{
-      background-image: url(http://a4.qpic.cn/psb?/V14bP3rD4bc7Q4/l2TAeigQ5knLo1Xa3QwdhJEms5nCOnHd8fmqIlMg0Lw!/m/dMMAAAAAAAAAnull&bo=kAOEAAAAAAADBzU!&rf=photolist&t=5);
+      background-image: url(${bgAfternoon});
       background-size: contain;
     }
     span{
@@ -241,7 +248,7 @@ const HabitContainer = styled.div`
   }
   .afternoon{
     .habits{
-      background-image: url(http://a3.qpic.cn/psb?/V14bP3rD4bc7Q4/8e7MeyMjqEkTgy.vk1oVqJ6.3b0X6aCVRFFJxxjc91Q!/m/dLYAAAAAAAAAnull&bo=kAOEAAAAAAADBzU!&rf=photolist&t=5);
+      background-image: url(${bgNight});
       background-size: contain;
     }
     span{
