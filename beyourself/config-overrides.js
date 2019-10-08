@@ -12,7 +12,7 @@ module.exports = override(
     ['journey']: path.resolve(__dirname, 'src/pages/journey'),
     // ['styles']: path.resolve(__dirname, 'src/assets/styles'),
     // ['images']: path.resolve(__dirname, 'src/assets/images'),
-    // ['components']: path.resolve(__dirname, 'src/components'),
+    ['components']: path.resolve(__dirname, 'src/components'),
     // ['utils']: path.resolve(__dirname, 'src/utils'),
   })
 )
