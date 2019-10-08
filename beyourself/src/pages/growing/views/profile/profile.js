@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import buqian from '../../../../assets/images/grow/icon-buqian.png';
 const ProstyContainer=styled.div`
     width:100%;
     /* height:100%; */
@@ -183,7 +184,7 @@ const ProstyContainer=styled.div`
                     width:0.16rem;
                     height:0.16rem;
                     margin-left:0.03rem;
-                    background:url(${props=>props.buqian}) no-repeat;
+                    background:url(${buqian}) no-repeat;
                     background-size:100%;
                 }
             }

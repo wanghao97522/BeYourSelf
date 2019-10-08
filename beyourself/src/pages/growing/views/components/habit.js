@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import zxcg from '../../../../assets/images/grow/icon-zxcg.png';
+import yuja from '../../../../assets/images/grow/icon-yuja.png';
 const HabitContainer =styled.div`
     .title{
         padding-left:0.34rem;
@@ -27,7 +29,7 @@ const HabitContainer =styled.div`
         border-radius:50%;
         background:rgba(80,73,168,1);
         margin-left:0.30rem;
-        background:url(${props=>props.zxcg}) no-repeat;
+        background:url(${zxcg}) no-repeat;
         background-size:100%;
         }
         .graycircle{
@@ -36,7 +38,7 @@ const HabitContainer =styled.div`
             border-radius:50%;
             background:rgba(80,73,168,1);
             margin-left:0.30rem;
-            background:url(${props=>props.yujia}) no-repeat;
+            background:url(${yuja}) no-repeat;
             background-size:100%;
         }
         .text{
