@@ -11,19 +11,20 @@ import Noon from './home/habits/Noon'
 import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
 import ReEditTask from './home/task/ReEditTask'
+import OpenMyBT from './home/habits/OpenMyBT'
 
 export default class MyRouter extends Component {
     render() {
         return (
             <>
                 <Switch>
-                    {/* <Route path='/details' component={Details} ></Route> */}
                     <Route path='/detials' component={Details} ></Route>
                     <Route path='/morning' component={Morning} ></Route>
                     <Route path='/noon' component={Noon} ></Route>
                     <Route path='/afternoon' component={Afternoon} ></Route>
-                    <Route path='/AddTask' component={AddTask} ></Route>
-                    <Route path='/ReEditTask' component={ReEditTask} ></Route>
+                    <Route path='/addTask' component={AddTask} ></Route>
+                    <Route path='/reEditTask' component={ReEditTask} ></Route>
+                    <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 

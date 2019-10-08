@@ -52,7 +52,7 @@ class Head extends Component {
       case 'afternoon':
         this.setState({
           title: '黄昏习惯',
-          time: '6:00 黄昏'
+          time: '6:00 下午'
         })
       break
       default:
