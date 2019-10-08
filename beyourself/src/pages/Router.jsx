@@ -40,7 +40,6 @@ export default class MyRouter extends Component {
 
                     <Route path="/timeline" component={Timeline}></Route>
                     <Route path="/letter" component={Letter}></Route>
-                    <Route path='/detials' component={Details}></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
