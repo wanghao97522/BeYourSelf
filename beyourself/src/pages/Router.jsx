@@ -19,7 +19,6 @@ export default class MyRouter extends Component {
         return (
             <>
                 <Switch>
-                    <Route path='/detials' component={Details} ></Route>
                     <Route path='/morning' component={Morning} ></Route>
                     <Route path='/noon' component={Noon} ></Route>
                     <Route path='/afternoon' component={Afternoon} ></Route>

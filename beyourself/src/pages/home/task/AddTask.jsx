@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { BodyContainer, MainContainer, BorderSearchContainer } from './StyledTask'
+import { BodyContainer, MainContainer, BorderSearchContainer, SearchContainer } from './StyledTask'
 
 export default class AddTask extends Component {
   render() {
@@ -12,7 +12,9 @@ export default class AddTask extends Component {
             <span className="done" onClick={()=>this.clickDone()}>完成</span>
           </div>
           <BorderSearchContainer>
-            
+            <SearchContainer>
+              
+            </SearchContainer>
           </BorderSearchContainer>
         </MainContainer>
       </BodyContainer>

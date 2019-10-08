@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
-import bgMorningHabit from '../../../assets/images/home/bg-zaochenxiguan@3x.png'
-import bgNoonHabit from '../../../assets/images/home/bg-xiawuxiguan@3x.png'
-import bgAfternonnHabit from '../../../assets/images/home/bg-huanghunxiguan@3x.png'
-import iconAdd from '../../../assets/images/home/icon-tianjia@3x.png'
-import iconBack from '../../../assets/images/home/icon-fanhui@3x.png'
-import iconTime from '../../../assets/images/home/icon-naozhong@3x.png'
-import iconMore from '../../../assets/images/home/icon-bianjilan@3x.png'
+import bgMorningHabit from 'assets/images/home/bg-zaochenxiguan@3x.png'
+import bgNoonHabit from 'assets/images/home/bg-xiawuxiguan@3x.png'
+import bgAfternonnHabit from 'assets/images/home/bg-huanghunxiguan@3x.png'
+import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
+import iconBack from 'assets/images/home/icon-fanhui@3x.png'
+import iconTime from 'assets/images/home/icon-naozhong@3x.png'
+import iconMore from 'assets/images/home/icon-bianjilan@3x.png'
+import bgEmpty from 'assets/images/home/bg-hanakongxingye@3x.png'
+
 
 const BodyContainer = styled.div`
   height: 100%;
@@ -172,24 +174,44 @@ const TaskContainer = styled.div`
     display: flex;
     .icon-task{
       display: inline-block;
-      width:14px;
-      height:20px;
+      width:.14rem;
+      height:.20rem;
     }
     .icon-status{
       display: inline-block;
-      width:22px;
-      height:22px;
+      width:.22rem;
+      height:.22rem;
     }
     span{
       flex: 1;
       padding-left: .2rem;
-      height:20px;
-      font-size:14px;
+      height:.20rem;
+      font-size:.14rem;
       font-family:PingFangSC-Regular,PingFangSC;
       font-weight:400;
       color:rgba(73,73,73,1);
-      line-height:20px;
+      line-height:.20rem;
     }
+  }
+`
+
+const EmptyTaskContainer = styled.div`
+  width:2.49rem;
+  height:2.10rem;
+  background-image: url(${bgEmpty});
+  background-size: cover;
+  margin: .52rem .63rem 0 .63rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    width:max-content;
+    height:.22rem;
+    font-size:.16rem;
+    font-family:PingFangSC-Semibold,PingFangSC;
+    font-weight:600;
+    color:rgba(119,119,119,1);
+    line-height:.22rem;
   }
 `
 
@@ -198,5 +220,6 @@ export {
   HeadContainer,
   TaskNumContainer,
   OpenBTContainer,
-  TaskContainer
+  TaskContainer,
+  EmptyTaskContainer
 }

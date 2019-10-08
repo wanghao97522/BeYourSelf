@@ -51,5 +51,6 @@ const BorderSearchContainer = border({
 export{
   BodyContainer,
   MainContainer,
+  SearchContainer,
   BorderSearchContainer
 }
