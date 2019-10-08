@@ -26,7 +26,9 @@ body {
   margin: 0;
   font-size: 0.14em;
   line-height: 1.5;
-  font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif }
+  /* font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif  */
+  font-family:PingFangSC-Regular,PingFangSC;
+}
 
 ul,
 ol,
@@ -215,3 +217,11 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: middle; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-weight:normal;
+}

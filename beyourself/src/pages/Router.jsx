@@ -13,6 +13,7 @@ import AddTask from './home/task/AddTask'
 import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
 
+import Timeline from './growing/views/TimelineContainer';
 export default class MyRouter extends Component {
     render() {
         return (
@@ -26,6 +27,8 @@ export default class MyRouter extends Component {
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
+                    <Route path="/timeline" component={Timeline}></Route>
+                    <Route path='/detials' component={Details}></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
