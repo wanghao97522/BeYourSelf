@@ -126,12 +126,20 @@ const TaskNumContainer = styled.div`
     }
     &.time{
       width:max-content;
+<<<<<<< HEAD
+      height:.2rem;
+=======
       height:.20rem;
+>>>>>>> pu
       font-size:.14rem;
       font-family:PingFangSC-Regular,PingFangSC;
       font-weight:400;
       color:rgba(0,0,0,1);
+<<<<<<< HEAD
+      line-height:.2rem;
+=======
       line-height:.20rem;
+>>>>>>> pu
     }
   }
 `
@@ -156,13 +164,19 @@ const OpenBTContainer = styled.div`
       background:linear-gradient(180deg,rgba(54,112,219,1) 0%,rgba(141,89,182,1) 100%);
     }
     span{
+<<<<<<< HEAD
+      width:1.28rem;
+=======
       width:max-content;
+>>>>>>> pu
       height:.22rem;
       font-size:.16rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(255,255,255,1);
       line-height:.22rem;
+<<<<<<< HEAD
+=======
     }
   }
 `
@@ -176,6 +190,7 @@ const TaskContainer = styled.div`
       display: inline-block;
       width:.14rem;
       height:.20rem;
+>>>>>>> pu
     }
     .icon-status{
       display: inline-block;

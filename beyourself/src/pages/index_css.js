@@ -12,9 +12,7 @@ const Main = styled.div`
     font-size : .14rem;
     overflow: scroll;
     color: black;
-    overflow: scroll;
     flex : 1;
-    overflow:hidden;
 `
 const Footer = styled.div`  
     font-size : .12rem;
