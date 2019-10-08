@@ -9,6 +9,7 @@ module.exports = override(
 
   addWebpackAlias({
     ['assets']: path.resolve(__dirname, 'src/assets'),
+    ['journey']: path.resolve(__dirname, 'src/pages/journey'),
     // ['styles']: path.resolve(__dirname, 'src/assets/styles'),
     // ['images']: path.resolve(__dirname, 'src/assets/images'),
     // ['components']: path.resolve(__dirname, 'src/components'),

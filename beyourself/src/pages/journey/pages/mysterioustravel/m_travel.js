@@ -56,6 +56,15 @@ const Task = styled.div`
     margin: .15rem 0;
     background: #5A8FD5;
     border-radius: 50%;
+    .enter_de{
+        height: .18rem;
+        width: .1rem;
+        margin: -.38rem 0 0 1.9rem;
+        >img{
+            height: 100%;
+            width: 100%;
+        }
+    }
 `
 const Point = styled.div`
     height: .05rem;

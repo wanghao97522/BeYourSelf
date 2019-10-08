@@ -3,8 +3,6 @@ import styled from 'styled-components'
 const BodyContainer = styled.div`
   height: 100%;
   background: #fff;
-  
-  }
 `
 
 const HeadContainer = styled.div` 
@@ -92,12 +90,12 @@ const TaskNumContainer = styled.div`
     justify-content: space-between;
     span{
       flex: 1;
-      height:25px;
-      font-size:18px;
+      height:.25rem;
+      font-size:.18rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(0,0,0,1);
-      line-height:25px;
+      line-height:.25rem;
     }
     .add{
       display: inline-block;
@@ -117,13 +115,13 @@ const TaskNumContainer = styled.div`
       background-position: center;
     }
     &.time{
-      width:100px;
-      height:20px;
-      font-size:14px;
+      width:max-content;
+      height:.2rem;
+      font-size:.14rem;
       font-family:PingFangSC-Regular,PingFangSC;
       font-weight:400;
       color:rgba(0,0,0,1);
-      line-height:20px;
+      line-height:.2rem;
     }
   }
 `
@@ -132,9 +130,9 @@ const OpenBTContainer = styled.div`
   display: flex;
   justify-content: center;
   div{
-    width:345px;
-    height:44px;
-    border-radius:14px;
+    width:3.45rem;
+    height:.44rem;
+    border-radius:.14rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,13 +146,13 @@ const OpenBTContainer = styled.div`
       background:linear-gradient(180deg,rgba(54,112,219,1) 0%,rgba(141,89,182,1) 100%);
     }
     span{
-      width:128px;
-      height:22px;
-      font-size:16px;
+      width:1.28rem;
+      height:.22rem;
+      font-size:.16rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(255,255,255,1);
-      line-height:22px;
+      line-height:.22rem;
     }
   }
 `
