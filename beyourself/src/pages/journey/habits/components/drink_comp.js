@@ -172,9 +172,29 @@ const BtmDiv = styled.div`
         width: .64rem;
         height: .22rem;
         font-size: .16rem;
-        font-family:PingFangSC-Regular,PingFangSC;
-        font-weight:400;
-        color:rgba(32,123,176,1);
+        font-family: PingFangSC-Regular,PingFangSC;
+        font-weight: 400;
+        color: rgba(32,123,176,1);
+        line-height: .22rem;
+        margin: .41rem 0 .58rem 0;
+    }
+    .cus{
+        width: 3.20rem;
+        height: .66rem;
+        font-size: .16rem;
+        font-family: PingFangSC-Regular,PingFangSC;
+        font-weight: 400;
+        color: rgba(36,36,36,1);
+        line-height: .22rem;
+        margin: 0 .28rem;
+    }
+    .set{
+        width: 3.16rem;
+        height: .44rem;
+        font-size: .16rem;
+        font-family: PingFangSC-Regular,PingFangSC;
+        font-weight: 400;
+        color: rgba(36,36,36,1);
         line-height: .22rem;
     }
 `

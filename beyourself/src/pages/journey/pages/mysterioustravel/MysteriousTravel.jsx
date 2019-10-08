@@ -6,6 +6,7 @@ import zaocan from 'assets/images/journey/zaocan-weijiesuo@2x.png'
 import yundong from 'assets/images/journey/yundong-weijiesuo@2x.png'
 import tiaozhan from 'assets/images/journey/tiaozhan-weijiesuo@2x.png'
 import mixing from 'assets/images/journey/mixing-weijiesuo@2x.png'
+import pressToEnter from 'assets/images/presstoenter.png'
 
 export default class MysteriousTravel extends Component {
     render() {
@@ -27,8 +28,14 @@ export default class MysteriousTravel extends Component {
 
                     <TaskList>
                         <NavLink to='/drink'>
-                            <Task><img src={heshui} alt="" style={{height:'100%',width: '100%'}}/></Task> 
+                            <Task>
+                                <img src={heshui} alt="" style={{height:'100%',width: '100%'}}/>
+                                <div className='enter_de'>
+                                    <img src={pressToEnter} alt=""/>
+                                </div>    
+                            </Task> 
                         </NavLink>
+                        
                         <Done>
                             <Word>喝水</Word>
                             <Word>1/5成功</Word>
