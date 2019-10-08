@@ -9,7 +9,7 @@ const BodyContainer = styled.div`
 
 const MainContainer = styled.div`
   .head{
-    height:44px;
+    height:.44rem;
     background:rgba(255,255,255,1);
     display: flex;
     justify-content: center;
@@ -17,30 +17,48 @@ const MainContainer = styled.div`
     position: relative;
     .title{
       width:max-content;
-      height:25px;
-      font-size:18px;
+      height:.25rem;
+      font-size:.18rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(38,38,38,1);
-      line-height:25px;
+      line-height:.25rem;
     }
     .done{
       position: absolute;
       right: .15rem;
       width:max-content;
-      height:22px;
-      font-size:16px;
+      height:.22rem;
+      font-size:.16rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
       color:rgba(252,180,8,1);
-      line-height:22px;
+      line-height:.22rem;
     }
   }
 `
 
 const SearchContainer = styled.div`
-  height:44px;
+  height:.44rem;
   background:rgba(255,255,255,1);
+  padding: .11rem 0 .11rem .15rem;
+  img{
+    display: inline-block;
+    width:.22rem;
+    height:.22rem;
+  }
+  input{
+    margin-left: .16rem;
+    height:.20rem;
+    line-height:.20rem;
+    border: none;
+  }
+  input::placeholder{
+    font-size:.14rem;
+    font-family:PingFangSC-Regular,PingFangSC;
+    font-weight:400;
+    color:rgba(174,174,174,1);
+  }
 `
 
 const BorderSearchContainer = border({
@@ -48,9 +66,13 @@ const BorderSearchContainer = border({
   color: '#ECECEC'
 })
 
+const TaskListContainer = styled.div`
+  
+`
+
 export{
   BodyContainer,
   MainContainer,
-  SearchContainer,
-  BorderSearchContainer
+  BorderSearchContainer,
+  TaskListContainer
 }
