@@ -67,7 +67,53 @@ const BorderSearchContainer = border({
 })
 
 const TaskListContainer = styled.div`
-  
+  div.container{
+    padding: .16rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img{
+      display: inline-block;
+      width: .14rem;
+      height: .2rem;
+    }
+    .text{
+      flex: 1;
+      margin-left: .2rem;
+      .title{
+        width:max-content;
+        height:.20rem;
+        font-size:.14rem;
+        font-family:PingFangSC-Regular,PingFangSC;
+        font-weight:400;
+        color:rgba(73,73,73,1);
+        line-height:.20rem;
+      }
+      .detail{
+        width:max-content;
+        height:.17rem;
+        font-size:.12rem;
+        font-family:PingFangSC-Regular,PingFangSC;
+        font-weight:400;
+        color:rgba(174,174,174,1);
+        line-height:.17rem;
+      }
+    }
+    span{
+      width:max-content;
+      height:.20rem;
+      font-size:.14rem;
+      font-family:PingFangSC-Regular,PingFangSC;
+      font-weight:400;
+      line-height:.20rem;
+      &.remove{
+        color:rgba(252,180,8,1);
+      }
+      &.add{
+        color:rgba(119,119,119,1);
+      }
+    }
+  }
 `
 
 export{
