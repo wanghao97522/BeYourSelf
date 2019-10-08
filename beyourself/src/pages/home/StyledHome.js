@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import bgTrip from '../../assets/images/home/bg-trip@3x.png'
-import bgEveryday from '../../assets/images/home/bg-everyday@3x.png'
-import bgMorning from '../../assets/images/home/bg-morning@3x.png'
-import bgAfternoon from '../../assets/images/home/bg-afternoon@3x.png'
-import bgNight from '../../assets/images/home/bg-night@3x.png'
+import bgTrip from 'assets/images/home/bg-trip@3x.png'
+import bgEveryday from 'assets/images/home/bg-everyday@3x.png'
+import bgMorning from 'assets/images/home/bg-morning@3x.png'
+import bgAfternoon from 'assets/images/home/bg-afternoon@3x.png'
+import bgNight from 'assets/images/home/bg-night@3x.png'
 
 const BodyContainer = styled.div`
   height: 100%;

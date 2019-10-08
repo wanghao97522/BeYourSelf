@@ -20,12 +20,16 @@ class TaskNum extends Component {
     clicked: 'none',
   }
   render() {
-    let { num } = this.props
+    let { num, taskList } = this.props
+    let path = {
+      pathname: "/addTask",
+      state: taskList
+    }
     return (
       <TaskNumContainer>
         <p>
           <span>{num} 个任务</span>
-          <NavLink to="/addTask">
+          <NavLink to={path}>
             <i className="add"></i>
           </NavLink>
             <i className="more" onClick={this.showActionSheet}></i>

@@ -9,15 +9,23 @@ import Task from './components/Task'
 import { BodyContainer } from './StyledHabits'
 
 export default class Morning extends Component {
+  state = {
+    taskList: []
+  }
   render() {
     return (
       <BodyContainer>
         <Head className="afternoon"></Head>
         {/* 根据任务组件传回来的任务数量来确定num值 */}
-        <TaskNum num="1"></TaskNum>
+        <TaskNum num={this.state.taskList.length} taskList={this.state.taskList}></TaskNum>
         <OpenBT className="afternoon"></OpenBT>
-        <Task className="afternoon"></Task>
+        <Task 
+          className="afternoon"
+          taskList={this.state.taskList}
+        ></Task>
       </BodyContainer>
     )
   }
+
+  
 }

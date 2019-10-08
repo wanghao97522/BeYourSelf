@@ -3,6 +3,10 @@ import { NavLink, withRouter } from 'react-router-dom'
 
 import {HabitContainer} from '../StyledHome'
 
+import iconMorning from 'assets/images/home/icon-zaoshang@3x.png'
+import iconNoon from 'assets/images/home/icon-shandian@3x.png'
+import iconAfernoon from 'assets/images/home/icon-huanghun@3x.png'
+
 class Habit extends Component {
   state = {
     time: '',
@@ -35,7 +39,7 @@ class Habit extends Component {
       case 'morning': 
         this.setState({
           time: '7:00 上午',
-          img: 'http://a4.qpic.cn/psb?/V14bP3rD4bc7Q4/I3*JlbYprXnqZ5t6L0SQ8sATmHjag4w964Sy1JwJAU0!/m/dL8AAAAAAAAAnull&bo=QgBCAAAAAAADByI!&rf=photolist&t=5',
+          img: `${iconMorning}`,
           habits: '早晨习惯',
           path: '/morning'
         })
@@ -44,7 +48,7 @@ class Habit extends Component {
         this.setState({
           time: '14:00 下午',
           habits: '下午习惯',
-          img: 'http://a3.qpic.cn/psb?/V14bP3rD4bc7Q4/*eptFW3*6R30hTqSHTA.J6dK97jMZhiHHyPPtAE6eEg!/m/dLYAAAAAAAAAnull&bo=OQA*AAAAAAADByQ!&rf=photolist&t=5',
+          img: `${iconNoon}`,
           path: '/noon'
         })
       break
@@ -52,7 +56,7 @@ class Habit extends Component {
         this.setState({
           time: '18:00 黄昏',
           habits: '黄昏习惯',
-          img: 'http://a2.qpic.cn/psb?/V14bP3rD4bc7Q4/5Mdu.BweaXhryzsWLOf*YojPEyvuWIRill5A3Wju4tY!/m/dDUBAAAAAAAAnull&bo=SwBCAAAAAAADBys!&rf=photolist&t=5',
+          img: `${iconAfernoon}`,
           path: '/afternoon'
         })
       break
