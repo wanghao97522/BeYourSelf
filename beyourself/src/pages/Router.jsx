@@ -11,6 +11,8 @@ import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
 
 import AllTravel from 'journey/pages/alltravel/AllTravel'
+import SecretTravel from 'journey/pages/asecrettravel/SecretTravel'
+
 import Drink from 'journey/habits/Drink'
 import Challenge from 'journey/habits/task/Challenge'
 import Action from 'journey/habits/task/Action'
@@ -41,6 +43,7 @@ export default class MyRouter extends Component {
                     <Route path='/challenge' component={Challenge} ></Route>
                     <Route path='/action' component={Action} ></Route>
                     <Route path='/alltravel' component={AllTravel} ></Route>
+                    <Route path='/asecrettravel' component={SecretTravel} ></Route>
 
 
                     <Route path="/timeline" component={Timeline}></Route>

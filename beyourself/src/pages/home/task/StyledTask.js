@@ -67,9 +67,6 @@ const BorderSearchContainer = border({
 })
 
 const TaskListContainer = styled.div`
-<<<<<<< HEAD
-  
-=======
   div.container{
     padding: .16rem;
     display: flex;
@@ -117,7 +114,6 @@ const TaskListContainer = styled.div`
       }
     }
   }
->>>>>>> pu
 `
 
 export{
