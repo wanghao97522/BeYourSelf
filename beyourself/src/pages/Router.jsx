@@ -21,6 +21,7 @@ import Action from 'journey/habits/task/Action'
 
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
+import NewHabit from './growing/views/newhabit/NewSoundContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'

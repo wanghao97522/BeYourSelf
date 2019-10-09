@@ -4,7 +4,7 @@ import {TimestyContainer} from './timeline';
 import HabitContainer from '../components/Habit.jsx';
 export default withRouter((props)=>{
     function handelClick(){
-        props.history.push('/index/home');
+        props.history.goBack();
     }
     return (
         <TimestyContainer quxiao={props.quxiao}  guanbi={props.guanbi}>
