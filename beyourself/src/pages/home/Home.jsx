@@ -20,7 +20,7 @@ export default class Home extends Component {
                 <MainContainer>
                     <CubeOneContainer>
                         {/* 跳转到旅程中的喝水 */}
-                        <NavLink to={'/index/journey/drinkWater'}>
+                        <NavLink to="/drink">
                             <h1>您的旅途标签</h1>
                             <p>在一个星期内进行此项任务3次，迈向成功。</p>
                             <div className="cube-page">
