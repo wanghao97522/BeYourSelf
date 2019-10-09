@@ -19,14 +19,15 @@ import Action from 'journey/habits/task/Action'
 
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
+
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
 import Vip from './profile/vip/Vip'
+import MyAward from './profile/myaward/MyAward'
 
 export default class MyRouter extends Component {
     render() {
-        console.log(Letter)
         return (
             <>
                 <Switch>
@@ -51,7 +52,7 @@ export default class MyRouter extends Component {
                     <Route path='/setting' component={Setting} ></Route>
                     <Route path='/aboutus' component={AboutUs}></Route>
                     <Route path='/vip' component={Vip}></Route>
-
+                    <Route path='/myaward' component={MyAward}></Route>
 
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
