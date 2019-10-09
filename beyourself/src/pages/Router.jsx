@@ -19,9 +19,9 @@ import Action from 'journey/habits/task/Action'
 
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
+import NewHabit from './growing/views/newhabit/NewSoundContainer';
 export default class MyRouter extends Component {
     render() {
-        console.log(Letter)
         return (
             <>
                 <Switch>
@@ -40,6 +40,7 @@ export default class MyRouter extends Component {
 
                     <Route path="/timeline" component={Timeline}></Route>
                     <Route path="/letter" component={Letter}></Route>
+                    <Route path="/newhabit" component={NewHabit}></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
