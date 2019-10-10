@@ -85,7 +85,7 @@ const SearchContainer = styled.div`
 const BorderSearchContainer = border({
   comp: SearchContainer,
   color: '#ECECEC',
-  width: '1px 0px 1px 0px'
+  width: .'1rem. 0rem. 1rem. 0rem'
 })
 
 const TaskListContainer = styled.div`
@@ -191,19 +191,19 @@ const TaskItemContainer = styled.div`
   strong{
     margin-left: .2rem;
     width:max-content;
-    height:20px;
-    font-size:14px;
+    height:.20rem;
+    font-size:.14rem;
     font-family:PingFangSC-Regular,PingFangSC;
     font-weight:400;
     color:rgba(73,73,73,1);
-    line-height:20px;
+    line-height:.20rem;
   }
 `
 
 const BorderTaskItemContainer = border({
   comp: TaskItemContainer,
   color: '#ECECEC',
-  width: '1px 0px 1px 0px'
+  width: .'1rem. 0rem. 1rem. 0rem'
 })
 
 export{
