@@ -9,6 +9,7 @@ import iconTime from 'assets/images/home/icon-naozhong@3x.png'
 import iconMore from 'assets/images/home/icon-bianjilan@3x.png'
 import bgEmpty from 'assets/images/home/bg-hanakongxingye@3x.png'
 import bgOpenMyBT from 'assets/images/home/bg-bang@3x.png'
+import bgSuccess from 'assets/images/home/Group@3x.png'
 
 
 const BodyContainer = styled.div`
@@ -252,13 +253,135 @@ const OpenMyTBContainer = styled.div`
     text-align: center;
     margin-top: 1.73rem;
   }
-  .up{
-    img{
-      display: inline-block;
+  .bottom{
+    margin-top: .7rem;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
 
+    .up{
+      text-align: center;
+      img{
+        display: inline-block;
+        width:.22rem;
+        height:.13rem;
+      }
+    }
+    .text{
+      width:3.45rem;
+      height:.49rem;
+      background:rgba(80,161,206,0.1);
+      border-radius:.14rem;
+      text-align: center;
+      line-height: .49rem;
+      font-size:.16rem;
+      font-family:PingFangSC-Regular,PingFangSC;
+      font-weight:400;
+      color:rgba(201,201,201,1);
+      margin-top: .16rem;
+    }
+    .date{
+      width:3.45rem;
+      height:.79rem;
+      background:rgba(80,161,206,0.1);
+      border-radius:.14rem .14rem 0rem 0rem;
+      text-align: center;
+      line-height: .79rem;
+      margin-top: .16rem;
+      span{
+        display: inline-block;
+        width:.60rem;
+        height:.30rem;
+        background:rgba(216,216,216,0.15);
+        border-radius:.14rem;
+        text-align: center;
+        line-height: .3rem;
+        font-size:.14rem;
+        font-family:PingFangSC-Semibold,PingFangSC;
+        font-weight:600;
+        color:rgba(201,201,201,1);
+      }
+    }
+    .countdown{
+      width:3.45rem;
+      height:.49rem;
+      background:rgba(80,161,206,0.1);
+      margin-top: .05rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        audio{
+          position: absolute;
+          z-index: 99;
+          right: -1.42rem;
+        }
+        span{
+          width:max-content;
+          height:.25rem;
+          font-size:.18rem;
+          font-family:PingFangSC-Semibold,PingFangSC;
+          font-weight:600;
+          color:rgba(201,201,201,1);
+          line-height:.25rem;
+        }
+        img{
+          display: inline-block;
+          width:.14rem;
+          height:.16rem;
+          margin-left: .12rem;
+        }
+      }
+    }
+    .success-container{
+      width:3.45rem;
+      height:.79rem;
+      margin-top: .05rem;
+      background:rgba(80,161,206,0.1);
+      border-radius:0rem 0rem .14rem .14rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .14rem .5rem;
+      .common{
+        height: .48rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        img{
+          display: inline-block;
+          width:.19rem;
+          height:.18rem;
+        }
+        span{
+          width:max-content;
+          height:.22rem;
+          font-size:.16rem;
+          font-family:PingFangSC-Semibold,PingFangSC;
+          font-weight:600;
+          color:rgba(201,201,201,1);
+          line-height:.22rem;
+        }
+      }
+      .success{
+        width:1.17rem;
+        height:.52rem;
+        border-radius:.28rem;
+        margin: 0 .33rem;
+        background-image: url(${bgSuccess});
+        background-size: cover;
+      }
     }
   }
 `
+
+
 
 export {
   BodyContainer,
@@ -267,5 +390,5 @@ export {
   OpenBTContainer,
   TaskContainer,
   EmptyTaskContainer,
-  OpenMyTBContainer
+  OpenMyTBContainer,
 }

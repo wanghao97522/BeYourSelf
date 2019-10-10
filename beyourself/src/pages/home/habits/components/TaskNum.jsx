@@ -7,14 +7,6 @@ import { ActionSheet } from 'antd-mobile';
 
 import {TaskNumContainer} from '../StyledHabits'
 
-// const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-// let wrapProps;
-// if (isIPhone) {
-//   wrapProps = {
-//     onTouchStart: e => e.preventDefault(),
-//   };
-// }
-
 class TaskNum extends Component {
   state = {
     clicked: 'none',
@@ -60,8 +52,12 @@ class TaskNum extends Component {
           break
           default:
         }
-      });
-    });
+      })
+    })
+  }
+  
+  componentWillUnmount(){
+    ActionSheet.close()
   }
 }
 export default withRouter(TaskNum)

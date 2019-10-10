@@ -4,8 +4,8 @@
 .am-action-sheet{
   margin: 0 .15rem .15rem .16rem !important;
   width:3.45rem;
-  background:rgba(255,255,255,1);
-  border-radius:.14rem .14rem .14rem .14rem;
+  background-color:rgba(31,31,31,0) !important;
+  border-radius:.14rem ;
 }
 .am-action-sheet-button-list{
   font-weight:400;
@@ -18,6 +18,17 @@
 }
 .am-action-sheet-button-list-item{
   height:.44rem;
+  background:rgba(255,255,255,1);
+}
+.am-action-sheet-button-list-item:nth-child(1){
+  border-radius:.14rem .14rem 0 0;
+}
+.am-action-sheet-button-list-item:nth-child(2){
+  border-radius: 0 0 .14rem .14rem;
+}
+.am-action-sheet-button-list-item:nth-child(3){
+  border-radius: .14rem;
+  margin-top: .16rem;
 }
 .am-action-sheet-button-list-item::before{
   content: '';
@@ -28,6 +39,12 @@
   font-weight:600;
 }
 .am-action-sheet-cancel-button-mask{
+  height: 0 !important;
+}
+.am-action-sheet-cancel-button-mask::before{
+  height: 0 !important;
+}
+.am-action-sheet-cancel-button-mask::after{
   height: 0 !important;
 }
 
