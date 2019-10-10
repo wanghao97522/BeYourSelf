@@ -85,7 +85,7 @@ const SearchContainer = styled.div`
 const BorderSearchContainer = border({
   comp: SearchContainer,
   color: '#ECECEC',
-  width: .'1rem. 0rem. 1rem. 0rem'
+  width: '1px. 0px. 1px. 0px'
 })
 
 const TaskListContainer = styled.div`
@@ -203,7 +203,7 @@ const TaskItemContainer = styled.div`
 const BorderTaskItemContainer = border({
   comp: TaskItemContainer,
   color: '#ECECEC',
-  width: .'1rem. 0rem. 1rem. 0rem'
+  width: '1px 0px 1px 0px'
 })
 
 export{
