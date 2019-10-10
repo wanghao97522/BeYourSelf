@@ -8,7 +8,7 @@ import bgNight from 'assets/images/home/bg-night@3x.png'
 
 const BodyContainer = styled.div`
   height: 100%;
-  overflow-y: scroll;
+  overflow: scroll;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -54,11 +54,16 @@ const HeadContainer = styled.div`
     color: rgba(0,0,0,1);
     line-height: .28rem;
   }
+    img{
+      display: inline-block;
+      width: .22rem;
+      height: .22rem;
+    }
 `
 
 const MainContainer = styled.div`
   margin: 0 .15rem;
-  overflow-y: auto;
+  /* overflow: scroll; */
   position: relative;
 `
 

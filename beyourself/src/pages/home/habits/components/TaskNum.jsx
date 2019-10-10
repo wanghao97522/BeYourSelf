@@ -20,9 +20,9 @@ class TaskNum extends Component {
     clicked: 'none',
   }
   render() {
-    let { num, taskList } = this.props
+    let { num, taskList, match } = this.props
     let path = {
-      pathname: "/addTask",
+      pathname: `${match.path}/addTask`,
       state: taskList
     }
     return (
@@ -34,7 +34,7 @@ class TaskNum extends Component {
           </NavLink>
             <i className="more" onClick={this.showActionSheet}></i>
         </p>
-        <p className="time">今天 · {new Date().getMonth()} 月 {new Date().getDate()} 日</p>
+        <p className="time">今天 · {new Date().getMonth()+1} 月 {new Date().getDate()} 日</p>
       </TaskNumContainer>
     )
   }

@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom'
 
 import { BodyContainer, HeadContainer, CubeOneContainer, MainContainer, CubeTwoContainer, TodayContainer, EmptyContainer } from './StyledHome'
 
-import Add from './components/Add'
 import Habit from './components/Habit'
+
+import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
 
 export default class Home extends Component {
     render() {
@@ -13,14 +14,14 @@ export default class Home extends Component {
                 <HeadContainer>
                     <div className="head-index">主页</div>
                     {/* 跳转到添加新的习惯 */}
-                    <NavLink to="/newHabit">
-                        <Add></Add>
+                    <NavLink to="/newhabit">
+                        <img src={iconAdd} alt=""/>
                     </NavLink>
                 </HeadContainer>
                 <MainContainer>
                     <CubeOneContainer>
                         {/* 跳转到旅程中的喝水 */}
-                        <NavLink to="/drink">
+                        <NavLink to="/challenge">
                             <h1>您的旅途标签</h1>
                             <p>在一个星期内进行此项任务3次，迈向成功。</p>
                             <div className="cube-page">

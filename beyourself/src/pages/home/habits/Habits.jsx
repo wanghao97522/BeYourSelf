@@ -13,27 +13,39 @@ export default class Morning extends Component {
   // 后端传入数据之后可能不是在state里的taskList，渲染要改
 
   state = {
-    taskList: [
-      {
-        img: iconWater,
-        title: '喝水',
-        status: false
-      }
-    ]
+    taskList: []
   }
   render() {
+    let { location } = this.props
+    let className = location.pathname.split('/')[1]
     return (
       <BodyContainer>
-        <Head className="morning"></Head>
+        <Head className={className}></Head>
         {/* 根据任务组件传回来的任务数量来确定num值 */}
         <TaskNum num={this.state.taskList.length} taskList={this.state.taskList}></TaskNum>
-        <OpenBT className="morning"></OpenBT>
+        <OpenBT className={className}></OpenBT>
         <Task 
-          className="morning"
+          className={className}
           taskList={this.state.taskList}
         ></Task>
       </BodyContainer>
     )
+  }
+
+  componentDidMount(){
+    let { location } = this.props
+    let className = location.pathname.split('/')[1]
+    if(className === 'morning'){
+      this.setState({
+        taskList: [
+          {
+            img: iconWater,
+            title: '喝水',
+            status: false
+          }
+        ]
+      })
+    }
   }
 
   

@@ -8,11 +8,13 @@ import iconBack from 'assets/images/home/icon-fanhui@3x.png'
 import iconTime from 'assets/images/home/icon-naozhong@3x.png'
 import iconMore from 'assets/images/home/icon-bianjilan@3x.png'
 import bgEmpty from 'assets/images/home/bg-hanakongxingye@3x.png'
+import bgOpenMyBT from 'assets/images/home/bg-bang@3x.png'
 
 
 const BodyContainer = styled.div`
   height: 100%;
   background: #fff;
+  overflow: scroll;
 `
 
 const HeadContainer = styled.div` 
@@ -215,11 +217,55 @@ const EmptyTaskContainer = styled.div`
   }
 `
 
+const OpenMyTBContainer = styled.div`
+  height: 100%;
+  overflow: scroll;
+  background-image: url(${bgOpenMyBT});
+  background-size: cover;
+  padding: .16rem .15rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .head{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img{
+      display: inline-block;
+      width:.13rem;
+      height:.22rem;
+      &.horn{
+        width: .2rem;
+        height: .18rem;
+      }
+    }
+  }
+  .title{
+    width:100%;
+    height:.25rem;
+    font-size:.18rem;
+    font-family:PingFangSC-Semibold,PingFangSC;
+    font-weight:600;
+    color:rgba(201,201,201,1);
+    line-height:.25rem;
+    text-align: center;
+    margin-top: 1.73rem;
+  }
+  .up{
+    img{
+      display: inline-block;
+
+    }
+  }
+`
+
 export {
   BodyContainer,
   HeadContainer,
   TaskNumContainer,
   OpenBTContainer,
   TaskContainer,
-  EmptyTaskContainer
+  EmptyTaskContainer,
+  OpenMyTBContainer
 }

@@ -1,42 +1,60 @@
 import React, { Component } from 'react'
-
 import { Route , Switch , Redirect  } from 'react-router-dom'
-
 import Index from './Index'
 // import Details from './Details'
 import Page404 from './Page404'
 
-import Morning from './home/habits/Morning'
-import Noon from './home/habits/Noon'
-import Afternoon from './home/habits/Afternoon'
+import Habits from './home/habits/Habits'
+// import Noon from './home/habits/Noon'
+// import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
+import AddTaskItem from './home/task/AddTaskItem'
 import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
 
-
+import AllTravel from 'journey/pages/alltravel/AllTravel'
 import Drink from 'journey/habits/Drink'
 import Challenge from 'journey/habits/task/Challenge'
 import Action from 'journey/habits/task/Action'
 
+
+
+import Timeline from './growing/views/timeline/TimelineContainer';
+import Letter from './growing/views/letter/LetterContainer';
+//profile的组件
+import Setting from './profile/setting/Setting'
+import AboutUs from './profile/aboutUs/AboutUs'
+import Vip from './profile/vip/Vip'
 
 export default class MyRouter extends Component {
     render() {
         return (
             <>
                 <Switch>
-                    <Route path='/morning' component={Morning} ></Route>
-                    <Route path='/noon' component={Noon} ></Route>
-                    <Route path='/afternoon' component={Afternoon} ></Route>
-                    <Route path='/addTask' component={AddTask} ></Route>
+                    <Route path='/morning' exact component={Habits} ></Route>
+                    <Route path='/noon' exact component={Habits} ></Route>
+                    <Route path='/afternoon' exact component={Habits} ></Route>
+                    <Route path='/:time/addTask' exact component={AddTask} ></Route>
+                    <Route path='/:time/addTask/addTaskItem' exact component={AddTaskItem} ></Route>
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
                     <Route path='/drink' component={Drink} ></Route>
                     <Route path='/challenge' component={Challenge} ></Route>
                     <Route path='/action' component={Action} ></Route>
+                    <Route path='/alltravel' component={AllTravel} ></Route>
 
 
+                    <Route path="/timeline" component={Timeline}></Route>
+                    <Route path="/letter" component={Letter}></Route>
                     <Route path='/index' component={Index} ></Route>
+
+                    {/* profile的路由 */}
+                    <Route path='/setting' component={Setting} ></Route>
+                    <Route path='/aboutus' component={AboutUs}></Route>
+                    <Route path='/vip' component={Vip}></Route>
+
+
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>

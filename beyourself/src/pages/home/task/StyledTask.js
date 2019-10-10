@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
-import border from '../../../components/border'
+import border from 'components/border'
+
+import iconClose from '../../../assets/images/home/icon-quxiao@3x.png'
 
 const BodyContainer = styled.div`
   height: 100%;
   background: #fff;
+  overflow: scroll;
 `
 
 const MainContainer = styled.div`
@@ -29,6 +32,8 @@ const MainContainer = styled.div`
       right: .15rem;
       width:max-content;
       height:.22rem;
+      top: 50%;
+      margin-top: -.11rem;
       font-size:.16rem;
       font-family:PingFangSC-Semibold,PingFangSC;
       font-weight:600;
@@ -41,17 +46,24 @@ const MainContainer = styled.div`
 const SearchContainer = styled.div`
   height:.44rem;
   background:rgba(255,255,255,1);
-  padding: .11rem 0 .11rem .15rem;
+  padding: .11rem .15rem .11rem .15rem;
+  display: flex;
+  align-items: center;
   img{
     display: inline-block;
     width:.22rem;
     height:.22rem;
   }
   input{
+    flex: 1;
     margin-left: .16rem;
     height:.20rem;
     line-height:.20rem;
     border: none;
+    font-size:.14rem;
+    font-family:PingFangSC-Regular,PingFangSC;
+    font-weight:400;
+    color:rgba(0,0,0,1);
   }
   input::placeholder{
     font-size:.14rem;
@@ -59,11 +71,19 @@ const SearchContainer = styled.div`
     font-weight:400;
     color:rgba(174,174,174,1);
   }
+  i{
+    display: inline-block;
+    width: .13rem;
+    height: .13rem;
+    background-image: url(${iconClose});
+    background-size: cover;
+  }
 `
 
 const BorderSearchContainer = border({
   comp: SearchContainer,
-  color: '#ECECEC'
+  color: '#ECECEC',
+  width: '1px 0px 1px 0px'
 })
 
 const TaskListContainer = styled.div`
@@ -116,9 +136,52 @@ const TaskListContainer = styled.div`
   }
 `
 
+const TaskItemContainer = styled.div`
+  height:.44rem;
+  background:rgba(255,255,255,1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .15rem;
+  img{
+    display: inline-block;
+    width: .22rem;
+    height: .22rem;
+  }
+  p{
+    flex: 1;
+    height:.20rem;
+    font-size:.14rem;
+    font-family:PingFangSC-Regular,PingFangSC;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:.20rem;
+    margin-left: .16rem;
+  }
+  span{
+    width:.61rem;
+    height:.34rem;
+    background:rgba(252,180,8,1);
+    border-radius:.14rem;
+    text-align: center;
+    line-height: .34rem;
+    font-size:.14rem;
+    font-family:PingFangSC-Regular,PingFangSC;
+    font-weight:400;
+    color:rgba(128,81,18,1);
+  }
+`
+
+const BorderTaskItemContainer = border({
+  comp: TaskItemContainer,
+  color: '#ECECEC',
+  width: '0px 0px 1px 0px'
+})
+
 export{
   BodyContainer,
   MainContainer,
   BorderSearchContainer,
-  TaskListContainer
+  TaskListContainer,
+  BorderTaskItemContainer
 }

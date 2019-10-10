@@ -14,7 +14,8 @@ export default class AddTask extends Component {
         title: '喝水',
         detail: '如果渴了，说明你已脱水'
       }
-    ]
+    ],
+    iptValue: ''
   }
   render() {
     return (
@@ -25,10 +26,14 @@ export default class AddTask extends Component {
             <span className="done" onClick={()=>this.clickDone()}>完成</span>
           </div>
           <BorderSearchContainer>
-            <div>
-              <img src={iconSearch} alt=""/>
-              <input type="text" placeholder="我想要……"/>
-            </div>
+            <img src={iconSearch} alt=""/>
+            <input 
+              value={this.state.iptValue}  
+              onChange={(e)=>this.changeValue(e)}
+              onKeyDown={(e)=>this.handleInput(e)}
+              type="text" 
+              placeholder="我想要……"
+            />
           </BorderSearchContainer>
           <TaskListContainer>
             {
@@ -56,8 +61,24 @@ export default class AddTask extends Component {
   clickDone(){
     this.props.history.goBack()
   }
-  
+
+  changeValue(e){
+    this.setState({
+      iptValue: e.target.value
+    })
+  }
+
+  handleInput(e){
+    let iptValue = this.state.iptValue
+    if(iptValue && e.keyCode === 13){
+      this.props.history.push(`${this.props.match.url}/addTaskItem`,{
+        iptValue
+      })
+    }
+
+  }
+  // 有用
   componentDidMount(){
-    console.log(this.props.location.state)
+    // console.log(this.props.location.state)
   }
 }
