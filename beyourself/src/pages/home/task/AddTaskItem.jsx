@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {BodyContainer, BorderSearchContainer, BorderTaskItemContainer} from './StyledTask'
+import {BodyContainer, SearchContainer, BorderTaskItemContainer} from './StyledTask'
 
 import iconSearch from 'assets/images/home/icon-sousuo1@3x.png'
 import iconFourCircle from 'assets/images/home/icon-four@3x.png'
@@ -17,7 +17,7 @@ export default class AddTaskItem extends Component {
     return (
       <BodyContainer>
         <Head className={className}></Head>
-        <BorderSearchContainer>
+        <SearchContainer>
           <img src={iconSearch} alt=""/>
           <input 
             value={this.state.iptValue}
@@ -25,7 +25,7 @@ export default class AddTaskItem extends Component {
             type="text"
           />
           <i onClick={()=>this.handleClick()}></i>
-        </BorderSearchContainer>
+        </SearchContainer>
         <BorderTaskItemContainer>
           <img src={iconFourCircle} alt=""/>
           <p>{this.state.iptValue}</p>

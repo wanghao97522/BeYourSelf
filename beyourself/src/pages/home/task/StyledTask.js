@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import border from 'components/border'
 
-import iconClose from '../../../assets/images/home/icon-quxiao@3x.png'
+import iconClose from 'assets/images/home/icon-quxiao@3x.png'
+import iconMore from 'assets/images/home/icon-bianjilan@3x.png'
+
 
 const BodyContainer = styled.div`
   height: 100%;
@@ -147,6 +149,13 @@ const TaskItemContainer = styled.div`
     display: inline-block;
     width: .22rem;
     height: .22rem;
+    &.icon{
+      width: .14rem;
+    }
+    &.icon-move{
+      height: .14rem;
+      width: .22rem;
+    }
   }
   p{
     flex: 1;
@@ -170,17 +179,37 @@ const TaskItemContainer = styled.div`
     font-weight:400;
     color:rgba(128,81,18,1);
   }
+  i{
+    display: inline-block;
+    width: .21rem;
+    height: .04rem;
+    background-image:url(${iconMore});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  strong{
+    margin-left: .2rem;
+    width:max-content;
+    height:20px;
+    font-size:14px;
+    font-family:PingFangSC-Regular,PingFangSC;
+    font-weight:400;
+    color:rgba(73,73,73,1);
+    line-height:20px;
+  }
 `
 
 const BorderTaskItemContainer = border({
   comp: TaskItemContainer,
   color: '#ECECEC',
-  width: '0px 0px 1px 0px'
+  width: '1px 0px 1px 0px'
 })
 
 export{
   BodyContainer,
   MainContainer,
+  SearchContainer,
   BorderSearchContainer,
   TaskListContainer,
   BorderTaskItemContainer

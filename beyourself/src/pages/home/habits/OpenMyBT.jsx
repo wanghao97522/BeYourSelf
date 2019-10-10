@@ -6,14 +6,18 @@ import iconHorn from 'assets/images/home/icon-laba@3x.png'
 import iconBack from 'assets/images/home/icon-fanhui@3x.png'
 import iconUp from 'assets/images/home/icon-shanghua@3x.png'
 import iconPlay from 'assets/images/home/icon-start@3x.png'
+import iconStop from 'assets/images/home/stop.png'
 import iconPass from 'assets/images/home/icon-tiaoguo@3x.png'
 import iconSleep from 'assets/images/home/icon-dadun@3x.png'
 
 import Music from 'assets/music/aaa.mp3'
 
+let timer = null
 export default class OpenMyBT extends Component {
   state = {
-    opacity: 1
+    opacity: 1,
+    paused: true,
+    time: 57,
   }
   render() {
     return (
@@ -48,9 +52,27 @@ export default class OpenMyBT extends Component {
           </div>
           <div className="countdown">
             <p>
-              <span>0m 57s</span>
-              <img src={iconPlay} alt=""/>
-              <audio src={Music} autoPlay="autoplay"></audio>
+              <span>0m {this.state.time}s</span>
+              {
+                this.state.paused ? (
+                  <img
+                    src={iconStop}
+                    onClick={()=>this.handleAudioStop()}
+                    alt=""
+                  />
+                ):(
+                  <img
+                    src={iconPlay}
+                    onClick={()=>this.handleAudioStop()}
+                    alt=""
+                  />
+                )
+              }
+              <audio
+                src={Music}
+                ref="audio"
+                autoPlay="autoplay"
+              ></audio>
             </p>
           </div>
           <div className="success-container">
@@ -83,5 +105,47 @@ export default class OpenMyBT extends Component {
         opacity: 1
       })
     }
+
+    if(this.refs.audio.muted){
+      this.refs.audio.muted = false
+    }else{
+      this.refs.audio.muted = true
+    }
+  }
+
+  handleAudioStop(){
+    if(this.refs.audio.paused){
+      this.refs.audio.play()
+      this.setState({
+        paused: true
+      })
+    }else{
+      this.refs.audio.pause()
+      this.setState({
+        paused: false
+      })
+    }
+
+    if(!this.state.paused){
+      timer = setInterval(()=>{
+        this.setState({
+          time: this.state.time - 1
+        })
+      },1000)
+    }else{
+      clearInterval(timer)
+    }
+  }
+
+  componentDidMount(){
+    timer = setInterval(()=>{
+      this.setState({
+        time: this.state.time - 1
+      },()=>{
+        if(this.state.time === 0){
+          clearInterval(timer)
+        }
+      })
+    },1000)
   }
 }

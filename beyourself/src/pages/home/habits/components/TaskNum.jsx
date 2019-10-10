@@ -47,8 +47,7 @@ class TaskNum extends Component {
             history.push('/reEditTask')
           break
           case 1:
-            // 跳到编辑提示音和习惯页面，同桌写的
-            history.push()
+            history.push('/selecttime')
           break
           default:
         }
