@@ -5,6 +5,7 @@ import Index from './Index'
 import Page404 from './Page404'
 
 import Habits from './home/habits/Habits'
+// import Morning from './home/habits/Morning'
 // import Noon from './home/habits/Noon'
 // import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
@@ -18,6 +19,7 @@ import SecretTravel from 'journey/pages/asecrettravel/SecretTravel'
 import Drink from 'journey/habits/Drink'
 import Challenge from 'journey/habits/task/Challenge'
 import Action from 'journey/habits/task/Action'
+import Breakfast from 'journey/habits/task/Breakfast'
 
 
 
@@ -38,6 +40,8 @@ export default class MyRouter extends Component {
         return (
             <>
                 <Switch>
+                    {/* home的路由 */}
+                    <Route path='/addTask' component={AddTask} ></Route>
                     <Route path='/morning' exact component={Habits} ></Route>
                     <Route path='/noon' exact component={Habits} ></Route>
                     <Route path='/afternoon' exact component={Habits} ></Route>
@@ -46,13 +50,15 @@ export default class MyRouter extends Component {
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
+                    {/* journey的路由 */}
                     <Route path='/drink' component={Drink} ></Route>
                     <Route path='/challenge' component={Challenge} ></Route>
                     <Route path='/action' component={Action} ></Route>
                     <Route path='/alltravel' component={AllTravel} ></Route>
                     <Route path='/asecrettravel' component={SecretTravel} ></Route>
+                    <Route path='/breakfast' component={Breakfast} ></Route>
 
-
+                    {/* growing的路由 */}
                     <Route path="/timeline" component={Timeline}></Route>
                     <Route path="/letter" component={Letter}></Route>
                     <Route path="/newhabit" component={NewHabit}></Route>
