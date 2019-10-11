@@ -35,6 +35,7 @@ import Vip from './profile/vip/Vip'
 import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
+import Help from './profile/help/Help'
 
 export default class MyRouter extends Component {
     render() {
@@ -74,6 +75,7 @@ export default class MyRouter extends Component {
                     <Route path='/myaward' component={MyAward}></Route>
                     <Route path='/invitpage' component={InvitPage}></Route>
                     <Route path='/personaldata' component={Personal}></Route>
+                    <Route path='/help' component={Help}></Route>
 
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
