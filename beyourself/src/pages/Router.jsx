@@ -37,6 +37,12 @@ import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
 import Help from './profile/help/Help'
 
+import LoginIndex from './login/login_index'
+import Login from './login/login/Login'
+import Register from './login/register/Register'
+import Verification from './login/verification/Verification'
+import SetPwd from './login/setpwd/SetPwd'
+import RegSucc from './login/registersucc/RegisterSucc'
 export default class MyRouter extends Component {
     render() {
         return (
@@ -77,6 +83,14 @@ export default class MyRouter extends Component {
                     <Route path='/personaldata' component={Personal}></Route>
                     <Route path='/help' component={Help}></Route>
 
+                    <Route path='/loginindex' component={LoginIndex}></Route>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/register' component={Register}></Route>
+                    <Route path='/verification' component={Verification}></Route>
+                    <Route path='/setpwd' component={SetPwd}></Route>
+                    <Route path='/registersucc' component={RegSucc}></Route>
+                
+                    
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>
