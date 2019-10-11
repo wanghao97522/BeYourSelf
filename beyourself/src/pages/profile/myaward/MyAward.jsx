@@ -27,12 +27,21 @@ class MyAward extends Component {
                     <div className="give">赠送补签卡余量</div>
                     <div className="num">0张</div>
                 </div>
+                <div className="invit_button" onClick={()=>this.handleClick()}>
+                    <div>
+                        邀请更多好友
+                    </div>
+                </div>
             </MyAwardContainer>
         );
     }
 
     back(){
         this.props.history.goBack()
+    }
+
+    handleClick(){
+        this.props.history.push('/invitpage')
     }
 }
 

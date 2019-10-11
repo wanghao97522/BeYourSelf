@@ -75,6 +75,20 @@ const MyAwardContainer = styled.div`
         font-size:.16rem;
         font-weight:600;
     }
+    .invit_button{
+        padding:0 .15rem;
+        div{
+            height: .44rem;
+            width:100%;
+            background:#3881c5;
+            color:#fff;
+            font-size:.16rem;
+            border-radius:.14rem;
+            text-align:center;
+            line-height:.44rem;
+            margin-top:.45rem;
+        }
+    }
 `
 
 export {

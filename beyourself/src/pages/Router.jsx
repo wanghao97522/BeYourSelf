@@ -28,6 +28,8 @@ import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
 import Vip from './profile/vip/Vip'
 import MyAward from './profile/myaward/MyAward'
+import InvitPage from './profile/invitpage/InvitPage'
+import Personal from './profile/personalData/PersonalData'
 
 export default class MyRouter extends Component {
     render() {
@@ -58,6 +60,8 @@ export default class MyRouter extends Component {
                     <Route path='/aboutus' component={AboutUs}></Route>
                     <Route path='/vip' component={Vip}></Route>
                     <Route path='/myaward' component={MyAward}></Route>
+                    <Route path='/invitpage' component={InvitPage}></Route>
+                    <Route path='/personaldata' component={Personal}></Route>
 
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>

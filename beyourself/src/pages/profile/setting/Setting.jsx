@@ -18,12 +18,12 @@ class Setting extends Component {
                             <div className="txt">关于我们</div>
                             <div className="right_jt"></div>
                         </li>
-                        <li className="personal">
+                        <li className="personal" onClick={()=>this.handleClick('/personaldata')}>
                             <div className='bg_icon'></div>
                             <div className="txt">个人资料</div>
                             <div className="right_jt"></div>
                         </li>
-                        <li className="help">
+                        <li className="help" onClick={()=>this.handleClick('/help')}>
                             <div className='bg_icon'></div>
                             <div className="txt">帮助与反馈</div>
                             <div className="right_jt"></div>

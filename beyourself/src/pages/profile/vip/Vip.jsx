@@ -3,26 +3,18 @@ import React, { Component } from 'react';
 import {VipContainer} from './styledVip'
 import ChooseMonth from './chooseMonth/ChooseMonth'
 
+import Mask from '../mask/Mask'
 
 import vipBG from 'assets/images/profile/vip/hydb@2x.png'
 import personal from 'assets/images/profile/vip/Grxoup@2x.png'
 import wePay from 'assets/images/profile/vip/weixinzhifu-3@2x.png'
 
 class Vip extends Component {
-    // state={
-        
-    // }
-
-    constructor() {
-        super();
-        this.state = {
-            now:1,
-            money:'10',
-            clicked: 'none',
-            clicked1: 'none',
-            clicked2: 'none',
-        };
-      }
+    state={
+        now:1,
+        money:'10',
+        showMask:false
+    }
 
     render() {
         return (
@@ -52,13 +44,15 @@ class Vip extends Component {
                     </div>
                     <div className="payTxt">
                         <h3>微信支付</h3>
-                        <h4>支付方式</h4>
+                        <h4 onClick={()=>this.changePayWay()}>支付方式</h4>
                     </div>
                     <div className="right_jt"></div>
                 </div>
                 <div className="openVip">
                     <div>开通{this.state.now}个月会员·￥{this.state.money}.00</div>
                 </div>
+                <Mask  nowState={this.state.showMask} onClick={()=>this.changePayWay()}>
+                </Mask>
             </VipContainer>
         );
     }
@@ -71,6 +65,11 @@ class Vip extends Component {
             now:obj.time,
             money:obj.now
         })
+    }
+    changePayWay(){
+        this.setState((prev)=>({
+            showMask:!prev.showMask
+        }))
     }
 }
 
