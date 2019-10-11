@@ -16,13 +16,13 @@ export default class Profile extends Component {
                     </h3>
                 </header>
                 <div className="banner">
-                    <div className="secret">
+                    <div className="secret" onClick={()=>this.handleClick('/index/journey')}>
                         <img src={shenmilvxing} alt=""/>
                         <h3>一次神秘的旅行</h3>
                         <h4>感觉精力充沛</h4>
                         <span>3%</span>
                     </div>
-                    <div className="all_travel">
+                    <div className="all_travel" onClick={()=>this.handleClick('/alltravel')}>
                         <div className='bg_icon'></div>
                         <div className="txt">全部旅程</div>
                         <div className="right_jt"></div>
@@ -30,7 +30,7 @@ export default class Profile extends Component {
                 </div>
                 <nav>
                     <ul>
-                        <li className="login">
+                        <li className="login" onClick={()=>this.handleClick('/loginindex')}>
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>登录</h3>

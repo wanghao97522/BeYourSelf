@@ -3,10 +3,13 @@ import { Route , Switch , Redirect  } from 'react-router-dom'
 import Index from './Index'
 // import Details from './Details'
 import Page404 from './Page404'
-import Morning from './home/habits/Morning'
-import Noon from './home/habits/Noon'
-import Afternoon from './home/habits/Afternoon'
+
+import Habits from './home/habits/Habits'
+// import Morning from './home/habits/Morning'
+// import Noon from './home/habits/Noon'
+// import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
+import AddTaskItem from './home/task/AddTaskItem'
 import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
 
@@ -22,11 +25,15 @@ import Breakfast from 'journey/habits/task/Breakfast'
 
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
+
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
 import Vip from './profile/vip/Vip'
+import MyAward from './profile/myaward/MyAward'
+import InvitPage from './profile/invitpage/InvitPage'
+import Personal from './profile/personalData/PersonalData'
 
 export default class MyRouter extends Component {
     render() {
@@ -38,6 +45,11 @@ export default class MyRouter extends Component {
                     <Route path='/noon' component={Noon} ></Route>
                     <Route path='/afternoon' component={Afternoon} ></Route>
                     <Route path='/addTask' component={AddTask} ></Route>
+                    <Route path='/morning' exact component={Habits} ></Route>
+                    <Route path='/noon' exact component={Habits} ></Route>
+                    <Route path='/afternoon' exact component={Habits} ></Route>
+                    <Route path='/:time/addTask' exact component={AddTask} ></Route>
+                    <Route path='/:time/addTask/addTaskItem' exact component={AddTaskItem} ></Route>
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
@@ -59,7 +71,9 @@ export default class MyRouter extends Component {
                     <Route path='/setting' component={Setting} ></Route>
                     <Route path='/aboutus' component={AboutUs}></Route>
                     <Route path='/vip' component={Vip}></Route>
-
+                    <Route path='/myaward' component={MyAward}></Route>
+                    <Route path='/invitpage' component={InvitPage}></Route>
+                    <Route path='/personaldata' component={Personal}></Route>
 
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
