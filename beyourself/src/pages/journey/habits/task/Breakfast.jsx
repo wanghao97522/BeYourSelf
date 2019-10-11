@@ -93,8 +93,8 @@ export default class Breakfast extends Component {
                     onSelectHasDisableDate={this.onSelectHasDisableDate}
                     getDateExtra={this.getDateExtra}
                     defaultDate={now}
-                    minDate={new Date(+now - 5184000000)}
-                    maxDate={new Date(+now + 31536000000)}
+                    // minDate={new Date(+now - 5184000000)}
+                    // maxDate={new Date(+now + 31536000000)}
                 />
             </div>
         );

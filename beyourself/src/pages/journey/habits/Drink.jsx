@@ -23,7 +23,6 @@ export default class Drink extends Component {
                         <div className='carryout'>阅读信件</div>
                     </Task>
                 </NavLink>
-
                 <NavLink  to='/challenge'>
                     <Task>
                         <div className='percent'>1/3</div>
