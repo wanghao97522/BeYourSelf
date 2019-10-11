@@ -35,28 +35,53 @@ class Head extends Component {
   }
 
   componentDidMount(){
-    let { className } = this.props
-    switch(className){
-      case 'morning':
-        this.setState({
-          title: '早晨习惯',
-          time: '7:00 上午'
-        })
-      break
-      case 'noon':
-        this.setState({
-          title: '下午习惯',
-          time: '2:00 下午'
-        })
-      break
-      case 'afternoon':
-        this.setState({
-          title: '黄昏习惯',
-          time: '6:00 下午'
-        })
-      break
-      default:
-        this.setState({})
+    let { className, location } = this.props
+    if(location.state){
+      switch(className){
+        case 'morning':
+          this.setState({
+            title: '添加任务',
+            time: '7:00 上午'
+          })
+        break
+        case 'noon':
+          this.setState({
+            title: '添加任务',
+            time: '2:00 下午'
+          })
+        break
+        case 'afternoon':
+          this.setState({
+            title: '添加任务',
+            time: '6:00 下午'
+          })
+        break
+        default:
+          this.setState({})
+    }
+  }else{
+      switch(className){
+        case 'morning':
+          this.setState({
+            title: '早晨习惯',
+            time: '7:00 上午'
+          })
+        break
+        case 'noon':
+          this.setState({
+            title: '下午习惯',
+            time: '2:00 下午'
+          })
+        break
+        case 'afternoon':
+          this.setState({
+            title: '黄昏习惯',
+            time: '6:00 下午'
+          })
+        break
+        default:
+          this.setState({})
+      }
     }
   }
 }

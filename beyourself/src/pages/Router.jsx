@@ -3,10 +3,12 @@ import { Route , Switch , Redirect  } from 'react-router-dom'
 import Index from './Index'
 // import Details from './Details'
 import Page404 from './Page404'
-import Morning from './home/habits/Morning'
-import Noon from './home/habits/Noon'
-import Afternoon from './home/habits/Afternoon'
+
+import Habits from './home/habits/Habits'
+// import Noon from './home/habits/Noon'
+// import Afternoon from './home/habits/Afternoon'
 import AddTask from './home/task/AddTask'
+import AddTaskItem from './home/task/AddTaskItem'
 import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
 
@@ -36,10 +38,11 @@ export default class MyRouter extends Component {
         return (
             <>
                 <Switch>
-                    <Route path='/morning' component={Morning} ></Route>
-                    <Route path='/noon' component={Noon} ></Route>
-                    <Route path='/afternoon' component={Afternoon} ></Route>
-                    <Route path='/addTask' component={AddTask} ></Route>
+                    <Route path='/morning' exact component={Habits} ></Route>
+                    <Route path='/noon' exact component={Habits} ></Route>
+                    <Route path='/afternoon' exact component={Habits} ></Route>
+                    <Route path='/:time/addTask' exact component={AddTask} ></Route>
+                    <Route path='/:time/addTask/addTaskItem' exact component={AddTaskItem} ></Route>
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 

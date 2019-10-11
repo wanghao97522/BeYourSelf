@@ -7,22 +7,14 @@ import { ActionSheet } from 'antd-mobile';
 
 import {TaskNumContainer} from '../StyledHabits'
 
-// const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-// let wrapProps;
-// if (isIPhone) {
-//   wrapProps = {
-//     onTouchStart: e => e.preventDefault(),
-//   };
-// }
-
 class TaskNum extends Component {
   state = {
     clicked: 'none',
   }
   render() {
-    let { num, taskList } = this.props
+    let { num, taskList, match } = this.props
     let path = {
-      pathname: "/addTask",
+      pathname: `${match.path}/addTask`,
       state: taskList
     }
     return (
@@ -34,7 +26,7 @@ class TaskNum extends Component {
           </NavLink>
             <i className="more" onClick={this.showActionSheet}></i>
         </p>
-        <p className="time">今天 · {new Date().getMonth()} 月 {new Date().getDate()} 日</p>
+        <p className="time">今天 · {new Date().getMonth()+1} 月 {new Date().getDate()} 日</p>
       </TaskNumContainer>
     )
   }
@@ -55,13 +47,16 @@ class TaskNum extends Component {
             history.push('/reEditTask')
           break
           case 1:
-            // 跳到编辑提示音和习惯页面，同桌写的
-            history.push()
+            history.push('/selecttime')
           break
           default:
         }
-      });
-    });
+      })
+    })
+  }
+  
+  componentWillUnmount(){
+    ActionSheet.close()
   }
 }
 export default withRouter(TaskNum)
