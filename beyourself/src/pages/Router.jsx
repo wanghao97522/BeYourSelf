@@ -41,9 +41,6 @@ export default class MyRouter extends Component {
             <>
                 <Switch>
                     {/* home的路由 */}
-                    <Route path='/morning' component={Morning} ></Route>
-                    <Route path='/noon' component={Noon} ></Route>
-                    <Route path='/afternoon' component={Afternoon} ></Route>
                     <Route path='/addTask' component={AddTask} ></Route>
                     <Route path='/morning' exact component={Habits} ></Route>
                     <Route path='/noon' exact component={Habits} ></Route>
