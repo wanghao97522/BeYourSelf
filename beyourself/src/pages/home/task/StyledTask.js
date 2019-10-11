@@ -206,11 +206,70 @@ const BorderTaskItemContainer = border({
   width: '1px 0px 1px 0px'
 })
 
+const TaskTimeContainer = styled.div`
+  .header{
+    height:44px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .title{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      span:nth-child(1){
+        width:max-content;
+        height:25px;
+        font-size:18px;
+        font-family:PingFangSC-Semibold,PingFangSC;
+        font-weight:600;
+        color:rgba(38,38,38,1);
+        line-height:25px;
+      }
+      span:nth-child(2){
+        width:max-content;
+        height:17px;
+        font-size:12px;
+        font-family:PingFangSC-Regular,PingFangSC;
+        font-weight:400;
+        color:rgba(174,174,174,1);
+        line-height:17px;
+      }
+    }
+    .done{
+      position: absolute;
+      right: .15rem;
+      top: 50%;
+      margin-top: -.11rem;
+      width:max-content;
+      height:22px;
+      font-size:16px;
+      font-family:PingFangSC-Semibold,PingFangSC;
+      font-weight:600;
+      color:rgba(252,180,8,1);
+      line-height:22px;
+    }
+  }
+`
+
+const EmptyContainer = styled.div`
+  height:20px;
+  background:rgba(253,253,253,1);
+`
+
+const BoderEmptyContainer = border({
+  comp: EmptyContainer,
+  color: '#E7E7E7',
+  width: '1px 0 1px 0'
+})
+
 export{
   BodyContainer,
   MainContainer,
   SearchContainer,
   BorderSearchContainer,
   TaskListContainer,
-  BorderTaskItemContainer
+  BorderTaskItemContainer,
+  TaskTimeContainer,
+  BoderEmptyContainer
 }

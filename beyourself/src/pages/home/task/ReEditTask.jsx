@@ -47,10 +47,10 @@ export default class ReEditTask extends Component {
         switch(buttonIndex){
           case 0:
             // 同桌路由
-            history.push()
+            history.push('/taskTime')
           break
           case 1:
-            // history.push('/selecttime')
+            // 删除任务
           break
           default:
         }

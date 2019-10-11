@@ -148,4 +148,8 @@ export default class OpenMyBT extends Component {
       })
     },1000)
   }
+
+  componentWillUnmount(){
+    clearInterval(timer)
+  }
 }
