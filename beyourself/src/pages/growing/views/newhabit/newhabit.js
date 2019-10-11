@@ -22,7 +22,10 @@ const NewSoundstyContainer = styled.div`
                 }
                 .am-navbar-right{
                     font-size:0.18rem;
-                    color:#060505;
+                    a{
+                        color:#060505;
+                        opacity:0.49;
+                    }
                 }
             }
             
@@ -35,6 +38,27 @@ const NewSoundstyContainer = styled.div`
                         width:3.44rem;
                         height:1.61rem;
                     }
+                }
+            }
+            .addsound{
+               width:100%;
+               height:0.41rem;
+               color:#FCB408;
+               font-size:0.18rem;
+               text-align:center;
+               line-height:0.41rem; 
+            }
+            .textbox{
+                width:100%;
+                padding:0.09rem 0.13rem 1.39rem 0.16rem;
+                background:#F7F5F5;
+                p{
+                    width:3.46rem;
+                    height:0.36rem;
+                    font-size:0.13rem;
+                    line-height:0.18rem;
+                    color:#030303;
+                    opacity:0.49;
                 }
             }
         }
@@ -84,4 +108,29 @@ span{
     margin-left:0.17rem;
 }
 `})
-export { NewSoundstyContainer, Top,HabitTip}
+const HabitAndSound =border1px({
+    width:'1px 0 1px 0',comp:styled.div`
+        width: 100%;
+                height: 0.41rem;
+                padding: 0.08rem 0.15rem 0.08rem 0.14rem;
+                font-size: 0.18rem;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                span:first-child{
+                    color:#060505;
+                }
+                P{ 
+                    display:flex;
+                    color:#060505;
+                    opacity:0.2;
+                    align-items:space-between;
+                    span:last-child{
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                    }
+                }
+    `
+})
+export { NewSoundstyContainer, Top,HabitTip,HabitAndSound}

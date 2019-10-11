@@ -1,11 +1,13 @@
 import React from 'react';
-import {NewSoundstyContainer,Top} from './newhabit';
-import { NavBar} from 'antd-mobile';
+import {NavLink,withRouter} from 'react-router-dom'; 
+import {NewSoundstyContainer,Top,HabitAndSound} from './newhabit';
+import { NavBar,Icon} from 'antd-mobile';
 import Habittip from '../components/Habittip.jsx';
 import shedin from '../../../../assets/images/grow/icon-shedin.png';
 import naolin from '../../../../assets/images/grow/icon-naolin.png';
 import tuu from '../../../../assets/images/grow/tuu.png';
-export default (props) => {
+import lingdang from '../../../../assets/images/grow/icon-lingdang.png';
+export default withRouter((props) => {
     return (
         <NewSoundstyContainer>
             <div className="wrapper">
@@ -13,7 +15,8 @@ export default (props) => {
                     <NavBar
                         mode="light"
                         leftContent="取消"
-                        rightContent="完成"
+                        rightContent={<NavLink to="/index/home">完成</NavLink>}
+                        onLeftClick={()=>{props.history.goBack()}}
                     >新的习惯</NavBar>
                     <Habittip img={shedin} title={"习惯设定"}></Habittip>
                     <div className="habitname">
@@ -26,12 +29,30 @@ export default (props) => {
                         </div>
                     </div>
                     <Habittip img={naolin} title={"提示音"}></Habittip>
-                    <Top>
-                            <span>习惯名称</span>
-                            <p></p>
-                    </Top>
+                    <HabitAndSound>
+                        <span>周日</span>
+                        <p>
+                            <span>4:41</span>
+                            <span>下午</span>
+                            <span><Icon type="right"/></span>
+                        </p>
+                    </HabitAndSound>
+                    <div className="addsound">
+                        <span>添加提示音</span>
+                    </div>
+                    <Habittip img={lingdang} title={"提示设定"}></Habittip>
+                    <HabitAndSound>
+                        <span>提示音铃声</span>
+                        <p>
+                            <span>Fabulous Beep</span>
+                            <span><Icon type="right"/></span>
+                        </p>
+                    </HabitAndSound>
+                    <div className="textbox">
+                        <p>我们无法在静音模式启动之下，利用提示音来提醒您。如果您 要被提醒，请关闭静音模式。</p>
+                    </div>
                 </div>
             </div>
         </NewSoundstyContainer>
     )
-}
+})
