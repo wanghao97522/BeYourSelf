@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-
-import { ActionSheet } from 'antd-mobile';
+import {withRouter} from 'react-router-dom'
 
 import { BodyContainer, MainContainer, BorderTaskItemContainer} from './StyledTask'
+
+import MaskHoc from '../HOC/MaskHoc'
 
 import iconMove from 'assets/images/home/icon-list@3x.png'
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 
-export default class ReEditTask extends Component {
+class ReEditTask extends Component {
   render() {
+    let { showActionSheet } =this.props
     return (
       <BodyContainer>
         <MainContainer>
@@ -22,7 +24,10 @@ export default class ReEditTask extends Component {
               <img className="icon" src={iconWater} alt=""/>
               <strong>喝水</strong>
             </p>
-            <i onClick={this.showActionSheet}></i>
+            <i onClick={()=>showActionSheet({
+              options:['调整任务长短','删除任务','取消'],
+              path:['/tasktime']
+            })}></i>
           </BorderTaskItemContainer>
         </MainContainer>
       </BodyContainer>
@@ -32,33 +37,6 @@ export default class ReEditTask extends Component {
   clickDone(){
     this.props.history.goBack()
   }
-
-  showActionSheet = () => {
-    const BUTTONS = ['调整任务长短', '删除任务', '取消'];
-    ActionSheet.showActionSheetWithOptions({
-      options: BUTTONS,
-      cancelButtonIndex: BUTTONS.length - 1,
-      maskClosable: true,
-      'data-seed': 'logId',
-    },
-    (buttonIndex) => {
-      let { history } = this.props
-      this.setState({ clicked: BUTTONS[buttonIndex] },()=>{
-        switch(buttonIndex){
-          case 0:
-            // 同桌路由
-            history.push('/taskTime')
-          break
-          case 1:
-            // 删除任务
-          break
-          default:
-        }
-      })
-    })
-  }
-  
-  componentWillUnmount(){
-    ActionSheet.close()
-  }
 }
+
+export default MaskHoc(withRouter(ReEditTask))

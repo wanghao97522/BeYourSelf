@@ -16,13 +16,15 @@ import SecretTravel from 'journey/pages/asecrettravel/SecretTravel'
 import Drink from 'journey/habits/Drink'
 import Challenge from 'journey/habits/task/Challenge'
 import Action from 'journey/habits/task/Action'
+import Breakfast from 'journey/habits/task/Breakfast'
 
 
 
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
-
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
+import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
+import SoundTip from './growing/views/soundtip/SoundTipContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
@@ -30,12 +32,21 @@ import Vip from './profile/vip/Vip'
 import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
+import Help from './profile/help/Help'
 
+import LoginIndex from './login/login_index'
+import Login from './login/login/Login'
+import Register from './login/register/Register'
+import Verification from './login/verification/Verification'
+import SetPwd from './login/setpwd/SetPwd'
+import RegSucc from './login/registersucc/RegisterSucc'
 export default class MyRouter extends Component {
     render() {
         return (
             <>
                 <Switch>
+                    {/* home的路由 */}
+                    <Route path='/addTask' component={AddTask} ></Route>
                     <Route path='/morning' exact component={Habits} ></Route>
                     <Route path='/noon' exact component={Habits} ></Route>
                     <Route path='/afternoon' exact component={Habits} ></Route>
@@ -44,16 +55,20 @@ export default class MyRouter extends Component {
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
+                    {/* journey的路由 */}
                     <Route path='/drink' component={Drink} ></Route>
                     <Route path='/challenge' component={Challenge} ></Route>
                     <Route path='/action' component={Action} ></Route>
                     <Route path='/alltravel' component={AllTravel} ></Route>
                     <Route path='/asecrettravel' component={SecretTravel} ></Route>
+                    <Route path='/breakfast' component={Breakfast} ></Route>
 
-
+                    {/* growing的路由 */}
                     <Route path="/timeline" component={Timeline}></Route>
                     <Route path="/letter" component={Letter}></Route>
                     <Route path="/newhabit" component={NewHabit}></Route>
+                    <Route path="/soundhabit" component={SoundHabit}></Route>
+                    <Route path="/soundtip" component={SoundTip}></Route>
                     <Route path='/index' component={Index} ></Route>
 
                     {/* profile的路由 */}
@@ -63,7 +78,16 @@ export default class MyRouter extends Component {
                     <Route path='/myaward' component={MyAward}></Route>
                     <Route path='/invitpage' component={InvitPage}></Route>
                     <Route path='/personaldata' component={Personal}></Route>
+                    <Route path='/help' component={Help}></Route>
 
+                    <Route path='/loginindex' component={LoginIndex}></Route>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/register' component={Register}></Route>
+                    <Route path='/verification' component={Verification}></Route>
+                    <Route path='/setpwd' component={SetPwd}></Route>
+                    <Route path='/registersucc' component={RegSucc}></Route>
+                
+                    
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>

@@ -3,7 +3,7 @@ import bgImg from 'assets/images/journey/heshui-bj@2x.png'
 import title from 'assets/images/journey/title@2x.png'
 
 const Body = styled.div`
-    font-size: 14px;
+    font-size: .14rem;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -19,7 +19,7 @@ const Title = styled.div`
     background: url(${title}) no-repeat center top / 100%;
     height: .28rem;
     width: 1rem;
-    margin: .69rem 0 0 .14rem;
+    margin: .29rem 0 0 .14rem;
 `
 const DegreeOfCompletion = styled.div`
     height: .5rem;
