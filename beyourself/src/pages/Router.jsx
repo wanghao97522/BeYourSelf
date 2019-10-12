@@ -36,6 +36,7 @@ import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
 import Help from './profile/help/Help'
+import Recard from './profile/recard/Recard'
 
 import LoginIndex from './login/login_index'
 import Login from './login/login/Login'
@@ -82,6 +83,7 @@ export default class MyRouter extends Component {
                     <Route path='/invitpage' component={InvitPage}></Route>
                     <Route path='/personaldata' component={Personal}></Route>
                     <Route path='/help' component={Help}></Route>
+                    <Route path='/Recard' component={Recard}></Route>
 
                     <Route path='/loginindex' component={LoginIndex}></Route>
                     <Route path='/login' component={Login}></Route>
