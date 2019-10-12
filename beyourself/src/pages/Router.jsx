@@ -8,7 +8,6 @@ import Habits from './home/habits/Habits'
 import AddTask from './home/task/AddTask'
 import AddTaskItem from './home/task/AddTaskItem'
 import ReEditTask from './home/task/ReEditTask'
-import TaskTime from './home/task/TaskTime'
 import OpenMyBT from './home/habits/OpenMyBT'
 
 import AllTravel from 'journey/pages/alltravel/AllTravel'
@@ -43,7 +42,6 @@ export default class MyRouter extends Component {
                     <Route path='/:time/addTask' exact component={AddTask} ></Route>
                     <Route path='/:time/addTask/addTaskItem' exact component={AddTaskItem} ></Route>
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
-                    <Route path='/taskTime' component={TaskTime} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
                     <Route path='/drink' component={Drink} ></Route>
