@@ -3,7 +3,7 @@ import bk from 'assets/images/login/fanhui@2x.png'
 
 const BackContainer = styled.div`
     header {
-        padding-top:.31rem;
+        padding-top:.11rem;
     }
     header >div{
         background:url(${bk}) no-repeat center top / 100% ;

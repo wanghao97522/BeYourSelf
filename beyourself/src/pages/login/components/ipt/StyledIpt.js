@@ -23,6 +23,7 @@ const BorderedContainer = border({
             font-weight:400;
             color:rgba(255,255,255,1);
             line-height:.25rem;
+            width:2.85rem;
         }
         input::placeholder {
             font-size:.14rem;
