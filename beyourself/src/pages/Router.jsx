@@ -36,7 +36,7 @@ import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
 import Help from './profile/help/Help'
-
+// login的组件
 import LoginIndex from './login/login_index'
 import Login from './login/login/Login'
 import Register from './login/register/Register'
@@ -82,7 +82,7 @@ export default class MyRouter extends Component {
                     <Route path='/invitpage' component={InvitPage}></Route>
                     <Route path='/personaldata' component={Personal}></Route>
                     <Route path='/help' component={Help}></Route>
-
+                    {/* login的路由 */}
                     <Route path='/loginindex' component={LoginIndex}></Route>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>
