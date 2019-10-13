@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import border from 'components/border'
 
 
+
 const HelpContainer = styled.div`
     display:flex;
     flex-direction:column;
@@ -62,9 +63,39 @@ const FootContainer = styled.div`
             margin-top:.1rem;
         }
         .imgBox{
+            display:flex;
+            justify-content:center;
+            align-items:flex-end;
+            height: 1.64rem;
             img{
-                scale:(0.3,0.3);
+                width:${props=>props.nowBG==='shotBG'?'1.57rem':''};
+                height:${props=>props.nowBG==='shotBG'?'1.32rem':'100%'}
             }
+        }
+    }
+    .shotTip{
+        margin-top:.26rem;
+        p{
+            width:100%;
+            text-align:center;
+            font-size:.14rem;
+            color:#CCCCCC;
+            line-height: .2rem;
+        }
+    }
+    .sendBtn{
+        padding:0 .15rem;
+        height: .44rem;
+        div{
+            height: .44rem;
+            width:100%;
+            background:#FCB408;
+            line-height: .44rem;
+            font-size:.16rem;
+            color:#fff;
+            border-radius:.14rem;
+            text-align:center;
+            margin-top:.1rem;
         }
     }
 `
