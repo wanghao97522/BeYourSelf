@@ -37,6 +37,8 @@ class ReEditTask extends Component {
   clickDone(){
     this.props.history.goBack()
   }
+
+  // 这里应该有个删除任务的功能
 }
 
 export default MaskHoc(withRouter(ReEditTask))
