@@ -36,12 +36,9 @@ import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
 import Help from './profile/help/Help'
-<<<<<<< HEAD
 import Recard from './profile/recard/Recard'
 
-=======
 // login的组件
->>>>>>> zzb
 import LoginIndex from './login/login_index'
 import Login from './login/login/Login'
 import Register from './login/register/Register'
