@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Radio,NavBar, Icon} from 'antd-mobile';
-import SoundTipStyContainer from './soundtip';
+import {SoundTipStyContainer,OutWrapper} from './soundtip';
 const RadioItem = Radio.RadioItem;
 export default (props)=>{
     return (
@@ -8,15 +8,17 @@ export default (props)=>{
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" />}
-                    onLeftClick={() => console.log('onLeftClick')}
+                    onLeftClick={() =>{props.goBack()}}
     >通知栏提示音</NavBar>
-               <List>
-        {["静音","该起床了"].map(value => (
-          <RadioItem key={value} checked={value === "该起床了"}>
-            {value}
-          </RadioItem>
-        ))}
-      </List>
+                <OutWrapper>
+                      <List>
+                      {["静音","该起床了","简单哔一声"].map(value => (
+                        <RadioItem key={value} checked={value === props.sound} onChange={()=>{props.onValue(value)}}>
+                          {value}
+                        </RadioItem>
+                      ))}
+                      </List>
+                </OutWrapper>
         </SoundTipStyContainer>
     )
 }

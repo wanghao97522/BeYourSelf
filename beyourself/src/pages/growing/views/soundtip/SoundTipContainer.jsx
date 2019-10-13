@@ -1,10 +1,22 @@
 import React,{Component} from 'react';
-import SoundTip from './SoundTipUI';
+import {withRouter} from 'react-router-dom';
+import SoundTipUI from './SoundTipUI';
 class SoundTipContainer extends Component{
+    state={
+        isSelect:'静音'
+    }
     render(){
         return (
-            <SoundTip></SoundTip>
+            <SoundTipUI sound={this.state.isSelect} onValue={(value)=>{this.handelClick(value)}} goBack={this.goBack}></SoundTipUI>
         )
     }
+    handelClick=(value)=>{
+        this.setState({
+            isSelect:value
+        })
+    }
+    goBack=()=>{
+        this.props.history.push({pathname:'/newhabit',sound:this.state.isSelect});
+    }
 }
-export default SoundTipContainer
+export default withRouter(SoundTipContainer)
