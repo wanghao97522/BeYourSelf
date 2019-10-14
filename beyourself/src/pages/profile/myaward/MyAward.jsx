@@ -23,11 +23,11 @@ class MyAward extends Component {
                         </ul>
                     </div>
                 </div>
-                <div className="foot">
+                <div className="foot" onClick={()=>this.handleClick('/recard')}>
                     <div className="give">赠送补签卡余量</div>
                     <div className="num">0张</div>
                 </div>
-                <div className="invit_button" onClick={()=>this.handleClick()}>
+                <div className="invit_button" onClick={()=>this.handleClick('/invitpage')}>
                     <div>
                         邀请更多好友
                     </div>
@@ -40,8 +40,8 @@ class MyAward extends Component {
         this.props.history.goBack()
     }
 
-    handleClick(){
-        this.props.history.push('/invitpage')
+    handleClick(route){
+        this.props.history.push(route)
     }
 }
 

@@ -5,6 +5,9 @@ import {HelpContainer,HeaderContainer,FootContainer,LiContainer} from './styledH
 import shotBG from 'assets/images/profile/beijingtupian@2x.png'
 
 class Help extends Component {
+    state={
+        nowBG:'shotBG'
+    }
     render() {
         return (
             <HelpContainer>
@@ -13,7 +16,7 @@ class Help extends Component {
                     <div className="title">帮助与反馈</div>
                     <div className="ok">完成</div>
                 </HeaderContainer>
-                <FootContainer>
+                <FootContainer nowBG={this.state.nowBG}>
                     <ul>
                         <LiContainer>
                             <p>常见问题</p>
@@ -30,6 +33,13 @@ class Help extends Component {
                         <div className="imgBox">
                             <img src={shotBG} alt=""/>
                         </div>
+                    </div>
+                    <div className="shotTip">
+                        <p>如果您有相关的屏幕截图,请上传给我们吧!</p>
+                        <p>它们对我们解决问题是非常有帮助的。</p>
+                    </div>
+                    <div className="sendBtn">
+                        <div>上传截图</div>
                     </div>
                 </FootContainer>
             </HelpContainer>
