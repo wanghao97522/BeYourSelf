@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route , Switch , Redirect  } from 'react-router-dom'
+import { Route , Switch , Redirect  ,Link} from 'react-router-dom'
 import Index from './Index'
 // import Details from './Details'
 import Page404 from './Page404'
@@ -43,6 +43,7 @@ import Register from './login/register/Register'
 import Verification from './login/verification/Verification'
 import SetPwd from './login/setpwd/SetPwd'
 import RegSucc from './login/registersucc/RegisterSucc'
+import FindPwd from './login/findpwd/FindPwd'
 export default class MyRouter extends Component {
     render() {
         return (
@@ -89,7 +90,10 @@ export default class MyRouter extends Component {
                     <Route path='/verification' component={Verification}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
-                
+                    <Route path='/findpwd' component={FindPwd}></Route>
+                    <Route path='/code' component={FindPwd}></Route>
+
+                    <Link to={{ path : ' /verification ' , state : { name : 'sunny' }}}></Link>
                     
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>

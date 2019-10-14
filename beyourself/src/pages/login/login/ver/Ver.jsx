@@ -21,7 +21,7 @@ export default class Ver extends Component {
           <Ipt text="+86" pretext="请输入手机号" handleIpt={this.handleIpt.bind(this)}></Ipt>
           <p>{this.state.isShow ?  '手机号验证失败' : ''}</p>
           <div className="btn">
-            <LiButton innertext="下一步" onClick={this.verification.bind(this)}></LiButton>
+            <LiButton innertext="登录" onClick={this.verification.bind(this)}></LiButton>
           </div>
       </VerContainer>
     );
