@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { Container, Title } from './secret_travel' 
 
@@ -20,7 +20,10 @@ export default class AllTravel extends Component {
                 </div>
                 <div className="top">其中</div>
                 <div className="middle">Y学习一整天如何保持精力充沛</div>
-                <div className="bottom"><img src={play} alt=""/></div>
+                <NavLink to="/index/journey">
+                    <div className="bottom"><img src={play} alt=""/></div> 
+                </NavLink>
+                
             </Container>
         )
     }

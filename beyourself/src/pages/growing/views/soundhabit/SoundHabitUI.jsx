@@ -25,7 +25,7 @@ export default (props)=>{
                   <ul>
                       {["一","二","三","四","五","六","日"].map((value)=>
                            (
-                              <li key={value} className={value=="一"?'active':''}>{value}</li>
+                              <li key={value} className={value==="一"?'active':''}>{value}</li>
                           )
                       )}
                   </ul>

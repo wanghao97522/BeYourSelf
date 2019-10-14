@@ -28,6 +28,7 @@ import Letter from './growing/views/letter/LetterContainer';
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
 import SoundTip from './growing/views/soundtip/SoundTipContainer';
+import TaskTime from './growing/views/tasktime/TaskTimeContianer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
@@ -74,6 +75,7 @@ export default class MyRouter extends Component {
                     <Route path="/newhabit" component={NewHabit}></Route>
                     <Route path="/soundhabit" component={SoundHabit}></Route>
                     <Route path="/soundtip" component={SoundTip}></Route>
+                    <Route path="/tasktime" component={TaskTime}></Route>
                     <Route path='/index' component={Index} ></Route>
 
                     {/* profile的路由 */}

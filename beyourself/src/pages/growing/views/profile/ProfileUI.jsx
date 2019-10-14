@@ -2,7 +2,9 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import { Calendar } from 'antd-mobile';
 import {ProstyContainer} from './profile';
+import Calender from '../components/calendar/Calendar.jsx';
 function profileUI(props){
+    console.log(new Date())
     function handleTimeClick(){
         console.log(props.history);
         props.history.push('/timeline');
@@ -26,18 +28,7 @@ function profileUI(props){
                 <div className="month">
                     <h2>显示月份</h2>
                     <h3>2019年10月</h3>
-                    <div className='calendarContainer'>
-                        <Calendar
-                            visible
-                            pickTime={false}
-                            // infiniteOpt={true}
-                            initalMonths={1}
-                            type='one'
-                            // defaultTimeValue={new Date()}
-                            renderHeader={()=>{}}
-                            onCancel={true}
-                        />
-                    </div>
+                    <Calender></Calender>
                 </div>
                 <div className="finishcon">
                     <h2>完成度:</h2>

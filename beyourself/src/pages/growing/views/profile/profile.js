@@ -149,6 +149,7 @@ const ProstyContainer=styled.div`
             height:1.98rem;
             background:rgba(83,168,215,1);
             overflow:hidden;
+            border-radius:0 0 0.2rem 0.2rem
             h2{
                 margin-top:0.26rem;
                 padding-left:0.33rem;
