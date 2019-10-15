@@ -128,8 +128,18 @@ const TopDiv = styled.div`
         font-size: .18rem;
         line-height: .44rem;
         border: 0;
-        border-radius: .14rem;
+        border-radius: .14rem; 
+        background: white;  
     }
+    /* .am-list{
+        background-color: #1B93B9;
+    }
+    .am-list-body{
+        border: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: .14rem;   
+    } */
 `
 const BtmDiv = styled.div`
     height: 2.55rem;
