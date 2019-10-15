@@ -1,13 +1,13 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import NewSoundUi from './NewSoundUI';
+import NewSoundUI from './NewSoundUI';
 class NewSoundContainer extends Component{
     state={
         sound:'静音'
     }
     render(){
         return (
-            <NewSoundUi sound={this.state.sound} onClick={()=>{this.goToSoundTip()}}></NewSoundUi>
+            <NewSoundUI sound={this.state.sound} onClick={()=>{this.goToSoundTip()}}></NewSoundUI>
         )
     }
     goToSoundTip=()=>{

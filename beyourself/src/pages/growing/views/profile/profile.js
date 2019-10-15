@@ -169,7 +169,9 @@ const ProstyContainer=styled.div`
             .fin-bottom{
                 margin-top:0.32rem;
             }
-            .supple{
+            .supplewrapper{
+                display:${props=>props.buqian}
+                .supple{
                 width:0.59rem;
                 padding-left:0.08rem;
                 margin:0.23rem 0 0 2.56rem;
@@ -189,7 +191,7 @@ const ProstyContainer=styled.div`
                     background-size:100%;
                 }
             }
-
+            }
         }
         .space{
             height:0.55rem;

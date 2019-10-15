@@ -29,7 +29,7 @@ export default withRouter((props) => {
                         </div>
                     </div>
                     <Habittip img={naolin} title={"提示音"}></Habittip>
-                    <HabitAndSound>
+                    <HabitAndSound onClick={()=>{props.history.push('/tasktime')}}>
                         <span>周日</span>
                         <p>
                             <span>4:41</span>
