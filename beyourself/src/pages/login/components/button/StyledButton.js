@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 const ButtonContariner = styled.div`
-    width:3.45rem;
-    height:.44rem;
-    background:rgba(252,180,8,1);
-    border-radius:.14rem;
-    line-height:.44rem;
-    text-align:center;
-    span{
-        width:.32rem;
-        height:.22rem;
+    button{
+        width:3.45rem;
+        height:.44rem;
+        background:${props => props.innerBg ? props.innerBg : "#FCB408"};
+        border-radius:.14rem;
+        line-height:.44rem;
+        text-align:center;
+        border:0;
         font-size:.16rem;
         font-family:PingFangSC-Semibold,PingFangSC;
         font-weight:600;

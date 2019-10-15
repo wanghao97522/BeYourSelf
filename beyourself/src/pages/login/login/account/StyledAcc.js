@@ -20,5 +20,15 @@ const AccountContainer = styled.div`
         top:3.57rem;
         left:.15rem;
     }
+    .forget{
+        position:absolute;
+        top:4.11rem;
+        right:.2rem;
+        font-size:.14rem;
+        font-family:PingFangSC-Regular,PingFangSC;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:.2rem;
+    }
 `
 export {AccountContainer}
