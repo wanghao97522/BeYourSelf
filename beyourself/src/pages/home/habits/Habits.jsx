@@ -17,12 +17,15 @@ export default class Morning extends Component {
   }
   render() {
     let { location } = this.props
-    let className = location.pathname.split('/')[1]
+    let className = location.search.split('?')[1]
     return (
       <BodyContainer>
         <Head className={className}></Head>
         {/* 根据任务组件传回来的任务数量来确定num值 */}
-        <TaskNum num={this.state.taskList.length} taskList={this.state.taskList}></TaskNum>
+        <TaskNum
+          num={this.state.taskList.length}
+          taskList={this.state.taskList}
+        ></TaskNum>
         <OpenBT className={className}></OpenBT>
         <Task 
           className={className}
@@ -34,7 +37,7 @@ export default class Morning extends Component {
 
   componentDidMount(){
     let { location } = this.props
-    let className = location.pathname.split('/')[1]
+    let className = location.search.split('?')[1]
     if(className === 'morning'){
       this.setState({
         taskList: [

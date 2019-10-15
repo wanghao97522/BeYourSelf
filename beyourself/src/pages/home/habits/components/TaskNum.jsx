@@ -10,9 +10,10 @@ class TaskNum extends Component {
     clicked: 'none',
   }
   render() {
-    let { num, taskList, match, showActionSheet } = this.props
+    let { num, taskList, location, showActionSheet } = this.props
     let path = {
-      pathname: `${match.path}/addTask`,
+      pathname: '/addTask',
+      search: location.search,
       state: taskList
     }
     return (
@@ -24,7 +25,7 @@ class TaskNum extends Component {
           </NavLink>
             <i className="more" onClick={()=>showActionSheet({
               options:['编辑任务列表','编辑提示音和习惯','取消'],
-              path:['/reEditTask','/soundhabit']
+              path:[`/reEditTask${location.search}`,`/soundhabit${location.search}`]
             })}></i>
         </p>
         <p className="time">今天 · {new Date().getMonth()+1} 月 {new Date().getDate()} 日</p>

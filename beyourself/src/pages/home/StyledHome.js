@@ -5,6 +5,7 @@ import bgEveryday from 'assets/images/home/bg-everyday@3x.png'
 import bgMorning from 'assets/images/home/bg-morning@3x.png'
 import bgAfternoon from 'assets/images/home/bg-afternoon@3x.png'
 import bgNight from 'assets/images/home/bg-night@3x.png'
+import bgOthers from 'assets/images/home/tuu@3x.png'
 
 const BodyContainer = styled.div`
   height: 100%;
@@ -255,6 +256,15 @@ const HabitContainer = styled.div`
     .habits{
       background-image: url(${bgNight});
       background-size: contain;
+    }
+    span{
+      color:rgba(68,115,247,1);
+    }
+  }
+  .others{
+    .habits{
+      background-image: url(${bgOthers});
+      background-size: cover;
     }
     span{
       color:rgba(68,115,247,1);

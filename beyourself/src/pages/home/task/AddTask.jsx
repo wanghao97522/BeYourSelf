@@ -70,8 +70,9 @@ export default class AddTask extends Component {
 
   handleInput(e){
     let iptValue = this.state.iptValue
+    let { location } = this.props
     if(iptValue && e.keyCode === 13){
-      this.props.history.push(`${this.props.match.url}/addTaskItem`,{
+      this.props.history.push(`/addTaskItem${location.search}`,{
         iptValue
       })
     }
@@ -80,5 +81,6 @@ export default class AddTask extends Component {
   // 有用
   componentDidMount(){
     // console.log(this.props.location.state)
+    // console.log(this.props)
   }
 }

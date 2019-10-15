@@ -1,13 +1,40 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { BodyContainer, HeadContainer, CubeOneContainer, MainContainer, CubeTwoContainer, TodayContainer, EmptyContainer } from './StyledHome'
+import { 
+    BodyContainer, 
+    HeadContainer, 
+    CubeOneContainer, 
+    MainContainer, 
+    CubeTwoContainer, 
+    TodayContainer, 
+    EmptyContainer 
+} from './StyledHome'
 
 import Habit from './components/Habit'
 
 import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
 
 export default class Home extends Component {
+    state = {
+        habitsList: [
+            {
+                hid: 0,
+                time: '7:00 上午',
+                habitName: '早晨习惯'
+            },
+            {
+                hid: 1,
+                time: '2:00 下午',
+                habitName: '下午习惯'
+            },
+            {
+                hid: 2,
+                time: '6:00 下午',
+                habitName: '黄昏习惯'
+            }
+        ]
+    }
     render() {
         return (
             <BodyContainer>
@@ -49,20 +76,26 @@ export default class Home extends Component {
                         <h1 className="today">今天</h1>
                         <span></span>
                     </TodayContainer>
-                    <Habit className="morning"></Habit>
+                    {
+                        this.state.habitsList.map((value, index)=>{
+                            return (
+                                <Habit
+                                    habit={value}
+                                    key={index}
+                                ></Habit>
+                            )
+                        })
+                    }
+                    {/* <Habit onClick={()=>this.handleClick()}></Habit>
                     <Habit className="noon"></Habit>
-                    {/* <GrayCirclContainer>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </GrayCirclContainer> */}
-                    <Habit className="afternoon"></Habit>
+                    <Habit className="afternoon"></Habit> */}
                     <EmptyContainer></EmptyContainer>
                 </MainContainer>
             </BodyContainer>
         )
+    }
+
+    handleClick(className){
+        
     }
 }

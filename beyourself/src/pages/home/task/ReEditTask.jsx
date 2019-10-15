@@ -10,7 +10,7 @@ import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 
 class ReEditTask extends Component {
   render() {
-    let { showActionSheet } =this.props
+    let { showActionSheet, location } =this.props
     return (
       <BodyContainer>
         <MainContainer>
@@ -26,7 +26,7 @@ class ReEditTask extends Component {
             </p>
             <i onClick={()=>showActionSheet({
               options:['调整任务长短','删除任务','取消'],
-              path:['/tasktime']
+              path:[`/tasktime${location.search}`]
             })}></i>
           </BorderTaskItemContainer>
         </MainContainer>

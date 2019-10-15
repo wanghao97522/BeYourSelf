@@ -33,12 +33,9 @@ import MyAward from './profile/myaward/MyAward'
 import InvitPage from './profile/invitpage/InvitPage'
 import Personal from './profile/personalData/PersonalData'
 import Help from './profile/help/Help'
-<<<<<<< HEAD
 import Recard from './profile/recard/Recard'
 
-=======
 // login的组件
->>>>>>> zzb
 import LoginIndex from './login/login_index'
 import Login from './login/login/Login'
 import Register from './login/register/Register'
@@ -52,11 +49,9 @@ export default class MyRouter extends Component {
                 <Switch>
                     {/* home的路由 */}
                     <Route path='/addTask' component={AddTask} ></Route>
-                    <Route path='/morning' exact component={Habits} ></Route>
-                    <Route path='/noon' exact component={Habits} ></Route>
-                    <Route path='/afternoon' exact component={Habits} ></Route>
-                    <Route path='/:time/addTask' exact component={AddTask} ></Route>
-                    <Route path='/:time/addTask/addTaskItem' exact component={AddTaskItem} ></Route>
+                    <Route path='/habit' exact component={Habits} ></Route>
+                    <Route path='/addTask' exact component={AddTask} ></Route>
+                    <Route path='/addTaskItem' exact component={AddTaskItem} ></Route>
                     <Route path='/reEditTask' component={ReEditTask} ></Route>
                     <Route path='/openMyBT' component={OpenMyBT} ></Route>
 
