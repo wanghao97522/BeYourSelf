@@ -1,0 +1,57 @@
+import styled from 'styled-components';
+const CalendarSty=styled.div`
+    width:3.45rem;
+    /* height:2.28rem; */
+    padding-top:0.39rem;
+    display:flex;
+    flex-direction:column;
+    .week{
+        padding-left:0.06rem;
+        display:flex;
+        span{
+            width:0.18rem;
+            height:0.25rem;
+            font-size:0.18rem;
+            color:#fff;
+            margin-left:0.26rem;
+        }
+    }
+    .data{
+        padding-left:0.13rem;
+        flex:1;
+        ul{
+            display:flex;
+            flex-wrap:wrap;
+            li{
+                width:0.31rem;
+                height:0.31rem;
+                border-radius:50%;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                margin-top:0.06rem;
+                margin-left:0.13rem;
+                span{
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    width:0.18rem;
+                    height:0.25rem;
+                    font-size:0.18rem;
+                    color:#fff;
+                }
+            }
+            li:first-child{
+                margin-left:${props=>props.day%7*0.5}rem;
+            }
+            li.finished{
+                background:#83C839;
+            }
+            li.unfinished{
+                background:#83C839;
+                opacity:0.5;
+            }
+        }
+    }
+`
+export default CalendarSty

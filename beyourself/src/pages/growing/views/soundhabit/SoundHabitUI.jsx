@@ -4,8 +4,7 @@ import enUs from 'antd-mobile/lib/date-picker-view/locale/en_US';
 import {SoundHabitstyContainer,Title,TimeBox,WeekBox} from './soundhabit';
 const now =new Date('2019/10/11 06:06');
 export default (props)=>{
-    const [value,setValue]=useState(now);
-    console.log(value);
+    const [value]=useState(now);
     return (
         <SoundHabitstyContainer>
           <Title>
@@ -25,7 +24,7 @@ export default (props)=>{
                   <ul>
                       {["一","二","三","四","五","六","日"].map((value)=>
                            (
-                              <li key={value} className={value=="一"?'active':''}>{value}</li>
+                              <li key={value} className={value==="一"?'active':''}>{value}</li>
                           )
                       )}
                   </ul>

@@ -3,10 +3,10 @@ import {NavLink,withRouter} from 'react-router-dom';
 import {NewSoundstyContainer,Top,HabitAndSound} from './newhabit';
 import { NavBar,Icon} from 'antd-mobile';
 import Habittip from '../components/Habittip.jsx';
-import shedin from '../../../../assets/images/grow/icon-shedin.png';
-import naolin from '../../../../assets/images/grow/icon-naolin.png';
-import tuu from '../../../../assets/images/grow/tuu.png';
-import lingdang from '../../../../assets/images/grow/icon-lingdang.png';
+import shedin from 'assets/images/grow/icon-shedin.png';
+import naolin from 'assets/images/grow/icon-naolin.png';
+import tuu from 'assets/images/grow/tuu.png';
+import lingdang from 'assets/images/grow/icon-lingdang.png';
 export default withRouter((props) => {
     return (
         <NewSoundstyContainer>
@@ -29,7 +29,7 @@ export default withRouter((props) => {
                         </div>
                     </div>
                     <Habittip img={naolin} title={"提示音"}></Habittip>
-                    <HabitAndSound>
+                    <HabitAndSound onClick={()=>{props.history.push('/tasktime')}}>
                         <span>周日</span>
                         <p>
                             <span>4:41</span>
@@ -41,10 +41,10 @@ export default withRouter((props) => {
                         <span>添加提示音</span>
                     </div>
                     <Habittip img={lingdang} title={"提示设定"}></Habittip>
-                    <HabitAndSound>
+                    <HabitAndSound onClick={()=>props.onClick()}>
                         <span>提示音铃声</span>
                         <p>
-                            <span>Fabulous Beep</span>
+                            <span>{props.sound}</span>
                             <span><Icon type="right"/></span>
                         </p>
                     </HabitAndSound>

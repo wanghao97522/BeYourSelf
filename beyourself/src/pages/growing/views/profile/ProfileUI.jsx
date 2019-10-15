@@ -1,10 +1,9 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import { Calendar } from 'antd-mobile';
 import {ProstyContainer} from './profile';
+import Calender from '../components/calendar/Calendar.jsx';
 function profileUI(props){
     function handleTimeClick(){
-        console.log(props.history);
         props.history.push('/timeline');
     }
     return (
@@ -26,26 +25,17 @@ function profileUI(props){
                 <div className="month">
                     <h2>显示月份</h2>
                     <h3>2019年10月</h3>
-                    <div className='calendarContainer'>
-                        <Calendar
-                            visible
-                            pickTime={false}
-                            // infiniteOpt={true}
-                            initalMonths={1}
-                            type='one'
-                            // defaultTimeValue={new Date()}
-                            renderHeader={()=>{}}
-                            onCancel={true}
-                        />
-                    </div>
+                    <Calender showlist={props.showlist}  onClick={props.onClick}></Calender>
                 </div>
                 <div className="finishcon">
                     <h2>完成度:</h2>
-                    <p className="fin-top">10月8日完成了100%</p>
+                    <p className="fin-top">10月{props.day}日完成了{props.showlist[props.day]?props.showlist[props.day].rate:'0%'}</p>
                     <p className="fin-bottom">今天表现呢不错还要继续加油哦!</p>
-                    <div className="supple">
-                        <span>补签</span>
-                        <span></span>
+                    <div className="supplewrapper">
+                        <div className="supple">
+                            <span>补签</span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
                 <div className="space">

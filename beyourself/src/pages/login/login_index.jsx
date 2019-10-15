@@ -24,7 +24,7 @@ export default class login_index extends Component {
     );
   }
   nextLogin(){
-    this.props.history.push('/login')
+    this.props.history.push('/login/ver')
 
   }
   nextRegister(){

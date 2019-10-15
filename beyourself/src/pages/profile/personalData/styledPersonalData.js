@@ -10,6 +10,8 @@ import birthBG from 'assets/images/profile/jiangli@2x.png'
 import jiantou from 'assets/images/profile/jiantou@2x.png'
 
 const PersonalDataContainer = styled.div`
+    position: relative;
+    height: 100%;
     header{
         padding:0 .15rem;
         height: .44rem;
@@ -56,7 +58,7 @@ const PersonalDataContainer = styled.div`
                         font-weight:normal;
                     }
                     h4{
-                        font-size:.12rem;
+                        font-size:.14rem;
                         line-height:.17rem;
                         color:#999;
                         font-weight:normal;
@@ -109,6 +111,50 @@ const PersonalDataContainer = styled.div`
                     height: .22rem;
                     background:url(${birthBG}) no-repeat center;
                     background-size:100% 100%;
+                }
+            }
+        }
+    }
+    .mask{
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        width:100%;
+        display:${(props)=>props.isShowMask?'block':'none'}
+        .blackBG{
+            height: 100%;
+            background:rgba(0,0,0,0.3);
+        }
+        .content{
+            width:3.45rem;
+            margin-left:.15rem;
+            position: absolute;
+            top:50%;
+            left: 0;
+            height: 1.86rem;
+            background:#fff;
+            border-radius:.14rem;
+            .data{
+                padding:.1rem 0 0 .15rem;
+                input{
+                    width:100%;
+                    height: .45rem;
+                    line-height: .45rem;
+                    border:none;
+                    border-bottom:1px solid #E8E8E8;
+                    color:#333333;
+                    font-size:.18rem;
+                }
+            }
+            .submit{
+                margin-top:.76rem;
+                text-align:right;
+                span{
+                    color:#FCB408;
+                    margin-right:.2rem;
+                    font-size:.16rem;
+                    font-weight:500;
                 }
             }
         }

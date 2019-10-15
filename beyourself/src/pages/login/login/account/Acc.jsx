@@ -18,8 +18,9 @@ export default class Ver extends Component {
           <Ipt text="密码" pretext="请输入密码"></Ipt>
           <p>{this.state.isShow ?  '手机号验证失败' : ''}</p>
           <div className="btn">
-            <LiButton innertext="下一步" onClick={this.verification.bind(this)}></LiButton>
+            <LiButton innertext="登录" onClick={this.verification.bind(this)}></LiButton>
           </div>
+          <p className="forget" onClick={this.gofind.bind(this)}>忘记密码？</p>
       </AccountContainer>
     );
   }
@@ -34,6 +35,9 @@ export default class Ver extends Component {
     }else{
       this.props.history.push('/index/profile')
     }
+  }
+  gofind(){
+    this.props.history.push('/findpwd')
   }
   handleIpt(e){
     this.setState({

@@ -5,9 +5,14 @@ import personalPhotoBG from 'assets/images/profile/touxiang-gerenziliao@2x.png'
 
 
 class PersonalData extends Component {
+    state={
+        isShowMask:true,
+        netName:'小镇青年',
+    }
+
     render() {
         return (
-            <PersonalDataContainer>
+            <PersonalDataContainer isShowMask={this.state.isShowMask}>
                 <header>
                     <div className='back' onClick={()=>this.goback()}>
                     </div>
@@ -15,7 +20,7 @@ class PersonalData extends Component {
                 </header>
                 <nav>
                     <ul>
-                        <li className="photo" onClick={()=>this.handleClick()}>
+                        <li className="photo">
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>头像</h3>
@@ -25,15 +30,15 @@ class PersonalData extends Component {
                             </div>
                             <div className="right_jt"></div>
                         </li>
-                        <li className="netname" onClick={()=>this.handleClick()}>
+                        <li className="netname" onClick={()=>this.changIsShow()}>
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>昵称</h3>
-                                <h4>点击编辑</h4>
+                                <h4>{this.state.netName}</h4>
                             </div>
                             <div className="right_jt"></div>
                         </li>
-                        <li className="sex" onClick={()=>this.handleClick()}>
+                        <li className="sex">
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>性别</h3>
@@ -41,7 +46,7 @@ class PersonalData extends Component {
                             </div>
                             <div className="right_jt"></div>
                         </li>
-                        <li className="birth" onClick={()=>this.handleClick()}>
+                        <li className="birth">
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>生日</h3>
@@ -50,7 +55,19 @@ class PersonalData extends Component {
                             <div className="right_jt"></div>
                         </li>
                     </ul>
-                </nav>  
+                </nav>
+                <div className="mask">
+                    <div className="blackBG" onClick={()=>this.changIsShow()}></div>
+                    <div className="content">
+                        <div className="data">
+                            <input type="text" defaultValue={this.state.netName}/>
+                        </div>
+                        <div className='submit'>
+                            <span onClick={()=>this.changIsShow()}>取消</span>
+                            <span>确定</span>
+                        </div>
+                    </div>
+                </div>  
             </PersonalDataContainer>
         );
     }
@@ -60,8 +77,10 @@ class PersonalData extends Component {
         // console.log(this.props);
     }
 
-    handleClick(){
-        console.log(1);
+    changIsShow(){
+        this.setState((prev)=>({
+            isShowMask:!prev.isShowMask
+        }))
     }
 
 }

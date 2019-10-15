@@ -3,18 +3,66 @@ import React, { Component } from 'react';
 import {VipContainer} from './styledVip'
 import ChooseMonth from './chooseMonth/ChooseMonth'
 
-import Mask from '../mask/Mask'
+// import Mask from '../mask/Mask'
+
+import { Picker } from 'antd-mobile';
 
 import vipBG from 'assets/images/profile/vip/hydb@2x.png'
 import personal from 'assets/images/profile/vip/Grxoup@2x.png'
 import wePay from 'assets/images/profile/vip/weixinzhifu-3@2x.png'
+import AlipayBG from 'assets/images/profile/vip/zhifubaozhifu copy@2x.png'
+
+
+const colorStyle = {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    width: '16px',
+    height: '16px',
+    marginRight: '10px',
+
+  };
+  
+
+const colors = [
+    {
+      label:
+      (<div>
+        <span
+          style={{ ...colorStyle, background: `url(${wePay})`,backgroundSize:'100% 100%' }}
+        />
+        <span>微信支付</span>
+      </div>),
+      key:1,
+      value:[wePay,"微信支付"]
+    },
+    {
+      label:
+      (<div>
+        <span
+          style={{ ...colorStyle, background: `url(${AlipayBG})` ,backgroundSize:'100% 100%'}}
+        />
+        <span>支付宝</span>
+      </div>),
+      key:2,
+      value:[AlipayBG,"支付宝"]
+    }
+  ];
+  
+
+
 
 class Vip extends Component {
     state={
         now:1,
         money:'10',
-        showMask:false
+        showMask:false,
+        data: [],
+        cols: 1,
+        visible: false,
+        nowWay:wePay,
+        nowTxt:'微信支付'
     }
+
 
     render() {
         return (
@@ -40,19 +88,26 @@ class Vip extends Component {
                 </div>
                 <div className="chooseWay">
                     <div className='payWay'>
-                        <img src={wePay} alt=""/>
+                        <img src={this.state.nowWay} alt=""/>
                     </div>
                     <div className="payTxt">
-                        <h3>微信支付</h3>
-                        <h4 onClick={()=>this.changePayWay()}>支付方式</h4>
+                        <h3>{this.state.nowTxt}</h3>
+                        <Picker
+                            data={colors}
+                            cols={1}
+                            onChange={this.changTxt}
+                        >
+                            <h4>支付方式</h4>
+                        </Picker>
+                        {/* <h4 onClick={()=>this.changePayWay()}>支付方式</h4> */}
                     </div>
                     <div className="right_jt"></div>
                 </div>
                 <div className="openVip">
                     <div>开通{this.state.now}个月会员·￥{this.state.money}.00</div>
                 </div>
-                <Mask  nowState={this.state.showMask} onClick={()=>this.changePayWay()}>
-                </Mask>
+                {/* <Mask  nowState={this.state.showMask} onClick={()=>this.changePayWay()}>
+                </Mask> */}
             </VipContainer>
         );
     }
@@ -71,6 +126,14 @@ class Vip extends Component {
             showMask:!prev.showMask
         }))
     }
+    changTxt = (props) => {
+        this.setState({
+          nowWay: props[0][0],
+          nowTxt:props[0][1]
+        });
+      }
+    
+
 }
 
 
