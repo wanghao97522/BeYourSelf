@@ -119,7 +119,7 @@ const TopDiv = styled.div`
         font-size: .16rem;
         text-align: center;
     }
-    button{
+    .re_me{
         height: .44rem;
         width: 3.45rem;
         color: #1E8AB9;
@@ -158,7 +158,7 @@ const BtmDiv = styled.div`
             line-height: .34rem;
         }
     }
-    button{
+    .ch_btn{
         height: .44rem;
         width: 3.45rem;
         color: white;

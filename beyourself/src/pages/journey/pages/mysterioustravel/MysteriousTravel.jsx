@@ -9,12 +9,14 @@ import mixing from 'assets/images/journey/mixing-weijiesuo@2x.png'
 import pressToEnter from 'assets/images/presstoenter.png'
 
 export default class MysteriousTravel extends Component {
+    state={
+        imgList:[heshui,zaocan,yundong,tiaozhan,mixing]
+    }
     render() {
         return (
             <Body>
                 <Bg>
                     <Title></Title>
-
                     <DegreeOfCompletion>
                         <Done>
                             <Word>0%</Word>
