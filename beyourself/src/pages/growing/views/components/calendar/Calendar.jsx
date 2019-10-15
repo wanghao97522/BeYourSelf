@@ -1,9 +1,7 @@
 import React,{Component} from 'react';
 import CalendarSty from './calendar.js';
-
 class CalendarContainer extends Component{
     render(){
-        console.log(this.generateData().day)
         return (
             <CalendarSty day={this.generateData().day}>
                 <div className="week">
@@ -15,7 +13,7 @@ class CalendarContainer extends Component{
                     <ul>
                     {
                         this.generateData().dayList.map((value)=>(
-                            <li key={value} className="unfinished">
+                            <li onClick={()=>this.props.onClick(value,this.props.showlist[value]?this.props.showlist[value].rate:'')} key={value} className={this.props.showlist[value]?(this.props.showlist[value].rate==="100%"?"finished":'unfinished'):""}>
                                 <span>{value}</span>
                             </li>
                         ))
@@ -43,6 +41,7 @@ class CalendarContainer extends Component{
             dayList,
             day
         };
-    };  
+    }; 
+    
 }
 export default CalendarContainer

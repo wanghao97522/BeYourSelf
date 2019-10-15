@@ -1,11 +1,12 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import { PickerView} from 'antd-mobile';
 import {TaskTimeStyContainer,Bottom,Wrapper} from './tasktime';
-export default (props)=>{
+export default withRouter((props)=>{
     return (
         <TaskTimeStyContainer>
             <div className="title">
-                <span>取消</span>
+                <span onClick={()=>{props.history.goBack()}}>取消</span>
                 <div className="center">
                     <span>任务时间长短</span>
                     <span>项目</span>
@@ -25,4 +26,4 @@ export default (props)=>{
             </Bottom>
         </TaskTimeStyContainer>
     )
-}
+})

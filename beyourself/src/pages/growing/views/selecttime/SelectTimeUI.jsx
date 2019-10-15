@@ -6,7 +6,7 @@ import {SelectTimestyContainer,Title,TimeBox} from './selecttime';
 const now = new Date("2015-03-19 06:06");
 export default withRouter(
     (props)=>{
-        const [value, setValue] = useState(now);
+        const [value] = useState(now);
         function gotoindex(){
             props.history.push('/index/home');
         }
