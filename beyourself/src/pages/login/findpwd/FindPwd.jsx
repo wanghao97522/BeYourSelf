@@ -43,7 +43,7 @@ export default class Register extends Component {
         isShow:true
       })
     }else{
-      this.props.history.push('/verification')
+      this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
     }
   }
 }
