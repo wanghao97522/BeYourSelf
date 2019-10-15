@@ -32,9 +32,9 @@ export default class Action extends Component {
                 </Title>
                 <TopDiv style={{height:'3.24rem'}}>
                     <div className="tips">在你的床边放一瓶水</div>
-                    <List style={{textAlign:"center"}}>
+                    <List>
                         <DatePicker>
-                            <List.Item className="re_me">提醒我</List.Item>
+                            <List.Item style={{height:'.2rem',backgroundColor:'white',borderRadius:'.14rem !important',display:'block'}} className="re_me">提醒我</List.Item>
                         </DatePicker>
                     </List>
                 </TopDiv >

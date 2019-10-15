@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {RegisterContainer} from './StyledRegister'
+import {FindContainer} from './StyledFind'
 import LiBack from '../components/back/Back'
 import Ipt from '../components/ipt/Ipt'
 import LiButton from '../components/button/Button'
@@ -13,14 +13,14 @@ export default class Register extends Component {
   }
  render() {
     return (
-      <RegisterContainer>
+      <FindContainer>
           <LiBack></LiBack>
-          <h2>手机验证码登录</h2>
+          <h2>找回密码</h2>
           <Ipt text="+86" pretext="请输入手机号" handleIpt={this.handleIpt.bind(this)}></Ipt>
           
             <p>{this.state.isShow ?  '手机号验证失败' : ''}</p>
-          <LiButton innertext="下一步" onClick={this.verification.bind(this)} to={{ path : ' /verification' , query : { name : 'sunny' }}}></LiButton>
-      </RegisterContainer>
+          <LiButton innertext="下一步" onClick={this.verification.bind(this)}></LiButton>
+      </FindContainer>
     );
   }
   handleIpt(e){
@@ -43,7 +43,7 @@ export default class Register extends Component {
         isShow:true
       })
     }else{
-      this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
+      this.props.history.push('/verification')
     }
   }
 }
