@@ -44,6 +44,7 @@ import Verification from './login/verification/Verification'
 import SetPwd from './login/setpwd/SetPwd'
 import RegSucc from './login/registersucc/RegisterSucc'
 import FindPwd from './login/findpwd/FindPwd'
+
 export default class MyRouter extends Component {
     render() {
         return (

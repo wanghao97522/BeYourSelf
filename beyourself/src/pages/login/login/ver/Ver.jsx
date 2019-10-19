@@ -36,7 +36,7 @@ export default class Ver extends Component {
       })
     }else{
       Toast.info('登陆成功', 1);
-      this.props.history.push('/index/profile')
+      this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
     }
   }
   handleIpt(e){

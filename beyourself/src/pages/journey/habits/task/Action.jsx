@@ -33,8 +33,8 @@ export default class Action extends Component {
                 <TopDiv style={{height:'3.24rem'}}>
                     <div className="tips">在你的床边放一瓶水</div>
                     <List>
-                        <DatePicker>
-                            <List.Item style={{height:'.2rem',backgroundColor:'white',borderRadius:'.14rem !important',display:'block'}} className="re_me">提醒我</List.Item>
+                        <DatePicker >
+                            <List.Item className="re_me">提醒我</List.Item>
                         </DatePicker>
                     </List>
                 </TopDiv >
