@@ -15,37 +15,13 @@ const BodyContainer = styled.div`
   flex-direction: column;
 `
 
-const AddContainer = styled.div`
-    height: .22rem;
-    width: .22rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    div{
-      background: rgba(252,180,8,1);
-      border-radius: 1.00rem;
-      &.across{
-        height: .02rem;
-        width: .22rem;
-      }
-      &.upright{
-        height: .02rem;
-        width: .22rem;
-        position: absolute;
-        transform: rotate(90deg);
-      }
-    }
-`
-
 const HeadContainer = styled.div`
   height: .44rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 .15rem;
-  align-items: center;
+  padding: .08rem .15rem;
   .head-index{
     width: max-content;
     height: .28rem;
@@ -289,7 +265,6 @@ const EmptyContainer = styled.div`
 export {
   BodyContainer,
   HeadContainer,
-  AddContainer,
   CubeOneContainer,
   MainContainer,
   CubeTwoContainer,

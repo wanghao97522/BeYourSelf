@@ -12,7 +12,6 @@ export default class AddTaskItem extends Component {
     iptValue: this.props.location.state.iptValue
   }
   render() {
-    console.log(this.props)
     let { location } = this.props
     let className = location.search.split('?')[1]
     return (
