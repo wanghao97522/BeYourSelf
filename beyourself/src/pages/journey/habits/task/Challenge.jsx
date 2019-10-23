@@ -59,7 +59,7 @@ export default class Challenge extends Component {
                         <li style={{margin:"0 .15rem 0 .15rem"}}>2</li>
                         <li>3</li>
                     </ul>
-                    <WingBlank>
+                    <WingBlank >
                         <Button className="ch_btn" id="challenge_button" onClick={this.showActionSheet}>我接受挑战</Button>
                     </WingBlank>
                 </BtmDiv>

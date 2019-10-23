@@ -97,6 +97,22 @@ const TopDiv = styled.div`
             flex: 1;
         }
     }
+    .aaa{
+        background-color: rgb(27, 147, 185);
+        margin-top: .8rem;
+        .am-list{
+            height: 100%;
+            .am-list-body{
+                border-radius: .15rem !important;
+                overflow: hidden;
+                >div{
+                    .am-list-item-middle{
+                        margin-top: 0 !important;
+                    }
+                }
+            }
+        }
+    }
     .title{
         color: white;
         font-size: .2rem;
@@ -186,7 +202,7 @@ const BtmDiv = styled.div`
         font-weight: 400;
         color: rgba(32,123,176,1);
         line-height: .22rem;
-        margin: .41rem 0 .58rem 0;
+        margin:.3rem 0;
     }
     .cus{
         width: 3.20rem;
@@ -196,7 +212,7 @@ const BtmDiv = styled.div`
         font-weight: 400;
         color: rgba(36,36,36,1);
         line-height: .22rem;
-        margin: 0 .28rem;
+        margin: .2rem .28rem;
     }
     .set{
         width: 3.16rem;
@@ -206,6 +222,7 @@ const BtmDiv = styled.div`
         font-weight: 400;
         color: rgba(36,36,36,1);
         line-height: .22rem;
+        margin-top: .2rem;
     }
 `
 

@@ -8,15 +8,22 @@ import tiaozhan from 'assets/images/journey/tiaozhan-weijiesuo@2x.png'
 import mixing from 'assets/images/journey/mixing-weijiesuo@2x.png'
 import pressToEnter from 'assets/images/presstoenter.png'
 
+
+
+import bgImg from 'assets/images/journey/heshui-bj@2x.png'
+import title from 'assets/images/journey/title@2x.png'
+
+
 export default class MysteriousTravel extends Component {
     state={
         imgList:[heshui,zaocan,yundong,tiaozhan,mixing]
     }
     render() {
         return (
+            Object.keys(this.props.list).length!==0&&
             <Body>
-                <Bg>
-                    <Title></Title>
+                <Bg bgImg={bgImg}>
+                    <Title title={title}></Title>
                     <DegreeOfCompletion>
                         <Done>
                             <Word>0%</Word>
@@ -91,5 +98,9 @@ export default class MysteriousTravel extends Component {
                 </Bg>
             </Body>
         )
+    }
+
+    componentDidMount(){
+        console.log(this.props.list)
     }
 }

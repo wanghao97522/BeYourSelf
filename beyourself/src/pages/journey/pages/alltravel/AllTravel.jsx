@@ -5,7 +5,7 @@ import { Container, Title, Travel, TravelItem } from './all_travel'
 
 import goBack from 'assets/images/return@2x.png'
 import trip from 'assets/images/journey/trip@2x.png'
-import yewan from 'assets/images/journey/yewan@2x.png'
+import night from 'assets/images/journey/night@2x.png'
 import healthy from 'assets/images/journey/healthy@2x.png'
 import focus from 'assets/images/journey/focus@2x.png'
 
@@ -20,7 +20,7 @@ export default class AllTravel extends Component {
                 <Travel>
                     <p>当前旅程</p>
                     <NavLink to='/asecrettravel'><TravelItem style={{background:`url(${trip}) no-repeat center top / 100%`}}></TravelItem></NavLink>
-                    <TravelItem style={{background:`url(${yewan}) no-repeat center top / 100%`}}></TravelItem>
+                    <TravelItem style={{background:`url(${night}) no-repeat center top / 100%`}}></TravelItem>
                     <TravelItem style={{background:`url(${focus}) no-repeat center top / 100%`}}></TravelItem>
                     <TravelItem style={{background:`url(${healthy}) no-repeat center top / 100%`}}></TravelItem>
                 </Travel>
