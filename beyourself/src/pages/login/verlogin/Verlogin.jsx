@@ -3,6 +3,8 @@ import {VerLoginContainer} from './StyledVerlogin'
 import LiBack from '../components/back/Back'
 // import Ipt from '../components/ipt/Ipt'
 import LiButton from '../components/button/Button'
+import { Toast} from 'antd-mobile'
+import axios from 'axios'
 
 export default class Verification extends Component {
     constructor(){
@@ -39,7 +41,6 @@ export default class Verification extends Component {
     } else {
       this.setState({
         valueD: value.slice(0, 1),
-        isShow: true
       });
     }
   };
@@ -127,7 +128,6 @@ export default class Verification extends Component {
       handleReget(){
         let count = this.state.count
         const timer = setInterval(() => {
-            console.log(count)
           this.setState({
               getCodeChange: false,
               count: (count--)
@@ -141,6 +141,11 @@ export default class Verification extends Component {
               }
           })
       }, 1000)
+      axios({
+        method: 'post',
+        url: '/api/user/zc/isphone',
+        data: `uTel=${this.props.location.state.phoneNum}`
+      })
       }
       handleIpt(e){
         if(e.target.value.length <= 11){
@@ -150,11 +155,29 @@ export default class Verification extends Component {
         }
       }
       verification(e){
-        var iptValue = this.state.valueA +  this.state.valueB + this.state.valueC + this.state.valueD
-        this.setState({
-          iptVal:iptValue
-        })
-        console.log(iptValue)
-          this.props.history.push('/setpwd')
+        this.iptValue = this.state.valueA +  this.state.valueB + this.state.valueC + this.state.valueD
+        // console.log(iptValue)
+        axios({
+          method: 'post',
+          url: '/api/user/yzm/isif',
+          data: `yanzhengma=${this.iptValue}`
+        }).then((result) => {
+          console.log(result)
+        // let ck = result.headers.set-cookie
+
+          let ck = 'uId=15'
+          let value = ck.split(";")[0].split("=")[1]
+          if(result.data.flag){
+            Toast.info('登陆成功', 1)
+            localStorage.setItem('uId',value)
+            this.props.history.push('/index/profile')
+          }else{
+            this.setState({
+              isShow: true
+            })
+            
+          }
+        }
+        )
         }
 }

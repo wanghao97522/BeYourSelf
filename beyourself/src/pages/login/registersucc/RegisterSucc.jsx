@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {RegisterSuccContainer} from './StyledRegisterSucc'
 import LiButton from '../components/button/Button'
+import { Toast} from 'antd-mobile'
 
 export default class RegisterSucc extends Component {
  render() {
@@ -14,6 +15,7 @@ export default class RegisterSucc extends Component {
     );
   }
   getStart(){
+    Toast.info('注册成功', 1)
     this.props.history.push('/index/profile')
   }
 }
