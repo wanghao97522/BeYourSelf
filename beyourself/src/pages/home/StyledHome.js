@@ -5,6 +5,7 @@ import bgEveryday from 'assets/images/home/bg-everyday@3x.png'
 import bgMorning from 'assets/images/home/bg-morning@3x.png'
 import bgAfternoon from 'assets/images/home/bg-afternoon@3x.png'
 import bgNight from 'assets/images/home/bg-night@3x.png'
+import bgOthers from 'assets/images/home/tuu@3x.png'
 
 const BodyContainer = styled.div`
   height: 100%;
@@ -14,37 +15,13 @@ const BodyContainer = styled.div`
   flex-direction: column;
 `
 
-const AddContainer = styled.div`
-    height: .22rem;
-    width: .22rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    div{
-      background: rgba(252,180,8,1);
-      border-radius: 1.00rem;
-      &.across{
-        height: .02rem;
-        width: .22rem;
-      }
-      &.upright{
-        height: .02rem;
-        width: .22rem;
-        position: absolute;
-        transform: rotate(90deg);
-      }
-    }
-`
-
 const HeadContainer = styled.div`
   height: .44rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 .15rem;
-  align-items: center;
+  padding: .08rem .15rem;
   .head-index{
     width: max-content;
     height: .28rem;
@@ -260,6 +237,15 @@ const HabitContainer = styled.div`
       color:rgba(68,115,247,1);
     }
   }
+  .others{
+    .habits{
+      background-image: url(${bgOthers});
+      background-size: cover;
+    }
+    span{
+      color:rgba(68,115,247,1);
+    }
+  }
 `
 
 const GrayCirclContainer = styled.div`
@@ -279,7 +265,6 @@ const EmptyContainer = styled.div`
 export {
   BodyContainer,
   HeadContainer,
-  AddContainer,
   CubeOneContainer,
   MainContainer,
   CubeTwoContainer,

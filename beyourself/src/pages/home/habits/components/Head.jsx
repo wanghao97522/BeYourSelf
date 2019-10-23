@@ -35,6 +35,7 @@ class Head extends Component {
   }
 
   componentDidMount(){
+    // console.log(this.props)
     let { className, location } = this.props
     if(location.state){
       switch(className){

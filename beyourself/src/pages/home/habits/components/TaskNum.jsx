@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 
-import '../styles/task.css'
-
-import { ActionSheet } from 'antd-mobile';
+import MaskHoc from '../../HOC/MaskHoc'
 
 import {TaskNumContainer} from '../StyledHabits'
 
@@ -12,10 +10,14 @@ class TaskNum extends Component {
     clicked: 'none',
   }
   render() {
-    let { num, taskList, match } = this.props
+    let { num, taskList, location, showActionSheet } = this.props
     let path = {
-      pathname: `${match.path}/addTask`,
-      state: taskList
+      pathname: '/addTask',
+      search: location.search,
+      state: {
+        taskList,
+        hid: location.state
+      }
     }
     return (
       <TaskNumContainer>
@@ -24,39 +26,14 @@ class TaskNum extends Component {
           <NavLink to={path}>
             <i className="add"></i>
           </NavLink>
-            <i className="more" onClick={this.showActionSheet}></i>
+            <i className="more" onClick={()=>showActionSheet({
+              options:['编辑任务列表','编辑提示音和习惯','取消'],
+              path:[`/reEditTask${location.search}`,`/soundhabit${location.search}`]
+            })}></i>
         </p>
         <p className="time">今天 · {new Date().getMonth()+1} 月 {new Date().getDate()} 日</p>
       </TaskNumContainer>
     )
   }
-
-  showActionSheet = () => {
-    const BUTTONS = ['编辑任务列表', '编辑提示音和习惯', '取消'];
-    ActionSheet.showActionSheetWithOptions({
-      options: BUTTONS,
-      cancelButtonIndex: BUTTONS.length - 1,
-      maskClosable: true,
-      'data-seed': 'logId',
-    },
-    (buttonIndex) => {
-      let { history } = this.props
-      this.setState({ clicked: BUTTONS[buttonIndex] },()=>{
-        switch(buttonIndex){
-          case 0:
-            history.push('/reEditTask')
-          break
-          case 1:
-            history.push('/selecttime')
-          break
-          default:
-        }
-      })
-    })
-  }
-  
-  componentWillUnmount(){
-    ActionSheet.close()
-  }
 }
-export default withRouter(TaskNum)
+export default withRouter(MaskHoc(withRouter(TaskNum)))
