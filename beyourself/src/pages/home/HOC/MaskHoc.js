@@ -17,7 +17,8 @@ export default (Comp) => {
     showActionSheet = ({
       options,
       path,
-      fn
+      fn,
+      tid
     }) => {
       const BUTTONS = [options[0], options[1], options[2]];
       ActionSheet.showActionSheetWithOptions({
@@ -36,7 +37,7 @@ export default (Comp) => {
             break
             case 1:
               // 删除任务
-              fn ? fn() : history.push(path[1])
+              fn ? fn(tid) : history.push(path[1])
             break
             default:
           }

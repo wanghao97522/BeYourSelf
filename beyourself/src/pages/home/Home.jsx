@@ -11,6 +11,8 @@ import {
     EmptyContainer 
 } from './StyledHome'
 
+import http from 'utils/httpAxios'
+
 import Habit from './components/Habit'
 
 import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
@@ -19,19 +21,19 @@ export default class Home extends Component {
     state = {
         habitsList: [
             {
-                hid: 0,
-                time: '7:00 上午',
-                habitName: '早晨习惯'
+                hId: 0,
+                hTime: '7:00 上午',
+                hName: '早晨习惯'
             },
             {
-                hid: 1,
-                time: '2:00 下午',
-                habitName: '下午习惯'
+                hId: 1,
+                hTime: '2:00 下午',
+                hName: '下午习惯'
             },
             {
-                hid: 2,
-                time: '6:00 下午',
-                habitName: '黄昏习惯'
+                hId: 2,
+                hTime: '6:00 下午',
+                hName: '黄昏习惯'
             }
         ]
     }
@@ -40,7 +42,6 @@ export default class Home extends Component {
             <BodyContainer>
                 <HeadContainer>
                     <div className="head-index">主页</div>
-                    {/* 跳转到添加新的习惯 */}
                     <NavLink to="/newhabit">
                         <img src={iconAdd} alt=""/>
                     </NavLink>
@@ -81,21 +82,25 @@ export default class Home extends Component {
                             return (
                                 <Habit
                                     habit={value}
-                                    key={index}
+                                    key={value.hId}
                                 ></Habit>
                             )
                         })
                     }
-                    {/* <Habit onClick={()=>this.handleClick()}></Habit>
-                    <Habit className="noon"></Habit>
-                    <Habit className="afternoon"></Habit> */}
                     <EmptyContainer></EmptyContainer>
                 </MainContainer>
             </BodyContainer>
         )
     }
-
-    handleClick(className){
-        
+    
+    async componentDidMount(){
+        // let uid = localStorage.getItem('uid')
+        // let list = await http.http({
+        //     method: 'GET',
+        //     url: `http://10.9.20.181:8084/api/habit/index?uId=${uid}`
+        // }).list
+        // this.setState({
+        //     habitsList: list
+        // })
     }
 }

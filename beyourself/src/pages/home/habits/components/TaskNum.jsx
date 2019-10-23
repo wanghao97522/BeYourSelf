@@ -14,7 +14,10 @@ class TaskNum extends Component {
     let path = {
       pathname: '/addTask',
       search: location.search,
-      state: taskList
+      state: {
+        taskList,
+        hid: location.state
+      }
     }
     return (
       <TaskNumContainer>

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import {OpenMyTBContainer} from './StyledHabits'
 
+import http from 'utils/httpAxios'
+
 import iconHorn from 'assets/images/home/icon-laba@3x.png'
 import iconBack from 'assets/images/home/icon-fanhui@3x.png'
 import iconUp from 'assets/images/home/icon-shanghua@3x.png'
@@ -17,7 +19,19 @@ export default class OpenMyBT extends Component {
   state = {
     opacity: 1,
     paused: true,
-    time: 57,
+    taskList: [
+      {
+        tId: 0,
+        tName: '喝水',
+        tTimespan: 22
+      },
+      {
+        tId: 1,
+        tName: '锻炼',
+        tTimespan: 11
+      }
+    ],
+    orderNum: 0 
   }
   render() {
     return (
@@ -37,7 +51,11 @@ export default class OpenMyBT extends Component {
             alt=""
           />
         </div>
-        <div className="title">项目</div>
+        <div className="title">
+          {
+            this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tName : ''
+          }
+        </div>
         <div className="bottom">
           <div className="up">
             <img src={iconUp} alt=""/>
@@ -52,7 +70,9 @@ export default class OpenMyBT extends Component {
           </div>
           <div className="countdown">
             <p>
-              <span>0m {this.state.time}s</span>
+              <span>
+                0m {this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tTimespan : ''}s
+              </span>
               {
                 this.state.paused ? (
                   <img
@@ -76,12 +96,21 @@ export default class OpenMyBT extends Component {
             </p>
           </div>
           <div className="success-container">
-            <div className="pass-container common">
+            <div
+              className="pass-container common"
+              onClick={()=>this.handlePass()}
+            >
               <img src={iconPass} alt=""/>
               <span>跳过</span>
             </div>
-            <div className="success"></div>
-            <div className="sleep-container common">
+            <div
+              className="success"
+              onClick={()=>this.handleSuccess(this.state.taskList[this.state.orderNum].tId)}
+            ></div>
+            <div
+              className="sleep-container common"
+              onClick={()=>this.handlePass()}
+            >
               <img src={iconSleep} alt=""/>
               <span>打盹</span>
             </div>
@@ -137,7 +166,30 @@ export default class OpenMyBT extends Component {
     }
   }
 
-  componentDidMount(){
+  handlePass(){
+    this.setState({
+      orderNum: this.state.orderNum + 1
+    },()=>{
+      if(this.state.orderNum === this.state.taskList.length){
+        this.props.history.goBack()
+      }
+    })
+  }
+
+  handleSuccess(tid){
+    http.http({
+      method: 'post',
+      url: 'http://10.9.20.181:8084/api/habit/update/taskState',
+      data: {
+        tId: tid
+      }
+    })
+
+    this.props.history.goBack()
+  }
+
+  async componentDidMount(){
+    let { location } = this.props
     timer = setInterval(()=>{
       this.setState({
         time: this.state.time - 1
@@ -147,6 +199,18 @@ export default class OpenMyBT extends Component {
         }
       })
     },1000)
+
+    // let list = await http.http({
+    //   method: 'post',
+    //   url: 'http://10.9.20.181:8084/api/habit/task',
+    //   data: {
+    //     uId: localStorage.getItem('uId'),
+    //     hId: location.search.split('=')[2]
+    //   }
+    // }).list
+    // this.setState({
+    //   taskList: list
+    // })
   }
 
   componentWillUnmount(){

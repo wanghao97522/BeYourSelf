@@ -6,4 +6,12 @@ export default {
         return result
       })
   }
+  // post: (url, ...params) => {
+  //   return fetch(url, {
+  //     method: 'POST',
+  //     body: JSON.stringify(...params)
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => result)
+  // }
 }
