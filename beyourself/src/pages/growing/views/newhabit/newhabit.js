@@ -22,7 +22,7 @@ const NewSoundstyContainer = styled.div`
                 }
                 .am-navbar-right{
                     font-size:0.18rem;
-                    a{
+                    span{
                         color:#060505;
                         opacity:0.49;
                     }
@@ -84,7 +84,7 @@ const Top = border1px({
         }
         input{
             margin-left:0.23rem;
-            color:rgba(6,5,5,0.10);
+            /* color:rgba(6,5,5,0.10); */
             border:0;
         }
 `})

@@ -23,6 +23,8 @@ import Letter from './growing/views/letter/LetterContainer';
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
 import SoundTip from './growing/views/soundtip/SoundTipContainer';
+import TaskTime from './growing/views/tasktime/TaskTimeContianer';
+import Selecttime from './growing/views/selecttime/SelectTimeContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
@@ -68,7 +70,7 @@ export default class MyRouter extends Component {
                     <Route path="/soundhabit" component={SoundHabit}></Route>
                     <Route path="/soundtip" component={SoundTip}></Route>
                     <Route path='/index' component={Index} ></Route>
-
+                    <Route path='/selecttime' component={Selecttime}></Route>
                     {/* profile的路由 */}
                     <Route path='/setting' component={Setting} ></Route>
                     <Route path='/aboutus' component={AboutUs}></Route>
@@ -86,6 +88,9 @@ export default class MyRouter extends Component {
                     <Route path='/verification' component={Verification}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
+                    {/* <Route path='/findpwd' component={FindPwd}></Route> */}
+                    {/* <Route path='/code' component={FindPwd}></Route> */}
+                    
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>

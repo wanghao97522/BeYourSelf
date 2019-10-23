@@ -15,7 +15,6 @@ const LetterstyContainer=styled.div`
         padding:0.11rem 0.16rem 0.22rem 0.16rem;
         justify-content:space-between;
         background:url(${timg});
-        background:url(${timg});
         background-size:100% 2.16rem;
         background-position:center center
         .bgtop{

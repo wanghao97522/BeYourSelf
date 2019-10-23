@@ -4,12 +4,10 @@ import TaskTimeUI from './TaskTimeUI';
 class TaskTimeContainer extends Component{
     render(){
         return (
-            <TaskTimeUI datalist={this.genTaskData()} onChange={this.changeValue}></TaskTimeUI>
+            <TaskTimeUI datalist={this.genTaskData()}></TaskTimeUI>
         )
     }
-    changeValue=(value)=>{
-        this.value=value;
-    }
+   
     genTaskData=()=>{
         let hourlist=[];
         let minutelist=[];
