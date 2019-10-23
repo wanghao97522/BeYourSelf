@@ -145,7 +145,7 @@ export default class AddTask extends Component {
     //   method: 'POST',
     //   url: 'http://10.9.20.181:8084/api/habit/add/task',
     //   data: {
-    //     uId: localStorage.get('uid'),
+    //     uId: localStorage.get('uId'),
     //     hId: data.hId,
     //     tName: data.tName,
     //     tDate: data.tDate,
@@ -200,7 +200,7 @@ export default class AddTask extends Component {
     //   method: 'POST',
     //   url: 'http://10.9.20.181:8084/api/habit/task',
     //   data: {
-    //       uId: localStorage.getItem('uid'),
+    //       uId: localStorage.getItem('uId'),
     //       hId: location.state.hid
     //   }
     // })

@@ -18,12 +18,13 @@ let timer = null
 export default class OpenMyBT extends Component {
   state = {
     opacity: 1,
+    time: 0,
     paused: true,
     taskList: [
       {
         tId: 0,
         tName: '喝水',
-        tTimespan: 22
+        tTimespan: 220
       },
       {
         tId: 1,
@@ -34,6 +35,7 @@ export default class OpenMyBT extends Component {
     orderNum: 0 
   }
   render() {
+    
     return (
       <OpenMyTBContainer>
         <div className="head">
@@ -71,7 +73,11 @@ export default class OpenMyBT extends Component {
           <div className="countdown">
             <p>
               <span>
-                0m {this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tTimespan : ''}s
+                {
+                  this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? parseInt(this.state.time/60) : 0 ) : ''
+                } m {
+                      this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? this.state.time % 60 : this.state.time) : ''
+                    } s
               </span>
               {
                 this.state.paused ? (
@@ -170,6 +176,9 @@ export default class OpenMyBT extends Component {
     this.setState({
       orderNum: this.state.orderNum + 1
     },()=>{
+      this.setState({
+        time: this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tTimespan : ''
+      })
       if(this.state.orderNum === this.state.taskList.length){
         this.props.history.goBack()
       }
@@ -190,6 +199,9 @@ export default class OpenMyBT extends Component {
 
   async componentDidMount(){
     let { location } = this.props
+    this.setState({
+      time: this.state.taskList[this.state.orderNum].tTimespan
+    })
     timer = setInterval(()=>{
       this.setState({
         time: this.state.time - 1

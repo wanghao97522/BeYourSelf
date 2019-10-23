@@ -55,7 +55,7 @@ export default class Morning extends Component {
   //     method: 'POST',
   //     url: 'http://10.9.20.181:8084/api/habit/task',
   //     data: {
-  //         uId: localStorage.getItem('uid'),
+  //         uId: localStorage.getItem('uId'),
   //         hId: location.state
   //     }
   //   }).list
