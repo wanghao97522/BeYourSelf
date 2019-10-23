@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 
 import {HelpContainer,HeaderContainer,FootContainer,LiContainer} from './styledHelp'
 
+
+import { Toast } from 'antd-mobile';
+
 import shotBG from 'assets/images/profile/beijingtupian@2x.png'
 
+
 class Help extends Component {
+
     state={
-        nowBG:'shotBG'
+        nowBG:'shotBG',
+        showImg:shotBG
     }
     render() {
         return (
@@ -30,15 +36,15 @@ class Help extends Component {
                     </ul>
                     <div className='screenshot'>
                         <div>截图</div>
-                        <div className="imgBox">
-                            <img src={shotBG} alt=""/>
+                        <div className="imgBox" onClick={()=>this.handleClick()}>
+                            <img src={this.state.showImg} alt=""/>
                         </div>
                     </div>
                     <div className="shotTip">
                         <p>如果您有相关的屏幕截图,请上传给我们吧!</p>
                         <p>它们对我们解决问题是非常有帮助的。</p>
                     </div>
-                    <div className="sendBtn">
+                    <div className="sendBtn" onClick={this.sendScreenShot}>
                         <div>上传截图</div>
                     </div>
                 </FootContainer>
@@ -46,9 +52,32 @@ class Help extends Component {
         );
     }
 
+    
     back(){
         this.props.history.goBack()
     }
+
+    handleClick(){
+        let clickThis = this
+        window.wx.ready(function(){
+            window.wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    console.log(localIds);
+                    clickThis.setState({
+                        showImg:localIds
+                    })
+                },
+            });
+        })
+    }
+    sendScreenShot(){
+        Toast.success('上传成功', 1);
+    }
+    
 }
 
 export default Help;

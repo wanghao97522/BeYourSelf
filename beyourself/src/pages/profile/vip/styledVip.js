@@ -53,7 +53,7 @@ const VipContainer = styled.div`
             left: .45rem;
             font-size:.14rem;
             line-height:.2rem;
-            color:#fff;
+            color:${(props)=>props.isVip===1?'gold':'white'};
         }
         .overtime{
             position: absolute;
@@ -62,6 +62,7 @@ const VipContainer = styled.div`
             font-size:.12rem;
             line-height: .17rem;
             color:#D4BD85;
+            display:${(props)=>props.isVip===1?'block':'none'}
         }
     }
     >h3{
@@ -145,6 +146,77 @@ const VipContainer = styled.div`
             width:100%;
             text-align:center;
             border-radius:.14rem;
+        }
+    }
+    .mask{
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        width:100%;
+        display:${(props)=>props.showMask?'block':'none'};
+        .blackBG{
+            height: 100%;
+            background:rgba(0,0,0,0.3);
+        }
+        .codeBG{
+            position: absolute;
+            margin:auto;
+            height: 3rem;
+            width:3rem;
+            background:#fff;
+            top:0;
+            right: 0;
+            left: 0;
+            bottom:0;
+            display:${(props)=>props.isShowCodeBG?'block':'none'};
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+        .content{
+            width:3.05rem;
+            margin-left:.35rem;
+            position: absolute;
+            top:0;
+            left: 0;
+            bottom:0;
+            right: 0;
+            margin:auto;
+            height: 1.5rem;
+            background:#fff;
+            border-radius:.14rem;
+            display:${(props)=>props.payOk?'block':'none'};
+            .imgBox{
+                text-align:center;
+                img{
+                    width:20%;
+                    height: 20%;
+                    margin-top:.1rem;
+                }
+                p{
+                    margin-top:.1rem;
+                }
+            }
+            .submit{
+                margin-top:.2rem;
+                display:flex;
+                justify-content:space-between;
+                padding:0 .5rem;
+                span:first-child{
+                    color:#FCB408;
+                    margin-right:.2rem;
+                    font-size:.16rem;
+                    font-weight:500;
+                }
+                span:last-child{
+                    color:#FCB408;
+                    margin-left:.2rem;
+                    font-size:.16rem;
+                    font-weight:500;
+                }
+            }
         }
     }
 `

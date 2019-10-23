@@ -12,6 +12,8 @@ import personal from 'assets/images/profile/vip/Grxoup@2x.png'
 import wePay from 'assets/images/profile/vip/weixinzhifu-3@2x.png'
 import AlipayBG from 'assets/images/profile/vip/zhifubaozhifu copy@2x.png'
 
+import httpPOST from 'utils/httpgg'
+
 
 const colorStyle = {
     display: 'inline-block',
@@ -19,7 +21,7 @@ const colorStyle = {
     width: '16px',
     height: '16px',
     marginRight: '10px',
-
+    isShowMask:false,
   };
   
 
@@ -49,8 +51,6 @@ const colors = [
   ];
   
 
-
-
 class Vip extends Component {
     state={
         now:1,
@@ -60,13 +60,19 @@ class Vip extends Component {
         cols: 1,
         visible: false,
         nowWay:wePay,
-        nowTxt:'微信支付'
+        nowTxt:'微信支付',
+        userName:'会员名称',
+        payOk:false,
+        codeUrl:'',
+        isShowCodeBG:false,
+        VIPdata:'',
+        isVip:1
     }
 
 
     render() {
         return (
-            <VipContainer>
+            <VipContainer  showMask={this.state.showMask} payOk={this.state.payOk} isShowCodeBG={this.state.isShowCodeBG} isVip={this.state.isVip}>
                 <header>
                     <div className='back' onClick={()=>this.back()}>
                     </div>
@@ -77,8 +83,8 @@ class Vip extends Component {
                     <div className="personal">
                         <img src={personal} alt=""/>
                     </div>
-                    <span className='username'>会员账号名称</span>
-                    <span className="overtime">会员于几月几日到期</span>
+                    <span className='username'>{this.state.userName}</span>
+                    <span className="overtime">会员于几月几日到期{this.state.VIPdata}</span>
                 </div>
                 <h3>会员套餐</h3>
                 <div className="payVip">
@@ -104,8 +110,24 @@ class Vip extends Component {
                     <div className="right_jt"></div>
                 </div>
                 <div className="openVip">
-                    <div>开通{this.state.now}个月会员·￥{this.state.money}.00</div>
+                    <div onClick={()=>this.payForVIP()}>开通{this.state.now}个月会员·￥{this.state.money}.00</div>
                 </div>
+                <div className="mask">
+                    <div className="blackBG" onClick={()=>this.changIsShow()}></div>
+                    <div className="codeBG">
+                        <img src={this.state.codeUrl} alt=""/>
+                    </div>
+                    <div className='content'>
+                        <div className='imgBox'>
+                            <img src={wePay} alt=""/>
+                            <p>支付成功</p>
+                        </div>
+                        <div className='submit'>
+                            <span onClick={()=>this.changIsShow()}>取消</span>
+                            <span onClick={()=>this.changIsShow()}>确定</span>
+                        </div>
+                    </div>
+                </div>  
                 {/* <Mask  nowState={this.state.showMask} onClick={()=>this.changePayWay()}>
                 </Mask> */}
             </VipContainer>
@@ -123,7 +145,8 @@ class Vip extends Component {
     }
     changePayWay(){
         this.setState((prev)=>({
-            showMask:!prev.showMask
+            showMask:!prev.showMask,
+            payOk:true,
         }))
     }
     changTxt = (props) => {
@@ -133,6 +156,42 @@ class Vip extends Component {
         });
       }
     
+      payForVIP(){
+        this.setState((prev)=>({
+            showMask:true,
+            isShowCodeBG:true
+        }))
+        setTimeout(()=>{
+            this.setState({
+                isShowCodeBG:false,
+                payOk:true
+            })
+        },5000)
+        fetch('https://inuyasha.top/wapay',{
+            method:'POST'
+        })
+            .then(response=>response.json())
+            .then(res=>{
+                // console.log(res);
+                this.setState({
+                    codeUrl:res.qrcodeUrl
+                })
+            })
+        let result = httpPOST.postData({
+            url:'',
+            data:{
+                uId:'',
+                meId:''
+            }
+        })
+      }
+
+      changIsShow(){
+        this.setState((prev)=>({
+            showMask:false,
+            payOk:false
+        }))
+    }
 
 }
 
