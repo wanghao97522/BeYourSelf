@@ -159,17 +159,18 @@ export default class Verification extends Component {
         // console.log(iptValue)
         axios({
           method: 'post',
-          url: '/api/user/yzm/isif',
+          url: '/api/user/yzm/else',
           data: `yanzhengma=${this.iptValue}`
         }).then((result) => {
           console.log(result)
         // let ck = result.headers.set-cookie
+          let uid = result.data.obj.uId
 
-          let ck = 'uId=15'
-          let value = ck.split(";")[0].split("=")[1]
+          // let ck = 'uId=15'
+          // let value = ck.split(";")[0].split("=")[1]
           if(result.data.flag){
             Toast.info('登陆成功', 1)
-            localStorage.setItem('uId',value)
+            localStorage.setItem('uId',uid)
             this.props.history.push('/index/profile')
           }else{
             this.setState({

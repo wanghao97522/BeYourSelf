@@ -109,6 +109,9 @@ export default class Verification extends Component {
                 data: `uPassword=${this.state.iptValone}`
               }).then((result) => {
                 console.log(result)
+                let uid = result.data.obj.uId
+                console.log(uid)
+                localStorage.setItem('uId',uid)
                   this.props.history.push('/registersucc')
               }
               )

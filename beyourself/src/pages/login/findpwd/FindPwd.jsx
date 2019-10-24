@@ -51,7 +51,7 @@ export default class Register extends Component {
       }).then((result) => {
         console.log(result)
         if(result.data.flag){
-          this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal,isReg:"isReg"}})
+          this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal,isReg:"isfind"}})
         }else{
           console.log(result)
         }

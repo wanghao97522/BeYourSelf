@@ -40,6 +40,7 @@ export default class Ver extends Component {
     );
   }
   verification(e){
+    axios.defaults.withCredentials=true
     let value =this.state.iptVal
     // let pwd = this.state.iptPwd
     let reg = /^1[3|4|5|8]\d{9}$/
@@ -52,18 +53,21 @@ export default class Ver extends Component {
       axios({
         // withCredentials:true,
         method: 'post',
-        // url: '/api/user/zc/login',
-        url:'/api/users/signin',
+        url: '/api/user/zc/login',
+        // url:'/api/users/signin',
         data: `uTel=${this.state.iptVal}&uPassword=${this.state.iptPwd}`
       }).then((result) => {
         console.log(result)
+        // console.log(result.headers['connection'])
         // let ck = result.headers.set-cookie
-        let ck = 'uId=15'
-        let value = ck.split(";")[0].split("=")[1]
+        // // let coo = document.cookie
+        // let ck = 'uId=15'
+        // let value = ck.split(";")[0].split("=")[1]
+        let uid = result.data.obj.uId
         // document.cookie = 'uId=' + cok
         if(result.data.flag){
           Toast.info('登陆成功', 1)
-          localStorage.setItem('uId',value)
+          localStorage.setItem('uId',uid)
           this.props.history.push('/index/profile')
         }else{
           this.setState({
@@ -75,6 +79,7 @@ export default class Ver extends Component {
       }
       )
     }
+    // console.log(document.cookie)
   }
   gofind(){
     this.props.history.push('/findpwd')

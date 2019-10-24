@@ -50,7 +50,7 @@ class Register extends Component {
   verification(e){
     // console.log(1)
     let value =this.state.iptVal
-    let reg = /^1[3|4|5|8]\d{9}$/
+    let reg = /^1[3|4|5|7|8]\d{9}$/
     // console.log(value)
     if(!reg.test(value)){
       this.setState({
