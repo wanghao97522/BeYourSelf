@@ -214,6 +214,7 @@ class PersonalData extends Component {
         let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
 
         let data = result.data.obj
+        console.log(data);
 
         this.setState({
             netName:data.mNickname
@@ -262,6 +263,7 @@ class PersonalData extends Component {
     }
 
     async changeDate(date){
+        console.log(1111);
         const uId = localStorage.getItem('uId')
         var birthday = this.format(date, 'yyyy.MM.dd');
         // this.setState({

@@ -5,6 +5,14 @@ import { Toast} from 'antd-mobile'
 import axios from 'axios'
 
 export default class RegisterSucc extends Component {
+  componentDidMount() {
+    let uid = localStorage.getItem('uId')
+    axios({
+      method: 'post',
+      url: '/api/insertall',
+      data: `uId=${uid}`
+    })
+  }
  render() {
     return (
       <RegisterSuccContainer>

@@ -7,7 +7,7 @@ import http from '../../../../utils/http1';
 export default withRouter((props)=>{
     const [value,setvalue]=useState(["0","小时","3","分钟"])
 
-    const query = this.props.match.location.search 
+    const query = props.location.search 
     const arr = query.split('=');
     let tId=arr[arr.length-1];
     async function setTime(){

@@ -78,7 +78,7 @@ export default class MyRouter extends Component {
                     <Route path="/soundtip" component={SoundTip}></Route>
                     <Route path='/index' component={Index} ></Route>
                     <Route path='/selecttime' component={Selecttime}></Route>
-                    <Route path='/tasktime' component={TaskTime}></Route>
+                    <Route path="/tasktime" component={TaskTime}></Route>
                     {/* profile的路由 */}
                     <Route path='/setting' component={Setting} ></Route>
                     <Route path='/aboutus' component={AboutUs}></Route>
