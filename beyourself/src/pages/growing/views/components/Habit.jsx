@@ -1,24 +1,25 @@
 import React,{Component} from 'react';
+import qs from 'querystring';
 import {HabitContainer} from './habit';
-import http from '../../../../utils/http';
+import http from '../../../../utils/http1';
 class Habit extends Component{
     state={
         showlist:[
-            {
-            "hId": 2,
-            "hName": "test2",
-            "tasksList": [
-            {
-            "tId": 5,
-            "tName": "任务测试",
-            "tStatus": 1,
-            },
-            {
-                "tId": 6,
-                "tName": "任务测试",
-                "tStatus": 0,
-                },
-            ],}
+            // {
+            // "hId": 2,
+            // "hName": "test2",
+            // "list": [
+            // {
+            // "tId": 5,
+            // "tName": "任务测试",
+            // "tStatus": 1,
+            // },
+            // {
+            //     "tId": 6,
+            //     "tName": "任务测试",
+            //     "tStatus": 0,
+            //     },
+            // ],}
             ]
             }
     render(){
@@ -29,14 +30,14 @@ class Habit extends Component{
                 <span></span>
                 {this.state.showlist.map((value)=>{
                     return (
-                        <div  key={value.hId}>
+                        <div  key={value.habit.hId}>
                         <div className="circlewrapper">
                             <div className="circle"></div>
-                            <div className="text">{value.hName}</div>
+                            <div className="text">{value.habit.hName}</div>
                         </div>
                         <span></span>
                         {
-                            value.tasksList.map((item)=>{
+                            value.list.map((item)=>{
                                 return (
                                     <div className="exact" key={item.tId}>
                                         <div className="circlewrapper">
@@ -56,12 +57,19 @@ class Habit extends Component{
             </HabitContainer>
         )
     }
-    // async componentDidMount(){
-    //     let result=await http.get({url:`http://10.9.20.181:8084/api/habit/index?uId=${13}`});
-    //     let list=result.list;
-    //     this.setState({
-    //         showlist:list
-    //     })
-    // }
+    async componentDidMount(){
+        let result=await http.post({
+            url:'/api/habit/time1',
+            method:"POST",
+            data:qs.stringify({
+                // uId:1,
+                uId:localStorage.getItem('uId')
+            })
+        })
+        let list=result.list;
+        this.setState({
+            showlist:list
+        })
+    }
 }
 export default Habit

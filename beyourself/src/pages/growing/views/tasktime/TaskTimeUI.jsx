@@ -6,14 +6,17 @@ import querystring from 'querystring';
 import http from '../../../../utils/http1';
 export default withRouter((props)=>{
     const [value,setvalue]=useState(["0","小时","3","分钟"])
-    // let hId=props.location.query.hid;
+    const query = this.props.match.location.search 
+    // const query='http://localhost:3000/tasktime?time=noon&hid=1';
+    const arr = query.split('=');
+    let tId=arr[arr.length-1];
     async function setTime(){
         let data={
-            // hId,
+            tId,
             tTimespan:value[0]*60*60+value[2]*60
         }
         let result =await http.post({
-            url:'http://10.9.20.181:8084/api/habit/update/tasktime',
+            url:'/api/habit/update/tasktime',
             method:'POST',
             data:querystring.stringify(data)
         })

@@ -12,7 +12,7 @@ export default (props)=>{
     >通知栏提示音</NavBar>
                 <OutWrapper>
                       <List>
-                      {["静音","该起床了","简单哔一声"].map(value => (
+                      {["aaa","Bruno","Freedom","Lawrence","night"].map(value => (
                         <RadioItem key={value} checked={value === props.sound} onChange={()=>{props.onValue(value)}}>
                           {value}
                         </RadioItem>

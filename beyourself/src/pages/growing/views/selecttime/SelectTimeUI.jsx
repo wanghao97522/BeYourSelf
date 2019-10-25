@@ -9,9 +9,11 @@ export default withRouter(
         const [value,setvalue] = useState(now);
         const [selectedweek,setselectedweek]=useState([]);
         function handeltimechange(data){
+            console.log(data);
             setvalue(data);
             let hour=data.getHours();
             let minute =data.getMinutes();
+            console.log(hour,minute);
             let dataobj={
                 hour,
                 minute
