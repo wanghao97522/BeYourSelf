@@ -3,13 +3,12 @@ import {withRouter} from 'react-router-dom';
 import { DatePickerView} from 'antd-mobile';
 import enUs from 'antd-mobile/lib/date-picker-view/locale/en_US';
 import {SelectTimestyContainer,Title,TimeBox} from './selecttime';
-const now = new Date("2015-03-19 06:06");
 export default withRouter(
     (props)=>{
+        const now = new Date("2015-03-19 06:06");
         const [value,setvalue] = useState(now);
         const [selectedweek,setselectedweek]=useState([]);
         function handeltimechange(data){
-            console.log(data);
             setvalue(data);
             let hour=data.getHours();
             let minute =data.getMinutes();
