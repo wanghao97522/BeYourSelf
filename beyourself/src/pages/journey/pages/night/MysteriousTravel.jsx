@@ -107,7 +107,6 @@ export default class MysteriousTravel extends Component {
         }).then(async (res) => {
             console.log(res.data.list[0].rImgmax);
             await this.setState({
-                // rImgmax: res.data.list[0].rImgmax,
                 rB: res.data.list[0].rB
             })
         })
