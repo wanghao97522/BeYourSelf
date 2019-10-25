@@ -180,6 +180,7 @@ class Vip extends Component {
             showMask:true,
             isShowCodeBG:true
         }))
+
         setTimeout(()=>{
             this.setState({
                 isShowCodeBG:false,
@@ -187,6 +188,18 @@ class Vip extends Component {
             })
         },5000)
         
+        fetch('https://inuyasha.top/wapay',{
+            method:'POST'
+        })
+            .then(response=>response.json())
+            .then(res=>{
+                console.log(res);
+                this.setState({
+                    codeUrl:res.qrcodeUrl
+                })
+            })
+
+
         let meId = 1 
 
         if(this.state.now===1){
@@ -197,7 +210,6 @@ class Vip extends Component {
             meId = 3-0
         }
 
-        console.log(meId);
         let resultPost = await http.postData({
             url:'/api/mine/updateIsmember',
             data:querystring.stringify({
@@ -212,7 +224,6 @@ class Vip extends Component {
         })
         let data = resultGet.data.obj
 
-        console.log(data);
         this.setState({
             VIPdata:data.mMedate?data.mMedate:'',
             isVip:data.mIsmember,
@@ -221,16 +232,7 @@ class Vip extends Component {
         })
 
 
-        fetch('https://inuyasha.top/wapay',{
-            method:'POST'
-        })
-            .then(response=>response.json())
-            .then(res=>{
-                // console.log(res);
-                this.setState({
-                    codeUrl:res.qrcodeUrl
-                })
-            })
+        
     }
 
     changIsShow(){
