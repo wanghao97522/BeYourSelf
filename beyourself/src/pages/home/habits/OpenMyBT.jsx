@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-
 import {OpenMyTBContainer} from './StyledHabits'
-
 import http from 'utils/httpAxios'
-
 import iconHorn from 'assets/images/home/icon-laba@3x.png'
 import iconBack from 'assets/images/home/icon-fanhui@3x.png'
 import iconUp from 'assets/images/home/icon-shanghua@3x.png'
@@ -196,8 +193,7 @@ export default class OpenMyBT extends Component {
       method: 'post',
       url: '/api/habit/task',
       data: {
-        // uId: localStorage.getItem('uId'),
-        uId: 1,
+        uId: localStorage.getItem('uId'),
         hId: location.search.split('=')[2]
       }
     })
@@ -224,8 +220,7 @@ export default class OpenMyBT extends Component {
     //音乐
     let habitsList = await http.http({
       method: 'get',
-      // url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
-      url: '/api/habit/index?uId=1'
+      url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
     })
     
     let task = habitsList.list.filter((value)=>{

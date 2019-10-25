@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
 import { HeadContainer } from '../StyledHabits'
 import http from 'utils/httpAxios'
 
@@ -42,8 +41,7 @@ class Head extends Component {
     let hid = ~~this.props.location.search.split('=')[2]
     let list = await http.http({
       method: 'GET',
-      // url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
-      url: '/api/habit/index?uId=1'
+      url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
     })
     
     let task = list.list.filter((value)=>{

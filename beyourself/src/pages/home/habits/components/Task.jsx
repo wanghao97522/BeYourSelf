@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-
 import {TaskContainer, EmptyTaskContainer} from '../StyledHabits'
-
 import iconFalse from 'assets/images/home/icon-dakaweichenggong@3x.png'
 import iconTrue from 'assets/images/home/icon-daqiachenggong@3x.png'
-
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 import iconVe from 'assets/images/home/icon-weishengsu@3x.png'
-
 export default class Task extends Component {
   
   render() {

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-
 import MaskHoc from '../../HOC/MaskHoc'
-
 import {TaskNumContainer} from '../StyledHabits'
 
 class TaskNum extends Component {

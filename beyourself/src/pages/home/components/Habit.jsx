@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-
 import {HabitContainer} from '../StyledHome'
-
 import iconMorning from 'assets/images/home/icon-zaoshang@3x.png'
 import iconNoon from 'assets/images/home/icon-shandian@3x.png'
 import iconAfernoon from 'assets/images/home/icon-huanghun@3x.png'

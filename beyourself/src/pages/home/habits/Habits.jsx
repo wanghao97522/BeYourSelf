@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-
 import Head from './components/Head'
 import TaskNum from './components/TaskNum'
 import OpenBT from './components/OpenBT'
 import Task from './components/Task'
-
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
-
 import { BodyContainer } from './StyledHabits'
-
 import http from 'utils/httpAxios'
 
 export default class Morning extends Component {
@@ -55,8 +51,7 @@ export default class Morning extends Component {
       method: 'POST',
       url: '/api/habit/task',
       data: {
-          // uId: localStorage.getItem('uId'),
-          uId: 1,
+          uId: localStorage.getItem('uId'),
           hId: location.state
       }
     })

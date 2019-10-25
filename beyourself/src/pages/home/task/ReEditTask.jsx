@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
-
 import { BodyContainer, MainContainer, BorderTaskItemContainer} from './StyledTask'
-
 import http from 'utils/httpAxios'
-
 import MaskHoc from '../HOC/MaskHoc'
-
 import iconMove from 'assets/images/home/icon-list@3x.png'
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 
@@ -75,8 +71,7 @@ class ReEditTask extends Component {
       method: 'post',
       url: '/api/habit/task',
       data: {
-        // uId: localStorage.getItem('uId'),
-        uId: 1,
+        uId: localStorage.getItem('uId'),
         hId: this.props.location.search.split('=')[2]
       }
     })

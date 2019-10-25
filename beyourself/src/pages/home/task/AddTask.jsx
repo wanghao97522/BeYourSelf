@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-
 import { BodyContainer, MainContainer, BorderSearchContainer, TaskListContainer } from './StyledTask'
 import http from 'utils/httpAxios'
-
 import iconSearch from 'assets/images/home/icon-sousuo@3x.png'
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 import iconVe from 'assets/images/home/icon-weishengsu@3x.png'
@@ -110,8 +108,7 @@ export default class AddTask extends Component {
       method: 'POST',
       url: '/api/habit/add/task',
       data: {
-        // uId: localStorage.getItem('uId'),
-        uId: 1,
+        uId: localStorage.getItem('uId'),
         hId: data.hId,
         tName: data.tName,
         tDate: data.tDate,
@@ -166,8 +163,7 @@ export default class AddTask extends Component {
       method: 'POST',
       url: '/api/habit/add/taskall',
       data: {
-          // uId: localStorage.getItem('uId'),
-          uId: 1,
+          uId: localStorage.getItem('uId'),
           hId: location.state.hid
       }
     })
