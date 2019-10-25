@@ -82,7 +82,7 @@ export default withRouter((props) => {
                         mode="light"
                         leftContent="取消"
                         rightContent={<span onClick={()=>{sendnewhabit()}}>完成</span>}
-                        onLeftClick={()=>{props.history.goBack()}}
+                        onLeftClick={()=>{props.history.push('/index/home')}}
                     >新的习惯</NavBar>
                     <Habittip img={shedin} title={"习惯设定"}></Habittip>
                     <div className="habitname">
