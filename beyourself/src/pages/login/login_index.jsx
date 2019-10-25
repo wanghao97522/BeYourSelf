@@ -15,7 +15,7 @@ export default class login_index extends Component {
       <LiContariner>
           <LiBack></LiBack>
           <TitleContainer>
-              <p>从今天开始，成为更好的自己!{this.state.count}</p>
+              <p>从今天开始，成为更好的自己!</p>
               <p>登录后解锁更多流程</p>
           </TitleContainer>
           <LiButton innertext="登录" onClick={this.nextLogin.bind(this)}></LiButton>
