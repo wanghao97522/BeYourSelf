@@ -49,11 +49,14 @@ export default class AddTaskItem extends Component {
 
   handleAdd(){
     http.http({
-      method: 'POST',
-      url: '/api/habit/add/task2',
-      data: {
-        tName: this.state.iptValue
-      }
+      method: 'get',
+      url: `/api/habit/add/task2?tName=${this.state.iptValue}`,
+        // data: {
+        //   tName: this.state.iptValue
+        // }
+    }).then((res)=>{
+      console.log(res);
+      
     })
 
     this.props.history.goBack()

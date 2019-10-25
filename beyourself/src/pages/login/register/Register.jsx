@@ -15,7 +15,6 @@ export default class Register extends Component {
     }
   }
  componentDidMount(){
-   console.log(this)
     // let result = await http.get({url:'/operation'})
     // console.log(result)
     // axios.get('/operation/mobile/ajax/getIndexSquare?currPage=2')

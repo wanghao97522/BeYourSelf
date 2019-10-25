@@ -97,11 +97,13 @@ export default class Profile extends Component {
         const uId = localStorage.getItem('uId')
         let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let perc = await http.getDATA({url:`/api/journey/get_all_travel?uId=${uId}`})
-
+        let percent = perc.list?perc.list[0].rB:0
         let imgUrl = result.data.obj.mImg
+        let userName = result.data.obj.userName
         this.setState({
             userPhoto:imgUrl,
-            perc:perc.list[0].rB
+            perc:percent,
+            userName,
         })
     }
 

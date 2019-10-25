@@ -123,6 +123,28 @@ const PersonalDataContainer = styled.div`
                     background:url(${birthBG}) no-repeat center;
                     background-size:100% 100%;
                 }
+                .txt{
+                    margin-left:.1rem;
+                    flex:1;
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    padding-right:.1rem;
+                    div{
+                        width:50%;
+                        height:.2rem;
+                        h4{
+                            height:.2rem;
+                            width:1.5rem;
+                            font-size:.14rem;
+                            line-height:.17rem;
+                            color:#999;
+                            font-weight:normal;
+                            opacity:1;
+                            display:block
+                        }
+                    }
+                }
             }
         }
     }
