@@ -104,8 +104,8 @@ export default class MysteriousTravel extends Component {
 
     
     componentDidMount(){
-        const uid = 1
-        // const uid = localStorage.getItem('uId')
+        // const uid = 1
+        const uid = localStorage.getItem('uId')
         axios({
             method: 'get',
             url: `/api/journey/get_all_travel?uId=${uid}`

@@ -6,7 +6,7 @@ import {SelectTimestyContainer,Title,TimeBox} from './selecttime';
 export default withRouter(
     (props)=>{
         const now = new Date("2015-03-19 06:06");
-        const [value,setvalue] = useState(now);
+        const [value,setvalue] = useState(null);
         const [selectedweek,setselectedweek]=useState([]);
         function handeltimechange(data){
             setvalue(data);

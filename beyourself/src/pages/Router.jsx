@@ -99,8 +99,8 @@ export default class MyRouter extends Component {
                     <Route path='/findpwd' component={FindPwd}></Route>
 
                     
-                    {/* <Redirect from='/' exact to='/loginindex'></Redirect> */}
-                    <Redirect from='/' exact to='/index/home'></Redirect>
+                    <Redirect from='/' exact to='/loginindex'></Redirect>
+                    {/* <Redirect from='/' exact to='/index/home'></Redirect> */}
                     <Route component={Page404} ></Route> 
                 </Switch>
             </>

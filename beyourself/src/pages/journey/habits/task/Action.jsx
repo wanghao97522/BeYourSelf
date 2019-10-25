@@ -62,11 +62,12 @@ export default class Action extends Component {
         this.props.history.goBack()
     }
     handleClick(){
+        const uid = localStorage.getItem("uId")
         axios({
             method: 'post',
             url: '/api/clockIn',
             data: qs.stringify({
-                uId: 1,
+                uId: uid,
                 routeId: 1,
                 taskId: 3
             })
