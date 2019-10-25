@@ -67,7 +67,7 @@ export default class AddTask extends Component {
                       className="add"
                       key={value.tId}
                       onClick={()=>this.handleAdd({
-                        hId: this.state.taskList[0].habits.hId, 
+                        hId: this.props.location.search.split('=')[2], 
                         tName: value.tName, 
                         tDate: value.tDate, 
                         tTimespan: value.tTimespan, 

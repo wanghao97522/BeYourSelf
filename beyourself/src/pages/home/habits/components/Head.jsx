@@ -26,7 +26,7 @@ class Head extends Component {
             </div>
             <div className="time">
               {this.state.task? this.state.task[0].hTime:''} 
-              {this.state.task?((~~this.state.task[0].hTime.split(':')) > 12 ? '下午' : '上午'):''}
+              {this.state.task?((~~this.state.task[0].hTime.split(':')[0]) > 12 ? '下午' : '上午'):''}
             </div>
           </div>
         </div>
@@ -83,8 +83,6 @@ class Head extends Component {
         default:
           this.setState({})
       }
-      console.log(~~this.state.task[0].hTime.split(':')[0],(~~this.state.task[0].hTime.split(':')[0]) > 12 ? '下午' : '上午');
-      
     }
   }
 }

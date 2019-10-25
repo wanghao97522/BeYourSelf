@@ -12,11 +12,6 @@ import iconStop from 'assets/images/home/stop.png'
 import iconPass from 'assets/images/home/icon-tiaoguo@3x.png'
 import iconSleep from 'assets/images/home/icon-dadun@3x.png'
 
-import aaa from 'assets/music/aaa.mp3'
-import Bruno from 'assets/music/Bruno.mp3'
-import Freedom from 'assets/music/Freedom.mp3'
-import Lawrence from 'assets/music/Lawrence.mp3'
-import night from 'assets/music/night.mp3'
 
 let timer = null
 export default class OpenMyBT extends Component {
@@ -31,13 +26,6 @@ export default class OpenMyBT extends Component {
     ],
     orderNum: 0 ,
     music: '',
-    musicList: [
-      aaa,
-      Bruno,
-      Freedom,
-      Lawrence,
-      night
-    ],
   }
   render() {
     

@@ -78,10 +78,9 @@ export default class Home extends Component {
     }
     
     async componentDidMount(){
-        let uid = localStorage.getItem('uId')
         let res = await http.http({
             method: 'GET',
-            // url: `/api/habit/index?uId=${uid}`
+            // url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
             url: '/api/habit/index?uId=1'
         })
         
