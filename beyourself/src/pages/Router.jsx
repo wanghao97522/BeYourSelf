@@ -24,6 +24,7 @@ import Letter from './growing/views/letter/LetterContainer';
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
 import SoundTip from './growing/views/soundtip/SoundTipContainer';
+import TaskTime from './growing/views/tasktime/TaskTimeContianer';
 import Selecttime from './growing/views/selecttime/SelectTimeContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
@@ -91,9 +92,9 @@ export default class MyRouter extends Component {
                     <Route path='/verification' component={Verification}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
-                    {/* <Route path='/findpwd' component={FindPwd}></Route>
+                    {/* <Route path='/code' component={FindPwd}></Route>
+                    <Route path='/findpwd' component={FindPwd}></Route>
                     <Route path='/code' component={FindPwd}></Route> */}
-                    
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>
