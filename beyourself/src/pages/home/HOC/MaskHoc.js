@@ -32,11 +32,9 @@ export default (Comp) => {
         this.setState({ clicked: BUTTONS[buttonIndex] },()=>{
           switch(buttonIndex){
             case 0:
-              // 同桌路由
               history.push(path[0])
             break
             case 1:
-              // 删除任务
               fn ? fn(tid) : history.push(path[1])
             break
             default:

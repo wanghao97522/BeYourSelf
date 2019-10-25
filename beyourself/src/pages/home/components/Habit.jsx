@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-
 import {HabitContainer} from '../StyledHome'
-
 import iconMorning from 'assets/images/home/icon-zaoshang@3x.png'
 import iconNoon from 'assets/images/home/icon-shandian@3x.png'
 import iconAfernoon from 'assets/images/home/icon-huanghun@3x.png'
@@ -24,7 +22,7 @@ class Habit extends Component {
         <div className={this.state.className}>
           <div className="time">
             <img src={this.state.img} alt=""/>
-            <span>{habit.hTime}</span>
+            <span>{habit.hTime} {habit.hTime&&(~~habit.hTime.split(':')[0]) > 12 ? '下午' : '上午'}</span>
           </div>
           <NavLink to={path}>
             <div className="habits" >
@@ -37,9 +35,10 @@ class Habit extends Component {
   }
 
   componentDidMount(){
+    
     let { hId } = this.props.habit
     switch(hId){
-      case 0:
+      case 1:
         this.setState({
           className: 'morning'
         },()=>{
@@ -48,7 +47,7 @@ class Habit extends Component {
           })
         })
       break
-      case 1:
+      case 2:
         this.setState({
           className: 'noon'
         },()=>{
@@ -57,7 +56,7 @@ class Habit extends Component {
           })
         })
       break
-      case 2:
+      case 3:
         this.setState({
           className: 'afternoon'
         },()=>{

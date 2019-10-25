@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-
 import Head from './components/Head'
 import TaskNum from './components/TaskNum'
 import OpenBT from './components/OpenBT'
 import Task from './components/Task'
-
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
-
 import { BodyContainer } from './StyledHabits'
-
 import http from 'utils/httpAxios'
 
 export default class Morning extends Component {
@@ -51,17 +47,17 @@ export default class Morning extends Component {
       })
     }
 
-  //   let list = await http.http({
-  //     method: 'POST',
-  //     url: 'http://10.9.20.181:8084/api/habit/task',
-  //     data: {
-  //         uId: localStorage.getItem('uId'),
-  //         hId: location.state
-  //     }
-  //   }).list
+    let list = await http.http({
+      method: 'POST',
+      url: '/api/habit/task',
+      data: {
+          uId: localStorage.getItem('uId'),
+          hId: location.state
+      }
+    })
 
-  //   this.setState({
-  //     taskList: list
-  //   })
+    this.setState({
+      taskList: list.list
+    })
   }
 }

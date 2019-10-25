@@ -96,7 +96,7 @@ const TaskListContainer = styled.div`
     align-items: center;
     img{
       display: inline-block;
-      width: .14rem;
+      width: .2rem;
       height: .2rem;
     }
     .text{

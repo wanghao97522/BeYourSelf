@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-
 import {BodyContainer, SearchContainer, BorderTaskItemContainer} from './StyledTask'
-
 import http from 'utils/httpAxios'
-
 import iconSearch from 'assets/images/home/icon-sousuo1@3x.png'
 import iconFourCircle from 'assets/images/home/icon-four@3x.png'
-
 import Head from '../habits/components/Head'
 
 export default class AddTaskItem extends Component {
@@ -54,7 +50,7 @@ export default class AddTaskItem extends Component {
   handleAdd(){
     http.http({
       method: 'POST',
-      url: 'http://10.9.20.181:8084/api/habit/add/task2',
+      url: '/api/habit/add/task2',
       data: {
         tName: this.state.iptValue
       }
