@@ -12,7 +12,9 @@ import personal from 'assets/images/profile/vip/Grxoup@2x.png'
 import wePay from 'assets/images/profile/vip/weixinzhifu-3@2x.png'
 import AlipayBG from 'assets/images/profile/vip/zhifubaozhifu copy@2x.png'
 
-import httpPOST from 'utils/httpgg'
+import http from 'utils/httpgg'
+
+import querystring from 'querystring'
 
 
 const colorStyle = {
@@ -66,7 +68,8 @@ class Vip extends Component {
         codeUrl:'',
         isShowCodeBG:false,
         VIPdata:'',
-        isVip:1
+        isVip:1,
+        vipPhoto:personal
     }
 
 
@@ -81,10 +84,10 @@ class Vip extends Component {
                 <div className='banner'>
                     <img src={vipBG} alt=""/>
                     <div className="personal">
-                        <img src={personal} alt=""/>
+                        <img src={this.state.vipPhoto} alt=""/>
                     </div>
                     <span className='username'>{this.state.userName}</span>
-                    <span className="overtime">会员于几月几日到期{this.state.VIPdata}</span>
+                    <span className="overtime">会员于{this.state.VIPdata}到期</span>
                 </div>
                 <h3>会员套餐</h3>
                 <div className="payVip">
@@ -137,6 +140,19 @@ class Vip extends Component {
     back(){
         this.props.history.goBack()
     }
+
+    async componentDidMount(){
+        // console.log(http.getDATA);
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let data = result.data.obj
+        this.setState({
+            vipPhoto:data.mImg,
+            VIPdata:data.mMedate?data.mMedate:'',
+            isVip:data.mIsmember,
+            userName:data.mNickname
+        })
+    }
+
     handleClick(obj){
         this.setState({
             now:obj.time,
@@ -154,9 +170,9 @@ class Vip extends Component {
           nowWay: props[0][0],
           nowTxt:props[0][1]
         });
-      }
+    }
     
-      payForVIP(){
+    async payForVIP(){
         this.setState((prev)=>({
             showMask:true,
             isShowCodeBG:true
@@ -167,6 +183,41 @@ class Vip extends Component {
                 payOk:true
             })
         },5000)
+        
+        let meId = 1 
+
+        if(this.state.now===1){
+            meId = 1-0
+        }else if(this.state.now===3){
+            meId = 2-0
+        }else{
+            meId = 3-0
+        }
+
+        console.log(meId);
+        let resultPost = await http.postData({
+            url:'/api/mine/updateIsmember',
+            data:querystring.stringify({
+                uId:1,
+                meId,
+            }),
+            method:'POST'
+        })
+        
+        let resultGet = await http.getDATA({
+            url:'/api/mine/showSuperUser?uId=1',
+        })
+        let data = resultGet.data.obj
+
+        console.log(data);
+        this.setState({
+            VIPdata:data.mMedate?data.mMedate:'',
+            isVip:data.mIsmember,
+            userName:data.mNickname
+
+        })
+
+
         fetch('https://inuyasha.top/wapay',{
             method:'POST'
         })
@@ -177,16 +228,9 @@ class Vip extends Component {
                     codeUrl:res.qrcodeUrl
                 })
             })
-        let result = httpPOST.postData({
-            url:'',
-            data:{
-                uId:'',
-                meId:''
-            }
-        })
-      }
+    }
 
-      changIsShow(){
+    changIsShow(){
         this.setState((prev)=>({
             showMask:false,
             payOk:false

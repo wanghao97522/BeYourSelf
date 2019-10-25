@@ -6,8 +6,8 @@ import {ProfileContainer} from './styledProfile'
 import shenmilvxing from 'assets/images/profile/background-shengmiluxing@2x.png'
 import touxiang from 'assets/images/profile/touxiang@2x.png'
 
-import http from 'utils/http'
-
+import http from 'utils/httpgg'
+import querystring from 'querystring';
 
 
 
@@ -91,9 +91,14 @@ export default class Profile extends Component {
         history.push('/personaldata')
     }
 
-    // componentDidMount(){
-    //     let result = http.get('')
-    // }
+    async componentDidMount(){
+        // console.log(http.getDATA);
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let imgUrl = result.data.obj.mImg
+        this.setState({
+            userPhoto:imgUrl
+        })
+    }
 
     successToast() {
         Toast.success('您已成功登录', 1);

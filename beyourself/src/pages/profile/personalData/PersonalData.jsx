@@ -5,13 +5,17 @@ import personalPhotoBG from 'assets/images/profile/touxiang-gerenziliao@2x.png'
 
 import { DatePicker } from 'antd-mobile';
 
+
+// import querystring from 'querystring'
+
 // import httpGET from 'utils/http'
-import httpPOST from 'utils/httpgg'
+import http from 'utils/httpgg'
 
 class PersonalData extends Component {
     constructor(){
         super()
         this.input=React.createRef();
+        this.formDate=null
     }
 
     state={
@@ -40,7 +44,7 @@ class PersonalData extends Component {
                             <div className="txt">
                                 <h3>头像</h3>
                                 <div className='personalPhotoBG'>
-                                    <input type="file" onChange={()=>this.updatePhoto()}  accept='image/*'  id="photo" />
+                                    <input type="file" name='uploadname' onChange={()=>this.updatePhoto()}  accept='image/*'  id="photo" />
                                     <img src={this.state.persoalPhoto} alt=""/>
                                 </div>
                             </div>
@@ -115,40 +119,54 @@ class PersonalData extends Component {
         // console.log(this.props);
     }
 
-    updatePhoto(){
+    async componentDidMount(){
+        // console.log(http.getDATA);
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let data = result.data.obj
+        this.setState({
+            persoalPhoto:data.mImg,
+            netName:data.mNickname,
+            nowSex:data.mSex,
+            birthday:data.mBirthday
+
+        })
+    }
+
+    async updatePhoto(){
         let imgFile = document.querySelector('#photo').files
 
         let file = imgFile[0]
 
-        let name = file.name
-
         const fileReader = new FileReader()
         fileReader.readAsDataURL(file) //读取图片
-        fileReader.addEventListener('load',()=> {
-            // 读取完成
-            let res = fileReader.result
-            // res是base64格式的图片
-            this.setState({
-                persoalPhoto:res
-            })
-        })
+        // fileReader.addEventListener('load',()=> {
+        //     // 读取完成
+        //     let res = fileReader.result
+        //     // res是base64格式的图片
+        //     this.setState({
+        //         persoalPhoto:res
+        //     })
+        // })
 
         const formDate = new FormData()
-        formDate.append('userPicture', file, '1.jpg')
+        formDate.append('uploadname', file)
+        formDate.append('uId', '1')
 
 
-        let resultPOST = httpPOST.postFile({
-            url:'',
-            data:{
-                uId:'',
-                uploadname:''
-            }
-        })
-        let result = httpPOST.getDATA({
-            url:'',
-            data:{}
+        let resultPOST =await http.postFile({
+            url:'/api/mine/updateMine',
+            method:'POST',
+            data:formDate
         })
 
+        console.log(resultPOST);
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let imgUrl = result.data.obj.mImg
+        console.log(result);
+
+        this.setState({
+            persoalPhoto:imgUrl
+        })
     }
 
     changIsShow(){
@@ -166,24 +184,34 @@ class PersonalData extends Component {
         })
     }
 
-    changeNetName(){
-        // console.log(this.input.current.value);
+    async changeNetName(){
         this.setState({
             isShowMask:false,
             isShowContentNetName:false,
-            netName:this.input.current.value
+            // netName:this.input.current.value
         })
-        let resultPOST = httpPOST.postFile({
-            url:'',
-            data:{
-                uId:'',
-                mNickname:'',
-                uploadname:''
-            }
+
+        let netName = this.input.current.value
+
+        let imgFile = document.querySelector('#photo').files
+
+        let file = imgFile[0]
+        const formDate = new FormData()
+        formDate.append('uploadname',file)
+        formDate.append('uId', '1')
+        formDate.append('mNickname', netName)
+        
+        let resultPOST = await http.postFile({
+            url:'/api/mine/updateMine',
+            method:'POST',
+            data:formDate
         })
-        let result = httpPOST.getDATA({
-            url:'',
-            data:{}
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+
+        let data = result.data.obj
+
+        this.setState({
+            netName:data.mNickname
         })
     }
 
@@ -194,45 +222,56 @@ class PersonalData extends Component {
         })
     }
 
-    pickSex(sex){
+    async pickSex(sex){
         this.setState({
-            nowSex:sex,
+            // nowSex:sex,
             isShowMask:false,
             isShowContentSex:false
         })
 
-        let resultPOST = httpPOST.postFile({
-            url:'',
-            data:{
-                uId:'',
-                mSex:'',
-                uploadname:''
-            }
+        let imgFile = document.querySelector('#photo').files
+
+        let file = imgFile[0]
+        const formDate = new FormData()
+        formDate.append('uploadname',file)
+        formDate.append('uId', '1')
+        formDate.append('mSex', sex)
+        
+        let resultPOST = await http.postFile({
+            url:'/api/mine/updateMine',
+            method:'POST',
+            data:formDate
         })
-        let result = httpPOST.getDATA({
-            url:'',
-            data:{}
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+
+        let data = result.data.obj
+
+        console.log(data);
+        this.setState({
+            nowSex:data.mSex
         })
     }
 
-    changeDate(date){
+    async changeDate(date){
         var birthday = this.format(date, 'yyyy.MM.dd');
-        this.setState({
-            birthday:birthday
-        })
+        // this.setState({
+        //     birthday:birthday
+        // })
 
-        let resultPOST = httpPOST.postFile({
-            url:'',
-            data:{
-                uId:'',
-                mBirthday:'',
-                uploadname:''
-            }
+        let imgFile = document.querySelector('#photo').files
+
+        let file = imgFile[0]
+        const formDate = new FormData()
+        formDate.append('uploadname',file)
+        formDate.append('uId', '1')
+        formDate.append('mBirthday', birthday)
+        
+        let resultPOST = await http.postFile({
+            url:'/api/mine/updateMine',
+            method:'POST',
+            data:formDate
         })
-        let result = httpPOST.getDATA({
-            url:'',
-            data:{}
-        })
+        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
     }
 
     // changePhoto(){

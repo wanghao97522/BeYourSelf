@@ -1,4 +1,5 @@
 import axios  from 'axios'
+
 export default{
     // postData({url="",data={}}){
     //     return axios({
@@ -11,34 +12,31 @@ export default{
     //         })
 
     // },
-    postFile({url,data}){
-        axios({
-        method:'POST',
-        url,
-        headers:{
-            'Content-Type':'multipart/form-data'
-        },
-        data
-    })
+
+    // {
+    //     method:'POST',
+    //     url,
+    //     headers:{
+    //         'Content-Type':'multipart/form-data'
+    //     },
+    //     data
+    // }
+    postFile(url){
+        console.log(url);
+        return axios(url)
         .then(res=>{
             return res.data
         })
     },
-    postData({url,data}){
-        axios({
-        method:'POST',
-        url,
-        data
-    })
+    postData(url){
+        return axios(url)
         .then(res=>{
             return res.data
         })
     },
-    getDATA({url,data}){
-        axios({
+    getDATA({url}){
+        return axios(url,{
             method:'GET',
-            url,
-            data
         })
         .then(res=>{
             return res

@@ -8,6 +8,13 @@ module.exports = function (app) {
             changeOrigin: true
           }
       ),
+    proxy(
+        '/api',
+        {
+            target:'http://10.9.20.181:8100',
+            changeOrigin:true
+        }
+    )
      
   )
 

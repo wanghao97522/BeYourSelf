@@ -53,7 +53,7 @@ const VipContainer = styled.div`
             left: .45rem;
             font-size:.14rem;
             line-height:.2rem;
-            color:${(props)=>props.isVip===1?'gold':'white'};
+            color:${(props)=>props.isVip===0?'gold':'white'};
         }
         .overtime{
             position: absolute;
@@ -62,7 +62,7 @@ const VipContainer = styled.div`
             font-size:.12rem;
             line-height: .17rem;
             color:#D4BD85;
-            display:${(props)=>props.isVip===1?'block':'none'}
+            display:${(props)=>props.isVip===0?'block':'none'}
         }
     }
     >h3{
