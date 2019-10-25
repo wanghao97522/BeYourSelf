@@ -5,6 +5,7 @@ import enUs from 'antd-mobile/lib/date-picker-view/locale/en_US';
 import {SelectTimestyContainer,Title} from './selecttime';
 export default withRouter(
     (props)=>{
+        const now = new Date("2015-03-19 06:06");
         const [value,setvalue] = useState(null);
         const [selectedweek,setselectedweek]=useState([]);
         function handeltimechange(data){

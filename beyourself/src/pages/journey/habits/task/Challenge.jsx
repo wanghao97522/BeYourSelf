@@ -97,13 +97,14 @@ export default class Challenge extends Component {
     }
     handleClick(value){
         // console.log(value)
+        const uid = localStorage.getItem('uId')
         switch(value){
             case 1 :
                 axios({
                     method: 'post',
                     url: '/api/challenge',
                     data: qs.stringify({
-                        uId: 1,
+                        uId: uid,
                         routeId: 1,
                         taskId: 2,
                         ci: value
@@ -123,7 +124,7 @@ export default class Challenge extends Component {
                     method: 'post',
                     url: '/api/challenge',
                     data: qs.stringify({
-                        uId: 1,
+                        uId: uid,
                         routeId: 1,
                         taskId: 2,
                         ci: value
@@ -143,7 +144,7 @@ export default class Challenge extends Component {
                     method: 'post',
                     url: '/api/challenge',
                     data: qs.stringify({
-                        uId: 1,
+                        uId: uid,
                         routeId: 1,
                         taskId: 2,
                         ci: value

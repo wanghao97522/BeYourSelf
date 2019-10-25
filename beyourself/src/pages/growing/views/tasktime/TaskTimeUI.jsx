@@ -10,8 +10,6 @@ export default withRouter((props)=>{
     const query = this.props.match.location.search 
     const arr = query.split('=');
     let tId=arr[arr.length-1];
-
-
     async function setTime(){
         let data={
             tId,
