@@ -33,7 +33,7 @@ export default class Profile extends Component {
                     </h3>
                 </header>
                 <div className="banner">
-                    <div className="secret" onClick={()=>this.handleClick('/index/journey')}>
+                    <div className="secret" onClick={()=>this.handleClick('/index/journey/1')}>
                         <img src={shenmilvxing} alt=""/>
                         <h3>一次神秘的旅行</h3>
                         <h4>感觉精力充沛</h4>
