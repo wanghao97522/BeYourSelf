@@ -206,11 +206,13 @@ const BorderTaskItemContainer = border({
   width: '1px 0px 1px 0px'
 })
 
+
+
 export{
   BodyContainer,
   MainContainer,
   SearchContainer,
   BorderSearchContainer,
   TaskListContainer,
-  BorderTaskItemContainer
+  BorderTaskItemContainer,
 }

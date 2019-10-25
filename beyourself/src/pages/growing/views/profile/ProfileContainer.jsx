@@ -1,5 +1,7 @@
 import React,{Component} from "react";
+import qs from 'querystring';
 import ProfileUI from './ProfileUI';
+import http from '../../../../utils/http1';
 class ProfileContainer extends Component{
     state={
         showlist:[],
@@ -11,13 +13,19 @@ class ProfileContainer extends Component{
                 <ProfileUI showlist={this.state.showlist} onClick={this.handeldateChange} day={this.state.data} buqian={this.state.buqian}></ProfileUI>
             )
     }
-    componentDidMount(){
+    async componentDidMount(){
+        // let result=await http.post({
+        //     url:'http://10.9.20.181:8084/api/habit/time',
+        //     data:qs.stringify({
+        //         uId:localStorage.getItem('uId')
+        //     })
+        // })
+        // let rate=result.obj;
         let list=this.getshowlist();
-        list.push({
-            rate:'30%'
-        })
+        // list.push({
+        //     rate
+        // })
         this.setState({
-            // showlist:this.getshowlist()
             showlist:list
         })
     }

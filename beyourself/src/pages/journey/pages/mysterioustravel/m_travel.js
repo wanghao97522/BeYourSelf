@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import bgImg from 'assets/images/journey/heshui-bj@2x.png'
-import title from 'assets/images/journey/title@2x.png'
+// import bgImg from 'assets/images/journey/heshui-bj@2x.png'
+// import title from 'assets/images/journey/title@2x.png'
 
 const Body = styled.div`
     font-size: .14rem;
@@ -13,10 +13,10 @@ const Body = styled.div`
 const Bg = styled.div`
     height: 100%;
     width: 100%;
-    background: url(${bgImg}) no-repeat center top / 100%; 
+    background: url(${(props)=> props.bgImg}) no-repeat center top / 100%; 
 `
 const Title = styled.div`  
-    background: url(${title}) no-repeat center top / 100%;
+    background: url(${(props)=>props.title}) no-repeat center top / 100%;
     height: .28rem;
     width: 1rem;
     margin: .29rem 0 0 .14rem;

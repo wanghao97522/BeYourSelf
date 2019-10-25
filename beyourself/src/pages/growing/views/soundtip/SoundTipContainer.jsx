@@ -11,6 +11,7 @@ class SoundTipContainer extends Component{
         )
     }
     handelClick=(value)=>{
+        sessionStorage.setItem('music',value);
         this.setState({
             isSelect:value
         })

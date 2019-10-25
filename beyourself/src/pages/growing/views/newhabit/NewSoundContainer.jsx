@@ -3,11 +3,12 @@ import {withRouter} from 'react-router-dom';
 import NewSoundUI from './NewSoundUI';
 class NewSoundContainer extends Component{
     state={
-        sound:'静音'
+        sound:sessionStorage.getItem('sound')?sessionStorage.getItem('sound'):'静音',
+        // value:''
     }
     render(){
         return (
-            <NewSoundUI sound={this.state.sound} onClick={()=>{this.goToSoundTip()}}></NewSoundUI>
+            <NewSoundUI sound={this.state.sound} onClick={()=>{this.goToSoundTip()}} value={this.props.value}></NewSoundUI>
         )
     }
     goToSoundTip=()=>{

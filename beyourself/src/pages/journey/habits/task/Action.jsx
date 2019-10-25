@@ -4,6 +4,7 @@ import { DatePicker, List } from 'antd-mobile';
 
 import goBack from 'assets/images/return@2x.png'
 import QianDao from 'assets/images/qiandao@2x.png'
+
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
@@ -32,11 +33,19 @@ export default class Action extends Component {
                 </Title>
                 <TopDiv style={{height:'3.24rem'}}>
                     <div className="tips">在你的床边放一瓶水</div>
-                    <List>
-                        <DatePicker>
-                            <List.Item style={{height:'.2rem',backgroundColor:'white',borderRadius:'.14rem !important',display:'block'}} className="re_me">提醒我</List.Item>
-                        </DatePicker>
-                    </List>
+                    <div className="aaa">
+                        <List>
+                            <DatePicker 
+                                mode="time"
+                                minDate={minDate}
+                                maxDate={maxDate}
+                               value={this.state.date}
+                               onChange={date => this.setState({ date })}
+                            >
+                                <List.Item className="re_me"  arrow="horizontal">提醒我</List.Item>
+                            </DatePicker>
+                        </List>
+                    </div>
                 </TopDiv >
                 <BtmDiv  style={{height:'3.75rem'}}>
                     <div className="why">为什么？</div>
