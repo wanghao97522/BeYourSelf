@@ -3,6 +3,7 @@ import {VerContainer} from './StyledVerification'
 import LiBack from '../components/back/Back'
 // import Ipt from '../components/ipt/Ipt'
 import LiButton from '../components/button/Button'
+import axios from 'axios'
 
 export default class Verification extends Component {
     constructor(){
@@ -39,7 +40,6 @@ export default class Verification extends Component {
     } else {
       this.setState({
         valueD: value.slice(0, 1),
-        isShow: true
       });
     }
   };
@@ -141,6 +141,12 @@ export default class Verification extends Component {
               }
           })
       }, 1000)
+      axios({
+        method: 'post',
+        url: '/api/user/ajaxNum',
+        data: `uTel=${this.props.location.state.phoneNum}`
+      })
+
       }
       handleIpt(e){
         if(e.target.value.length <= 11){
@@ -151,10 +157,23 @@ export default class Verification extends Component {
       }
       verification(e){
         var iptValue = this.state.valueA +  this.state.valueB + this.state.valueC + this.state.valueD
-        this.setState({
-          iptVal:iptValue
-        })
-        console.log(iptValue)
-          this.props.history.push('/setpwd')
+        // this.setState({
+        //   iptVal:iptValue
+        // })
+        axios({
+          method: 'post',
+          url: '/api/user/yzm/isif',
+          data: `yanzhengma=${iptValue}`
+        }).then((result) => {
+          console.log(result)
+          if(result.data.flag){
+            this.props.history.push({pathname:'/setpwd' ,state:{isReg:this.props.location.state.isReg}})
+          }else{
+            this.setState({
+              isShow: true
+            })
+          }
+        }
+        )
         }
 }

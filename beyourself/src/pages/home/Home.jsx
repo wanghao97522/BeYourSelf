@@ -1,19 +1,26 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-
-import { BodyContainer, HeadContainer, CubeOneContainer, MainContainer, CubeTwoContainer, TodayContainer, EmptyContainer } from './StyledHome'
-
+import { 
+    BodyContainer, 
+    HeadContainer, 
+    CubeOneContainer, 
+    MainContainer, 
+    CubeTwoContainer, 
+    TodayContainer, 
+    EmptyContainer 
+} from './StyledHome'
+import http from 'utils/httpAxios'
 import Habit from './components/Habit'
-
 import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
-
 export default class Home extends Component {
+    state = {
+        habitsList: []
+    }
     render() {
         return (
             <BodyContainer>
                 <HeadContainer>
                     <div className="head-index">主页</div>
-                    {/* 跳转到添加新的习惯 */}
                     <NavLink to="/newhabit">
                         <img src={iconAdd} alt=""/>
                     </NavLink>
@@ -49,20 +56,30 @@ export default class Home extends Component {
                         <h1 className="today">今天</h1>
                         <span></span>
                     </TodayContainer>
-                    <Habit className="morning"></Habit>
-                    <Habit className="noon"></Habit>
-                    {/* <GrayCirclContainer>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </GrayCirclContainer> */}
-                    <Habit className="afternoon"></Habit>
+                    {
+                        this.state.habitsList.map((value, index)=>{
+                            return (
+                                <Habit
+                                    habit={value}
+                                    key={value.hId}
+                                ></Habit>
+                            )
+                        })
+                    }
                     <EmptyContainer></EmptyContainer>
                 </MainContainer>
             </BodyContainer>
         )
+    }
+    
+    async componentDidMount(){
+        let res = await http.http({
+            method: 'GET',
+            url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
+        })
+        
+        this.setState({
+            habitsList: res.list
+        })
     }
 }

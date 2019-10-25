@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import bgMorningHabit from 'assets/images/home/bg-zaochenxiguan@3x.png'
 import bgNoonHabit from 'assets/images/home/bg-xiawuxiguan@3x.png'
 import bgAfternonnHabit from 'assets/images/home/bg-huanghunxiguan@3x.png'
+import bgOthers from 'assets/images/home/tuu@3x.png'
 import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
 import iconBack from 'assets/images/home/icon-fanhui@3x.png'
 import iconTime from 'assets/images/home/icon-naozhong@3x.png'
@@ -23,7 +24,6 @@ const HeadContainer = styled.div`
   height: 100%;
   background-image: url(${bgMorningHabit});
   background-size: cover;
-
   }
   .noon{
     height: 100%;
@@ -34,6 +34,12 @@ const HeadContainer = styled.div`
     height: 100%;
     background-image: url(${bgAfternonnHabit});
     background-size: cover;
+  }
+  .others{
+    height: 100%;
+    background-image: url(${bgOthers});
+    background-size: cover;
+    border-radius:.14rem .14rem 0rem 0rem;
   }
   height:2.00rem;
   border-radius:.14rem .14rem 0rem 0rem;
@@ -158,6 +164,9 @@ const OpenBTContainer = styled.div`
     &.afternoon{
       background:linear-gradient(180deg,rgba(54,112,219,1) 0%,rgba(141,89,182,1) 100%);
     }
+    &.others{
+      background:linear-gradient(180deg,rgba(54,112,219,1) 0%,rgba(141,89,182,1) 100%);
+    }
     span{
       width:max-content;
       height:.22rem;
@@ -177,7 +186,7 @@ const TaskContainer = styled.div`
     display: flex;
     .icon-task{
       display: inline-block;
-      width:.14rem;
+      width:.20rem;
       height:.20rem;
     }
     .icon-status{

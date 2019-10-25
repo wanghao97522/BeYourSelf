@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './assets/styles/reset.css'
 import './assets/styles/animate.css'
 
-
 import MyRouter from './pages/Router'
 
 

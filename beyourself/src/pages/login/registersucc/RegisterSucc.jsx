@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {RegisterSuccContainer} from './StyledRegisterSucc'
 import LiButton from '../components/button/Button'
+import { Toast} from 'antd-mobile'
+import axios from 'axios'
 
 export default class RegisterSucc extends Component {
  render() {
@@ -14,6 +16,20 @@ export default class RegisterSucc extends Component {
     );
   }
   getStart(){
-    this.props.history.push('/index/profile')
+    let uid = localStorage.getItem('uId')
+    axios({
+      method: 'post',
+      url: '/api/habit/newuser',
+      data: `uId=${uid}`
+    }).then((result) => {
+      console.log(result)
+      if(result.data.flag){
+        Toast.info('注册成功', 1)
+        this.props.history.push('/index/profile')
+      }else{
+        console.log(result)
+      }
+    }
+    )
   }
 }

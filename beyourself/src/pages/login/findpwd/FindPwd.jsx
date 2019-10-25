@@ -3,6 +3,7 @@ import {FindContainer} from './StyledFind'
 import LiBack from '../components/back/Back'
 import Ipt from '../components/ipt/Ipt'
 import LiButton from '../components/button/Button'
+import axios from 'axios'
 export default class Register extends Component {
   constructor(){
     super()
@@ -43,7 +44,20 @@ export default class Register extends Component {
         isShow:true
       })
     }else{
-      this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
+      axios({
+        method: 'post',
+        url: '/api/user/iPhoneyzm',
+        data: `uTel=${this.state.iptVal}`
+      }).then((result) => {
+        console.log(result)
+        if(result.data.flag){
+          this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal,isReg:"isfind"}})
+        }else{
+          console.log(result)
+        }
+      }
+      )
+      // this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
     }
   }
 }

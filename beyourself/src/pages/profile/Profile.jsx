@@ -1,26 +1,43 @@
 import React, { Component } from 'react'
 
+import { Toast } from 'antd-mobile';
+
 import {ProfileContainer} from './styledProfile'
 import shenmilvxing from 'assets/images/profile/background-shengmiluxing@2x.png'
+import touxiang from 'assets/images/profile/touxiang@2x.png'
+
+import http from 'utils/httpgg'
+// import querystring from 'querystring';
+
+
 
 export default class Profile extends Component {
     
+    state={
+        userName:'用户名',
+        isVIP:0,
+        userPhoto:touxiang,
+        perc:0
+    }
+
+
     render() {
         return (
-            <ProfileContainer>
+            <ProfileContainer isVIP={this.state.isVIP}>
                 <header>
-                    <div className='profile_photo'>
+                    <div className='profile_photo' onClick={()=>this.setPersonalDate()}>
+                        <img src={this.state.userPhoto} alt=""/>
                     </div>
                     <h3>
-                        用户名
+                        {this.state.userName}
                     </h3>
                 </header>
                 <div className="banner">
-                    <div className="secret" onClick={()=>this.handleClick('/index/journey')}>
+                    <div className="secret" onClick={()=>this.handleClick('/index/journey/1')}>
                         <img src={shenmilvxing} alt=""/>
                         <h3>一次神秘的旅行</h3>
                         <h4>感觉精力充沛</h4>
-                        <span>3%</span>
+                        <span>{this.state.perc}%</span>
                     </div>
                     <div className="all_travel" onClick={()=>this.handleClick('/alltravel')}>
                         <div className='bg_icon'></div>
@@ -30,7 +47,7 @@ export default class Profile extends Component {
                 </div>
                 <nav>
                     <ul>
-                        <li className="login" onClick={()=>this.handleClick('/loginindex')}>
+                        <li className="login" onClick={this.successToast}>
                             <div className='bg_icon'></div>
                             <div className="txt">
                                 <h3>登录</h3>
@@ -69,5 +86,26 @@ export default class Profile extends Component {
     handleClick(path){
         let { history } = this.props
         history.push(path)
+    }
+    setPersonalDate(){
+        let { history } = this.props
+        history.push('/personaldata')
+    }
+
+    async componentDidMount(){
+        // console.log(http.getDATA);
+        const uId = localStorage.getItem('uId')
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
+        let perc = await http.getDATA({url:`/api/journey/get_all_travel?uId=${uId}`})
+
+        let imgUrl = result.data.obj.mImg
+        this.setState({
+            userPhoto:imgUrl,
+            perc:perc.list[0].rB
+        })
+    }
+
+    successToast() {
+        Toast.success('您已成功登录', 1);
     }
 }

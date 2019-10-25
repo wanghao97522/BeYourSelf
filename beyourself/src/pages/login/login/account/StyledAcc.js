@@ -7,7 +7,8 @@ const AccountContainer = styled.div`
     div:nth-child(2){
         margin-top:.2rem;
     }
-    p{
+    >p{
+        position:absolute;
         padding-top:.1rem;
         font-size:.14rem;
         font-family:PingFangSC-Regular,PingFangSC;

@@ -6,10 +6,17 @@ import querystring from 'querystring';
 import http from '../../../../utils/http1';
 export default withRouter((props)=>{
     const [value,setvalue]=useState(["0","小时","3","分钟"])
+<<<<<<< HEAD
     // const query = this.props.match.location.search 
     // const query='http://localhost:3000/tasktime?time=noon&hid=1';
     // const arr = query.split('=');
     // let tId=arr[arr.length-1];
+=======
+    const query = this.props.match.location.search 
+    // const query='http://localhost:3000/tasktime?time=noon&hid=1';
+    const arr = query.split('=');
+    let tId=arr[arr.length-1];
+>>>>>>> master
     async function setTime(){
         let data={
             tId:1,

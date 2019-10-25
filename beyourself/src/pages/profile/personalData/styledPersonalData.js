@@ -82,9 +82,20 @@ const PersonalDataContainer = styled.div`
                     .personalPhotoBG{
                         width:.4rem;
                         height: .4rem;
+                        border-radius:50%;
+                        position: relative;
+                        input{
+                            height: 100%;
+                            width:100%;
+                            position: absolute;
+                            left: 0;
+                            top:0;
+                            opacity: 0;
+                        }
                         img{
                             width:100%;
                             height: 100%;
+                            border-radius:50%;
                         }
                     }
                 }
@@ -121,20 +132,21 @@ const PersonalDataContainer = styled.div`
         top:0;
         left: 0;
         width:100%;
-        display:${(props)=>props.isShowMask?'block':'none'}
+        display:${(props)=>props.isShowMask?'block':'none'};
         .blackBG{
             height: 100%;
             background:rgba(0,0,0,0.3);
         }
-        .content{
+        .content-netName{
             width:3.45rem;
             margin-left:.15rem;
             position: absolute;
-            top:50%;
+            top:60%;
             left: 0;
-            height: 1.86rem;
+            height: 1.5rem;
             background:#fff;
             border-radius:.14rem;
+            display:${(props)=>props.isShowContentNetName?'block':'none'};
             .data{
                 padding:.1rem 0 0 .15rem;
                 input{
@@ -148,7 +160,7 @@ const PersonalDataContainer = styled.div`
                 }
             }
             .submit{
-                margin-top:.76rem;
+                margin-top:.54rem;
                 text-align:right;
                 span{
                     color:#FCB408;
@@ -156,6 +168,57 @@ const PersonalDataContainer = styled.div`
                     font-size:.16rem;
                     font-weight:500;
                 }
+            }
+        }
+    }
+    .content-sex{
+        width:3.45rem;
+        margin-left:.15rem;
+        position: absolute;
+        top:60%;
+        left: 0;
+        height: 1.5rem;
+        background:#fff;
+        border-radius:.14rem;
+        display:${(props)=>props.isShowContentSex?'block':'none'};
+        >div{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:0 .2rem 0 .4rem;
+            height: 50%;
+            font-size:.18rem;
+            color:#333333;
+            div:last-child{
+                width:.22rem;
+                height: .22rem;
+                border-radius:50%;
+                border:1px solid #CCCCCC;
+                position: relative;
+                div{
+                    width:.1rem;
+                    height: .1rem;
+                    background:#FCB408;
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    right: 0;
+                    bottom:0;
+                    margin:auto;
+                    display:none;
+                }
+            }
+        }
+        .boy{
+            border-bottom:1px solid #E8E8E8;
+        }
+        
+    }
+    .active{
+        div:last-child{
+            border-color:#FCB408!important;
+            div{
+                display:block!important;
             }
         }
     }

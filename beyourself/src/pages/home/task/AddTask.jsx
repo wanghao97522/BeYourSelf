@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-
 import { BodyContainer, MainContainer, BorderSearchContainer, TaskListContainer } from './StyledTask'
-
+import http from 'utils/httpAxios'
 import iconSearch from 'assets/images/home/icon-sousuo@3x.png'
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
+import iconVe from 'assets/images/home/icon-weishengsu@3x.png'
 
 export default class AddTask extends Component {
-  // 后端数据可能不是这样的，渲染要改
   state = {
-    addTaskList: [
-      {
-        img: iconWater,
-        title: '喝水',
-        detail: '如果渴了，说明你已脱水'
-      }
-    ],
+    addTaskList: [],
+    filterList: [],
     iptValue: ''
   }
   render() {
@@ -37,17 +31,47 @@ export default class AddTask extends Component {
           </BorderSearchContainer>
           <TaskListContainer>
             {
-              this.state.addTaskList.map((value, index)=>{
-                // 这里要判断是否添加过，还没写判断
-                return (
-                  <div className="container" key={value.title}>
-                    <img src={value.img} alt=""/>
+              this.state.taskList&&this.state.taskList.map((value, index)=>{
+                if(value.tName){
+                  return (
+                    <div className="container" key={value.tId}>
+                      <img src={iconWater} alt=""/>
+                      <div className="text">
+                        <p className="title">{value.tName}</p>
+                        <p className="detail">{value.detail}</p>
+                      </div>
+                      <span 
+                        className="remove"
+                        key={value.tId}
+                        onClick={()=>this.handleRemove(value.tId)}
+                      >移除</span>
+                    </div>
+                  )
+                }else{
+                  return false
+                }
+              })
+            }
+            {
+              this.state.filterList&&this.state.filterList.map((value)=>{
+                return(
+                  <div className="container" key={value.tId}>
+                    <img src={iconVe} alt=""/>
                     <div className="text">
-                      <p className="title">{value.title}</p>
+                      <p className="title">{value.tName}</p>
                       <p className="detail">{value.detail}</p>
                     </div>
-                    <span className="remove">移除</span>
-                    {/* <span className="add">添加</span> */}
+                    <span
+                      className="add"
+                      key={value.tId}
+                      onClick={()=>this.handleAdd({
+                        hId: this.props.location.search.split('=')[2], 
+                        tName: value.tName, 
+                        tDate: value.tDate, 
+                        tTimespan: value.tTimespan, 
+                        detail: value.detail
+                      })}
+                    >添加</span>
                   </div>
                 )
               })
@@ -70,15 +94,99 @@ export default class AddTask extends Component {
 
   handleInput(e){
     let iptValue = this.state.iptValue
+    let { location } = this.props
     if(iptValue && e.keyCode === 13){
-      this.props.history.push(`${this.props.match.url}/addTaskItem`,{
+      this.props.history.push(`/addTaskItem${location.search}`,{
         iptValue
       })
     }
 
   }
-  // 有用
-  componentDidMount(){
-    // console.log(this.props.location.state)
+
+  handleAdd(data){
+    http.http({
+      method: 'POST',
+      url: '/api/habit/add/task',
+      data: {
+        uId: localStorage.getItem('uId'),
+        hId: data.hId,
+        tName: data.tName,
+        tDate: data.tDate,
+        tTimespan: data.tTimespan,
+        detail: data.detail
+      }
+    })
+
+    let taskList = this.state.filterList.filter((value)=>{
+      return value.tName === data.tName
+    })
+    this.setState({
+      taskList: [
+        ...this.state.taskList,
+        ...taskList
+      ]
+    },()=>{
+      this.filter()
+    })
+    
+
+  }
+
+  handleRemove(tid){
+    http.http({
+      method: 'POST',
+      url: '/api/habit/del/task',
+      data: {
+        tId: tid
+      }
+    })
+
+    let taskList = this.state.taskList.map((value)=>{
+      if(value.tId !== tid){
+        return value
+      }else{
+        return false
+      }
+    })
+    
+    this.setState({
+      taskList: taskList
+    },()=>{
+      this.filter()
+    })
+  }
+
+
+  async componentDidMount(){
+    let { location } = this.props
+    let list = await http.http({
+      method: 'POST',
+      url: '/api/habit/add/taskall',
+      data: {
+          uId: localStorage.getItem('uId'),
+          hId: location.state.hid
+      }
+    })
+
+    this.setState({
+      addTaskList: list.list2,
+      taskList: list.list
+    })
+
+    this.filter()
+  }
+  
+  filter(){
+    let name = []
+    this.state.taskList.forEach((value)=>{
+      name.push(value.tName)
+    })
+    let filterList = this.state.addTaskList&&this.state.addTaskList.filter((value)=>{
+      return name.includes(value.tName) === false
+    })
+    
+    this.setState({
+      filterList: filterList
+    })
   }
 }

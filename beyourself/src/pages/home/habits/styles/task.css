@@ -18,6 +18,7 @@
 }
 .am-action-sheet-button-list-item{
   height:.44rem;
+  overflow: hidden;
   background:rgba(255,255,255,1);
 }
 .am-action-sheet-button-list-item:nth-child(1){

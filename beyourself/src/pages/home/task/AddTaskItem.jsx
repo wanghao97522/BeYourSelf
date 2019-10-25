@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-
 import {BodyContainer, SearchContainer, BorderTaskItemContainer} from './StyledTask'
-
+import http from 'utils/httpAxios'
 import iconSearch from 'assets/images/home/icon-sousuo1@3x.png'
 import iconFourCircle from 'assets/images/home/icon-four@3x.png'
-
 import Head from '../habits/components/Head'
 
 export default class AddTaskItem extends Component {
@@ -13,7 +11,7 @@ export default class AddTaskItem extends Component {
   }
   render() {
     let { location } = this.props
-    let className = location.pathname.split('/')[1]
+    let className = location.search.split('=')[1].split('&')[0]
     return (
       <BodyContainer>
         <Head className={className}></Head>
@@ -29,8 +27,7 @@ export default class AddTaskItem extends Component {
         <BorderTaskItemContainer>
           <img src={iconFourCircle} alt=""/>
           <p>{this.state.iptValue}</p>
-          {/* 添加之后可能发给后端？出现在添加任务列表 */}
-          <span>添加</span>
+          <span onClick={()=>this.handleAdd()}>添加</span>
         </BorderTaskItemContainer>
       </BodyContainer>
     )
@@ -49,5 +46,16 @@ export default class AddTaskItem extends Component {
   handleClick(){
     this.props.history.goBack()
   }
-  
+
+  handleAdd(){
+    http.http({
+      method: 'POST',
+      url: '/api/habit/add/task2',
+      data: {
+        tName: this.state.iptValue
+      }
+    })
+
+    this.props.history.goBack()
+  }
 }

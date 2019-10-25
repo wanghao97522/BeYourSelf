@@ -6,6 +6,7 @@ import PwdIpt from '../components/pwdipt/PwdIpt'
 import LiButton from '../components/button/Button'
 import dakai from 'assets/images/login/dakai2@x.png'
 import guanbi from 'assets/images/login/guanbi2@x.png'
+import axios from 'axios'
 
 export default class Verification extends Component {
     constructor(){
@@ -40,7 +41,6 @@ export default class Verification extends Component {
         );
       }
       componentDidMount(){
-        console.log(1);
         console.log(this)
         const thisDOM = ReactDOM.findDOMNode(this)
         const iptDom = thisDOM.querySelectorAll("input")
@@ -102,7 +102,29 @@ export default class Verification extends Component {
                   equa: false
               })
           }else{
-              this.props.history.push('/registersucc')
+            if(this.props.location.state.isReg === "isReg"){
+              axios({
+                method: 'post',
+                url: '/api/user/zc/insertxx',
+                data: `uPassword=${this.state.iptValone}`
+              }).then((result) => {
+                console.log(result)
+                let uid = result.data.obj.uId
+                console.log(uid)
+                localStorage.setItem('uId',uid)
+                  this.props.history.push('/registersucc')
+              }
+              )
+            }else{
+              axios({
+                method: 'post',
+                url: '/api/user/xg/mima',
+                data: `uPassword=${this.state.iptValone}`
+              }).then((result) => {
+                  this.props.history.push('/index/profile')
+              }
+              )
+            }
           }
         }
       

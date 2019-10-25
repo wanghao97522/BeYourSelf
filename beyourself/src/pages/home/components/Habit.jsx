@@ -1,31 +1,32 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-
 import {HabitContainer} from '../StyledHome'
-
 import iconMorning from 'assets/images/home/icon-zaoshang@3x.png'
 import iconNoon from 'assets/images/home/icon-shandian@3x.png'
 import iconAfernoon from 'assets/images/home/icon-huanghun@3x.png'
 
 class Habit extends Component {
   state = {
-    time: '',
-    img: '',
-    habits: '',
-    path: ''
+    className: '',
+    img: ''
   }
   render() {
-    let { className } = this.props
+    let { habit } = this.props
+    let path = {
+      pathname: '/habit', 
+      search: `?time=${this.state.className}&hid=${habit.hId}`,
+      state: habit.hId
+    }
     return (
       <HabitContainer>
-        <div className={className}>
+        <div className={this.state.className}>
           <div className="time">
             <img src={this.state.img} alt=""/>
-            <span>{this.state.time}</span>
+            <span>{habit.hTime} {habit.hTime&&(~~habit.hTime.split(':')[0]) > 12 ? '下午' : '上午'}</span>
           </div>
-          <NavLink to={this.state.path}>
-            <div className="habits">
-              <h1>{this.state.habits}</h1>
+          <NavLink to={path}>
+            <div className="habits" >
+              <h1>{habit.hName}</h1>
             </div>
           </NavLink>
         </div>
@@ -34,34 +35,40 @@ class Habit extends Component {
   }
 
   componentDidMount(){
-    let { className } = this.props
-    switch(className){
-      case 'morning': 
+    
+    let { hId } = this.props.habit
+    switch(hId){
+      case 1:
         this.setState({
-          time: '7:00 上午',
-          img: `${iconMorning}`,
-          habits: '早晨习惯',
-          path: '/morning'
+          className: 'morning'
+        },()=>{
+          this.setState({
+            img: `${iconMorning}`
+          })
         })
       break
-      case 'noon': 
+      case 2:
         this.setState({
-          time: '14:00 下午',
-          habits: '下午习惯',
-          img: `${iconNoon}`,
-          path: '/noon'
+          className: 'noon'
+        },()=>{
+          this.setState({
+            img: `${iconNoon}`
+          })
         })
       break
-      case 'afternoon': 
+      case 3:
         this.setState({
-          time: '18:00 黄昏',
-          habits: '黄昏习惯',
-          img: `${iconAfernoon}`,
-          path: '/afternoon'
+          className: 'afternoon'
+        },()=>{
+          this.setState({
+            img: `${iconAfernoon}`
+          })
         })
       break
       default:
-        this.setState({})
+        this.setState({
+          className: 'others'
+        })
     }
   }
 }

@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Body, Bg, Title , DegreeOfCompletion, Done , Word, TaskList, Task, Point } from './m_travel';
-import heshui from 'assets/images/journey/heshui-jiesuo@2x.png'
-import zaocan from 'assets/images/journey/zaocan-weijiesuo@2x.png'
-import yundong from 'assets/images/journey/yundong-weijiesuo@2x.png'
-import tiaozhan from 'assets/images/journey/tiaozhan-weijiesuo@2x.png'
+import heshui from 'assets/images/journey/shuimian-jieuso@2x.png'
+import zaocan from 'assets/images/journey/tiantang-weijiesuo@2x.png'
+import yundong from 'assets/images/journey/anjing-weijiesuo@2x.png'
+import tiaozhan from 'assets/images/journey/ganen-weijiesuo@2x.png'
 import mixing from 'assets/images/journey/mixing-weijiesuo@2x.png'
 import pressToEnter from 'assets/images/presstoenter.png'
 
+import axios from 'axios'
+
+import shuimian from 'assets/images/journey/shuimian-bj@2x.png'
+import title from 'assets/images/journey/title@2x.png'
+
+
 export default class MysteriousTravel extends Component {
     state={
-        imgList:[heshui,zaocan,yundong,tiaozhan,mixing]
+        rB:0,
     }
     render() {
         return (
-            <Body>
-                <Bg>
-                    <Title></Title>
+            <Body display={this.props.display}>
+                <Bg bgImg={shuimian}>
+                    <Title title={title}></Title>
                     <DegreeOfCompletion>
                         <Done>
-                            <Word>0%</Word>
+                            <Word>{this.state.rB}%</Word>
                             <Word>完成</Word>
                         </Done>
                         <Done>
@@ -91,5 +97,18 @@ export default class MysteriousTravel extends Component {
                 </Bg>
             </Body>
         )
+    }
+    componentDidMount(){
+        const uid = 1
+        // const uid = localStorage.getItem('uId')
+        axios({
+            method: 'get',
+            url: `/api/journey/get_all_travel?uId=${uid}`
+        }).then(async (res) => {
+            console.log(res.data.list[0].rImgmax);
+            await this.setState({
+                rB: res.data.list[0].rB
+            })
+        })
     }
 }

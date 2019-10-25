@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Toast} from 'antd-mobile';
+
 import { SettingContainer,HeaderContainer, NavContainer } from './styledSetting'
 
 class Setting extends Component {
@@ -30,7 +32,7 @@ class Setting extends Component {
                         </li>
                     </ul>    
                 </NavContainer>
-                <div className='exit'>
+                <div className='exit' onClick={()=>this.exit()}>
                     退出登录
                 </div>   
             </SettingContainer>
@@ -44,6 +46,16 @@ class Setting extends Component {
 
     handleClick(path){
         this.props.history.push(path)
+    }
+
+    exit(){
+        let {history} = this.props
+
+        Toast.success('退出成功', 1);
+
+        setTimeout(()=>{
+            history.push('/loginindex')
+        },2000)
     }
 }
 

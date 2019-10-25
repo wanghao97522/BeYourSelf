@@ -96,7 +96,7 @@ const TaskListContainer = styled.div`
     align-items: center;
     img{
       display: inline-block;
-      width: .14rem;
+      width: .2rem;
       height: .2rem;
     }
     .text{
@@ -206,11 +206,13 @@ const BorderTaskItemContainer = border({
   width: '1px 0px 1px 0px'
 })
 
+
+
 export{
   BodyContainer,
   MainContainer,
   SearchContainer,
   BorderSearchContainer,
   TaskListContainer,
-  BorderTaskItemContainer
+  BorderTaskItemContainer,
 }

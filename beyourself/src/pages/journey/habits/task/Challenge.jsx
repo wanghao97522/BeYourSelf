@@ -3,12 +3,20 @@ import { Title, Container, TopDiv, BtmDiv } from '../components/drink_comp'
 import { ActionSheet, WingBlank, Button } from 'antd-mobile'
 import goBack from 'assets/images/return@2x.png'
 import DrinkWater from 'assets/images/journey/heshui-sg@2x.png'
+import axios from 'axios'
+import qs from 'querystring'
 
 export default class Challenge extends Component {
     constructor(props) {
         super(props);
         this.state = {
             clicked: 'none',
+            liClick1: false,
+            liClick2: false,
+            liClick3: false,
+            color1: false,
+            color2: false,
+            color3: false
         }
     }
 
@@ -25,12 +33,30 @@ export default class Challenge extends Component {
             this.setState({ 
                 clicked: BUTTONS[buttonIndex] 
             },() => {
+                if(this.state.liClick3===true){
+                    document.getElementById('challenge_button').childNodes[0].innerHTML = "挑战完成"
+                }
                 switch(buttonIndex){
                     case 0:
                         document.getElementById('challenge_button').childNodes[0].innerHTML = "挑战进行中"
+                        this.setState({
+                            liClick1: true,
+                            liClick2: false,
+                            liClick3: false
+                        })
+                    break
+                    case 1:
+                        document.getElementById('challenge_button').childNodes[0].innerHTML = "我接受挑战"
+                        this.setState({
+                            liClick1: false,
+                            liClick2: false,
+                            liClick3: false
+                        })
                     break
                     default:
-                  }
+                            
+                }
+                
             })
 
         })
@@ -55,11 +81,11 @@ export default class Challenge extends Component {
                 <BtmDiv>
                     <div className="rules">一个星期内进行此项任务三次，迈向成功。</div>
                     <ul>
-                        <li>1</li>
-                        <li style={{margin:"0 .15rem 0 .15rem"}}>2</li>
-                        <li>3</li>
+                        <li onClick={this.state.liClick1 && !this.state.color1 ? ()=>this.handleClick(1):() => {}} style={{backgroundColor:`${this.state.color1 ? '#1B93B9':''}`,color:`${this.state.color1 ? 'white':''}`}}>1</li>
+                        <li onClick={!this.state.color2 ? ()=>this.handleClick(2):() => {}} style={{margin:"0 .15rem 0 .15rem",backgroundColor:`${this.state.color2 ? '#1B93B9':''}`,color:`${this.state.color2 ? 'white':''}`}}>2</li>
+                        <li onClick={!this.state.color3 ? ()=>this.handleClick(3):() => {}}  style={{backgroundColor:`${this.state.color3 ? '#1B93B9':''}`,color:`${this.state.color3 ? 'white':''}`}}>3</li>
                     </ul>
-                    <WingBlank>
+                    <WingBlank >
                         <Button className="ch_btn" id="challenge_button" onClick={this.showActionSheet}>我接受挑战</Button>
                     </WingBlank>
                 </BtmDiv>
@@ -68,5 +94,71 @@ export default class Challenge extends Component {
     }
     back(){
         this.props.history.goBack()
+    }
+    handleClick(value){
+        // console.log(value)
+        switch(value){
+            case 1 :
+                axios({
+                    method: 'post',
+                    url: '/api/challenge',
+                    data: qs.stringify({
+                        uId: 1,
+                        routeId: 1,
+                        taskId: 2,
+                        ci: value
+                    })
+                }).then((res) => {
+                    console.log(res.data.flag);
+                    this.setState({
+                        liClick1: false,
+                        liClick2: true,
+                        liClick3: false,
+                        color1: res.data.flag
+                    })
+                })
+                break
+            case 2 :
+                axios({
+                    method: 'post',
+                    url: '/api/challenge',
+                    data: qs.stringify({
+                        uId: 1,
+                        routeId: 1,
+                        taskId: 2,
+                        ci: value
+                    })
+                }).then((res) => {
+                    console.log(res.data.flag);
+                    this.setState({
+                        liClick1: false,
+                        liClick2: false,
+                        liClick3: true,
+                        color2: res.data.flag
+                    })
+                })
+                break
+            case 3 :
+                axios({
+                    method: 'post',
+                    url: '/api/challenge',
+                    data: qs.stringify({
+                        uId: 1,
+                        routeId: 1,
+                        taskId: 2,
+                        ci: value
+                    })
+                }).then((res) => {
+                    console.log(res.data.flag);
+                    this.setState({
+                        liClick1: false,
+                        liClick2: false,
+                        liClick3: false,
+                        color3: res.data.flag
+                    })
+                })
+                break
+            default:
+        }
     }
 }

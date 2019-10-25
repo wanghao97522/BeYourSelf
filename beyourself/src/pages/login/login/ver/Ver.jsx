@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Ipt from '../../components/ipt/Ipt'
 import {VerContainer} from './StyledVer'
 import LiButton from '../../components/button/Button'
-import { Toast} from 'antd-mobile';
-
+import axios from 'axios'
 export default class Ver extends Component {
     constructor(){
         super()
@@ -12,16 +11,14 @@ export default class Ver extends Component {
           isShow:false
         }
       }
-       showToast() {
-        Toast.info('This is a toast tips !!!', 1);
-      }
+       
  render() {
     return (
       <VerContainer>
           <Ipt text="+86" pretext="请输入手机号" handleIpt={this.handleIpt.bind(this)}></Ipt>
           <p>{this.state.isShow ?  '手机号验证失败' : ''}</p>
           <div className="btn">
-            <LiButton innertext="登录" onClick={this.verification.bind(this)}></LiButton>
+            <LiButton innertext="下一步" onClick={this.verification.bind(this)}></LiButton>
           </div>
       </VerContainer>
     );
@@ -35,8 +32,20 @@ export default class Ver extends Component {
         isShow:true
       })
     }else{
-      Toast.info('登陆成功', 1);
-      this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal}})
+      axios({
+        method: 'post',
+        url: '/api/user/iPhoneyzm',
+        data: `uTel=${this.state.iptVal}`
+      }).then((result) => {
+        console.log(result)
+        if(result.data.flag){
+          // this.props.history.push({pathname:"/verification",state:{phoneNum:this.state.iptVal,isReg:"isReg"}})
+          this.props.history.push({pathname:"/verlogin",state:{phoneNum:this.state.iptVal,isLogin:'isLogin'}})
+        }else{
+          console.log(result.msg)
+        }
+      }
+      )
     }
   }
   handleIpt(e){
