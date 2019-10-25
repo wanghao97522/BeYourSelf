@@ -9,7 +9,7 @@ const Body = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
-    display: ${(props)=>(props.display==3?'block':'none')};
+    display: ${(props)=>(props.display===3?'block':'none')};
 `
 const Bg = styled.div`  
     height: 100%;

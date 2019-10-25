@@ -7,8 +7,8 @@ import Healthy from './pages/healthy/MysteriousTravel';
 
 export default class Journey extends Component {
     render() {
-        const pos = this.props.match.params.id;
-        // console.log(pos);
+        const pos = parseInt(this.props.match.params.id);
+        console.log(typeof pos);
         return (
             <>
                <Heshui display={pos}></Heshui> 

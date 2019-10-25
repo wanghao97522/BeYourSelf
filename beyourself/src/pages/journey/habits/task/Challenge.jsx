@@ -53,6 +53,7 @@ export default class Challenge extends Component {
                             liClick3: false
                         })
                     break
+                    default:
                             
                 }
                 
@@ -157,6 +158,7 @@ export default class Challenge extends Component {
                     })
                 })
                 break
+            default:
         }
     }
 }

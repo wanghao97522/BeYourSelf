@@ -98,17 +98,18 @@ export default class MysteriousTravel extends Component {
             </Body>
         )
     }
-    // componentDidMount(){
-    //     const uid = 1
-    //     axios({
-    //         method: 'get',
-    //         url: `/api/journey/get_all_travel?uId=${uid}`
-    //     }).then(async (res) => {
-    //         console.log(res.data.list[0].rImgmax);
-    //         await this.setState({
-    //             // rImgmax: res.data.list[0].rImgmax,
-    //             rB: res.data.list[0].rB
-    //         })
-    //     })
-    // }
+    componentDidMount(){
+        const uid = 1
+        // const uid = localStorage.getItem('uId')
+        axios({
+            method: 'get',
+            url: `/api/journey/get_all_travel?uId=${uid}`
+        }).then(async (res) => {
+            console.log(res.data.list[0].rImgmax);
+            await this.setState({
+                // rImgmax: res.data.list[0].rImgmax,
+                rB: res.data.list[0].rB
+            })
+        })
+    }
 }

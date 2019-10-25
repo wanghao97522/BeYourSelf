@@ -24,7 +24,7 @@ import Letter from './growing/views/letter/LetterContainer';
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
 import SoundTip from './growing/views/soundtip/SoundTipContainer';
-import TaskTime from './growing/views/tasktime/TaskTimeContianer';
+// import TaskTime from './growing/views/tasktime/TaskTimeContianer';
 import Selecttime from './growing/views/selecttime/SelectTimeContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
@@ -41,10 +41,11 @@ import LoginIndex from './login/login_index'
 import Login from './login/login/Login'
 import Register from './login/register/Register'
 import Verification from './login/verification/Verification'
+import VerLogin from './login/verlogin/Verlogin'
 import SetPwd from './login/setpwd/SetPwd'
 import FindPwd from './login/findpwd/FindPwd'
 import RegSucc from './login/registersucc/RegisterSucc'
-
+// import FindPwd from './login/findpwd/FindPwd'
 export default class MyRouter extends Component {
     render() {
         return (
@@ -92,11 +93,12 @@ export default class MyRouter extends Component {
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>
                     <Route path='/verification' component={Verification}></Route>
+                    <Route path='/verlogin' component={VerLogin}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
                     <Route path='/findpwd' component={FindPwd}></Route>
-                    <Redirect from='/' exact to='/loginindex' />
-                    <Route component={Page404} ></Route>
+                    <Redirect from='/' exact to='/loginindex'></Redirect>
+                    <Route component={Page404} ></Route> 
                 </Switch>
             </>
         )

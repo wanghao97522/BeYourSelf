@@ -7,7 +7,7 @@ import shenmilvxing from 'assets/images/profile/background-shengmiluxing@2x.png'
 import touxiang from 'assets/images/profile/touxiang@2x.png'
 
 import http from 'utils/httpgg'
-import querystring from 'querystring';
+// import querystring from 'querystring';
 
 
 
