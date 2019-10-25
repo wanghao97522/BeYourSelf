@@ -5,45 +5,11 @@ import http from 'utils/httpAxios'
 
 import iconSearch from 'assets/images/home/icon-sousuo@3x.png'
 import iconWater from 'assets/images/home/icon-shuidi@3x.png'
-import iconDress from 'assets/images/home/icon-chuifengji@3x.png'
-import iconFood from 'assets/images/home/icon-dami@3x.png'
-import iconExercise from 'assets/images/home/icon-duanlian@3x.png'
-import iconFish from 'assets/images/home/icon-fish@3x.png'
-import iconMedicine from 'assets/images/home/icon-fuyao@3x.png'
-import iconThink from 'assets/images/home/icon-mingxiang@3x.png'
-import iconShower from 'assets/images/home/icon-muyu@3x.png'
-import iconSpread from 'assets/images/home/icon-shenzhan@3x.png'
-import iconTea from 'assets/images/home/icon-tea@3x.png'
-import iconTeeth from 'assets/images/home/icon-toothbrush@3x.png'
 import iconVe from 'assets/images/home/icon-weishengsu@3x.png'
-import iconWrite from 'assets/images/home/icon-write@3x.png'
-import iconSleep from 'assets/images/home/icon-xiaoshui@3x.png'
-import iconBreakfast from 'assets/images/home/icon-zaocan@3x.png'
 
 export default class AddTask extends Component {
   state = {
-    addTaskList: [
-      {
-        img: iconWater,
-        tId: 0,
-        tName: '啊哈哈',
-        detail: '如果渴了，说明你已脱水'
-      },
-      {
-        tId: 1,
-        tName: '喝水'
-      }
-    ],
-    taskList: [
-      {
-        tId: 0,
-        tName: '喝水',
-      },
-      {
-        tId: 1,
-        tName: '锻炼'
-      }
-    ],
+    addTaskList: [],
     filterList: [],
     iptValue: ''
   }
@@ -67,19 +33,18 @@ export default class AddTask extends Component {
           </BorderSearchContainer>
           <TaskListContainer>
             {
-              this.state.taskList.map((value, index)=>{
+              this.state.taskList&&this.state.taskList.map((value, index)=>{
                 if(value.tName){
                   return (
                     <div className="container" key={value.tId}>
-                      <img src={value.img} alt=""/>
+                      <img src={iconWater} alt=""/>
                       <div className="text">
                         <p className="title">{value.tName}</p>
                         <p className="detail">{value.detail}</p>
                       </div>
                       <span 
                         className="remove"
-                        //这个tName要变成tId
-                        key={value.tName}
+                        key={value.tId}
                         onClick={()=>this.handleRemove(value.tId)}
                       >移除</span>
                     </div>
@@ -90,19 +55,19 @@ export default class AddTask extends Component {
               })
             }
             {
-              this.state.filterList.map((value)=>{
+              this.state.filterList&&this.state.filterList.map((value)=>{
                 return(
-                  <div className="container" key={value.tName}>
-                    <img src={value.img} alt=""/>
+                  <div className="container" key={value.tId}>
+                    <img src={iconVe} alt=""/>
                     <div className="text">
                       <p className="title">{value.tName}</p>
                       <p className="detail">{value.detail}</p>
                     </div>
                     <span
                       className="add"
-                      key={value.tName}
+                      key={value.tId}
                       onClick={()=>this.handleAdd({
-                        // hId: value.habits.hId, 
+                        hId: this.state.taskList[0].habits.hId, 
                         tName: value.tName, 
                         tDate: value.tDate, 
                         tTimespan: value.tTimespan, 
@@ -141,18 +106,19 @@ export default class AddTask extends Component {
   }
 
   handleAdd(data){
-    // http.http({
-    //   method: 'POST',
-    //   url: 'http://10.9.20.181:8084/api/habit/add/task',
-    //   data: {
-    //     uId: localStorage.get('uId'),
-    //     hId: data.hId,
-    //     tName: data.tName,
-    //     tDate: data.tDate,
-    //     tTimespan: data.tTimespan,
-    //     detail: data.detail
-    //   }
-    // })
+    http.http({
+      method: 'POST',
+      url: '/api/habit/add/task',
+      data: {
+        // uId: localStorage.getItem('uId'),
+        uId: 1,
+        hId: data.hId,
+        tName: data.tName,
+        tDate: data.tDate,
+        tTimespan: data.tTimespan,
+        detail: data.detail
+      }
+    })
 
     let taskList = this.state.filterList.filter((value)=>{
       return value.tName === data.tName
@@ -170,13 +136,13 @@ export default class AddTask extends Component {
   }
 
   handleRemove(tid){
-    // http.http({
-    //   method: 'POST',
-    //   url: 'http://10.9.20.181:8084/api/habit/del/task',
-    //   data: {
-    //     tId: tid
-    //   }
-    // })
+    http.http({
+      method: 'POST',
+      url: '/api/habit/del/task',
+      data: {
+        tId: tid
+      }
+    })
 
     let taskList = this.state.taskList.map((value)=>{
       if(value.tId !== tid){
@@ -194,24 +160,24 @@ export default class AddTask extends Component {
   }
 
 
-  componentDidMount(){
-    // let { location } = this.props
-    // let list = http.http({
-    //   method: 'POST',
-    //   url: 'http://10.9.20.181:8084/api/habit/task',
-    //   data: {
-    //       uId: localStorage.getItem('uId'),
-    //       hId: location.state.hid
-    //   }
-    // })
+  async componentDidMount(){
+    let { location } = this.props
+    let list = await http.http({
+      method: 'POST',
+      url: '/api/habit/add/taskall',
+      data: {
+          // uId: localStorage.getItem('uId'),
+          uId: 1,
+          hId: location.state.hid
+      }
+    })
 
-    // this.setState({
-    //   addTaskList: list.list2,
-    //   taskList: list.list
-    // })
+    this.setState({
+      addTaskList: list.list2,
+      taskList: list.list
+    })
 
     this.filter()
-    
   }
   
   filter(){
@@ -219,7 +185,7 @@ export default class AddTask extends Component {
     this.state.taskList.forEach((value)=>{
       name.push(value.tName)
     })
-    let filterList = this.state.addTaskList.filter((value)=>{
+    let filterList = this.state.addTaskList&&this.state.addTaskList.filter((value)=>{
       return name.includes(value.tName) === false
     })
     

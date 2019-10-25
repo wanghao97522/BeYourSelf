@@ -12,16 +12,7 @@ import iconWater from 'assets/images/home/icon-shuidi@3x.png'
 
 class ReEditTask extends Component {
   state = {
-    taskList: [
-      {
-        tId: 0,
-        tName: '喝水'
-      },
-      {
-        tId: 2,
-        tName: '锻炼'
-      }
-    ]
+    taskList: []
   }
   render() {
     let { showActionSheet, location } =this.props
@@ -61,37 +52,38 @@ class ReEditTask extends Component {
   }
 
   deleteTask = (tid)=> {
-    // http.http({
-    //   method: 'POST',
-    //   url: 'http://10.9.20.181:8084/api/habit/del/task',
-    //   data: {
-    //     tId: tid
-    //   }
-    // })
+    http.http({
+      method: 'POST',
+      url: '/api/habit/del/task',
+      data: {
+        tId: tid
+      }
+    })
 
-    // let taskList = this.state.taskList.filter((value)=>{
-    //   return value.tId !== tid
-    // })
+    let taskList = this.state.taskList.filter((value)=>{
+      return value.tId !== tid
+    })
 
-    // this.setState({
-    //   taskList: taskList
-    // })
+    this.setState({
+      taskList: taskList
+    })
     
   }
 
   async componentDidMount(){
-    // let list = await http.http({
-    //   method: 'post',
-    //   url: 'http://10.9.20.181:8084/api/habit/task',
-    //   data: {
-    //     uId: localStorage.getItem('uId'),
-    //     hId: this.props.location.search.split('=')[1]
-    //   }
-    // }).list
+    let list = await http.http({
+      method: 'post',
+      url: '/api/habit/task',
+      data: {
+        // uId: localStorage.getItem('uId'),
+        uId: 1,
+        hId: this.props.location.search.split('=')[2]
+      }
+    })
 
-    // this.setState({
-    //   taskList: list
-    // })
+    this.setState({
+      taskList: list.list
+    })
   }
 }
 

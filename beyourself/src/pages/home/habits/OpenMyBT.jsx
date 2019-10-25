@@ -12,27 +12,32 @@ import iconStop from 'assets/images/home/stop.png'
 import iconPass from 'assets/images/home/icon-tiaoguo@3x.png'
 import iconSleep from 'assets/images/home/icon-dadun@3x.png'
 
-import Music from 'assets/music/aaa.mp3'
+import aaa from 'assets/music/aaa.mp3'
+import Bruno from 'assets/music/Bruno.mp3'
+import Freedom from 'assets/music/Freedom.mp3'
+import Lawrence from 'assets/music/Lawrence.mp3'
+import night from 'assets/music/night.mp3'
 
 let timer = null
 export default class OpenMyBT extends Component {
   state = {
     opacity: 1,
-    time: 0,
+    time: 57,
     paused: true,
     taskList: [
       {
-        tId: 0,
-        tName: '喝水',
-        tTimespan: 220
-      },
-      {
-        tId: 1,
-        tName: '锻炼',
-        tTimespan: 11
+        tTimespan: 57
       }
     ],
-    orderNum: 0 
+    orderNum: 0 ,
+    music: '',
+    musicList: [
+      aaa,
+      Bruno,
+      Freedom,
+      Lawrence,
+      night
+    ],
   }
   render() {
     
@@ -55,7 +60,7 @@ export default class OpenMyBT extends Component {
         </div>
         <div className="title">
           {
-            this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tName : ''
+            this.state.taskList[this.state.orderNum] ? this.state.taskList[this.state.orderNum].tName : '项目'
           }
         </div>
         <div className="bottom">
@@ -74,9 +79,9 @@ export default class OpenMyBT extends Component {
             <p>
               <span>
                 {
-                  this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? parseInt(this.state.time/60) : 0 ) : ''
+                  this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? parseInt(this.state.time/60) : 0 ) : 0
                 } m {
-                      this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? this.state.time % 60 : this.state.time) : ''
+                      this.state.taskList[this.state.orderNum] ? (this.state.time > 60 ? this.state.time % 60 : this.state.time) : this.state.time
                     } s
               </span>
               {
@@ -95,7 +100,8 @@ export default class OpenMyBT extends Component {
                 )
               }
               <audio
-                src={Music}
+              //音乐在这里，请求习惯对比习惯id获取其中hMusic，音乐要全部引入先
+                src={this.state.music}
                 ref="audio"
                 autoPlay="autoplay"
               ></audio>
@@ -111,7 +117,7 @@ export default class OpenMyBT extends Component {
             </div>
             <div
               className="success"
-              onClick={()=>this.handleSuccess(this.state.taskList[this.state.orderNum].tId)}
+              onClick={()=>this.handleSuccess(this.state.taskList&&this.state.taskList[this.state.orderNum].tId)}
             ></div>
             <div
               className="sleep-container common"
@@ -188,20 +194,35 @@ export default class OpenMyBT extends Component {
   handleSuccess(tid){
     http.http({
       method: 'post',
-      url: 'http://10.9.20.181:8084/api/habit/update/taskState',
+      url: '/api/habit/update/taskState',
       data: {
         tId: tid
       }
     })
-
     this.props.history.goBack()
   }
 
   async componentDidMount(){
     let { location } = this.props
-    this.setState({
-      time: this.state.taskList[this.state.orderNum].tTimespan
+    let list = await http.http({
+      method: 'post',
+      url: '/api/habit/task',
+      data: {
+        // uId: localStorage.getItem('uId'),
+        uId: 1,
+        hId: location.search.split('=')[2]
+      }
     })
+    
+    this.setState({
+      taskList: list.list
+    },()=>{
+      
+      this.setState({
+        time: this.state.taskList.length > 0 ? this.state.taskList[this.state.orderNum].tTimespan : 57
+      })
+    })
+    
     timer = setInterval(()=>{
       this.setState({
         time: this.state.time - 1
@@ -212,17 +233,20 @@ export default class OpenMyBT extends Component {
       })
     },1000)
 
-    // let list = await http.http({
-    //   method: 'post',
-    //   url: 'http://10.9.20.181:8084/api/habit/task',
-    //   data: {
-    //     uId: localStorage.getItem('uId'),
-    //     hId: location.search.split('=')[2]
-    //   }
-    // }).list
-    // this.setState({
-    //   taskList: list
-    // })
+    //音乐
+    let habitsList = await http.http({
+      method: 'get',
+      // url: `/api/habit/index?uId=${localStorage.getItem('uId')}`
+      url: '/api/habit/index?uId=1'
+    })
+    
+    let task = habitsList.list.filter((value)=>{
+      return value.hId === ~~location.search.split('=')[2]
+    })
+    
+    this.setState({
+      music: task[0].hMusic
+    })
   }
 
   componentWillUnmount(){

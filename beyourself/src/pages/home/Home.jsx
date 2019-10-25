@@ -19,23 +19,7 @@ import iconAdd from 'assets/images/home/icon-tianjia@3x.png'
 
 export default class Home extends Component {
     state = {
-        habitsList: [
-            {
-                hId: 0,
-                hTime: '7:00 上午',
-                hName: '早晨习惯'
-            },
-            {
-                hId: 1,
-                hTime: '2:00 下午',
-                hName: '下午习惯'
-            },
-            {
-                hId: 2,
-                hTime: '6:00 下午',
-                hName: '黄昏习惯'
-            }
-        ]
+        habitsList: []
     }
     render() {
         return (
@@ -94,13 +78,15 @@ export default class Home extends Component {
     }
     
     async componentDidMount(){
-        // let uid = localStorage.getItem('uId')
-        // let list = await http.http({
-        //     method: 'GET',
-        //     url: `http://10.9.20.181:8084/api/habit/index?uId=${uid}`
-        // }).list
-        // this.setState({
-        //     habitsList: list
-        // })
+        let uid = localStorage.getItem('uId')
+        let res = await http.http({
+            method: 'GET',
+            // url: `/api/habit/index?uId=${uid}`
+            url: '/api/habit/index?uId=1'
+        })
+        
+        this.setState({
+            habitsList: res.list
+        })
     }
 }

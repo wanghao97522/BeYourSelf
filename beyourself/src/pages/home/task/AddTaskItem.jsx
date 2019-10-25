@@ -54,7 +54,7 @@ export default class AddTaskItem extends Component {
   handleAdd(){
     http.http({
       method: 'POST',
-      url: 'http://10.9.20.181:8084/api/habit/add/task2',
+      url: '/api/habit/add/task2',
       data: {
         tName: this.state.iptValue
       }

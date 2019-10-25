@@ -51,17 +51,18 @@ export default class Morning extends Component {
       })
     }
 
-  //   let list = await http.http({
-  //     method: 'POST',
-  //     url: 'http://10.9.20.181:8084/api/habit/task',
-  //     data: {
-  //         uId: localStorage.getItem('uId'),
-  //         hId: location.state
-  //     }
-  //   }).list
+    let list = await http.http({
+      method: 'POST',
+      url: '/api/habit/task',
+      data: {
+          // uId: localStorage.getItem('uId'),
+          uId: 1,
+          hId: location.state
+      }
+    })
 
-  //   this.setState({
-  //     taskList: list
-  //   })
+    this.setState({
+      taskList: list.list
+    })
   }
 }
