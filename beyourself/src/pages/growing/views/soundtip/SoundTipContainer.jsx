@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import SoundTipUI from './SoundTipUI';
 class SoundTipContainer extends Component{
     state={
-        isSelect:'静音'
+        isSelect:'aaa'
     }
     render(){
         return (

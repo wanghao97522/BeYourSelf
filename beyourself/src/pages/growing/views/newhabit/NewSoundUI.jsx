@@ -42,17 +42,26 @@ export default withRouter((props) => {
         var minute = date.getMinutes();  
         minute = minute < 10 ? ('0' + minute) : minute;  
         return y + '-' + m + '-' + d+' '+h+':'+minute;  
-    };  
+    };
+    let musicobj={
+        aaa:"/static/media/aaa.a33ba46b.mp3",
+        Bruno:"/static/media/Bruno.ab744b0a.mp3",
+        Freedom:"/static/media/Freedom.6334d7b5.mp3",
+        Lawrence:"/static/media/Lawrence.3c2837ea.mp3",
+        night:"/static/media/night.9b3a0cb7.mp3"
+    }
+   
     async function sendnewhabit(){
         let data={
-            uId:'13',
+            uId:localStorage.getItem('uId'),
             hName:habitname,
             hDate:formatDateTime(new Date()),
-            hTime:(time.hour>9?time.hour:"0"+time.hour)+(time.minute>9?time.minute:"0"+time.minute),
-            hMusic:props.sound,
+            hTime:time.hour+":"+(time.minute>9?time.minute:"0"+time.minute),
+            hMusic:musicobj[props.sound],
         }
+        console.log(musicobj[props.sound])
         let result=await http.post({
-            url:'http://10.9.20.181:8084/api/habit/add/habit',
+            url:'/api/habit/add/habit',
             method:'POST',
             data:querystring.stringify(data)
         })

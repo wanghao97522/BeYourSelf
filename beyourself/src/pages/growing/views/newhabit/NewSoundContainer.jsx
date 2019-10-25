@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import NewSoundUI from './NewSoundUI';
 class NewSoundContainer extends Component{
     state={
-        sound:sessionStorage.getItem('sound')?sessionStorage.getItem('sound'):'静音',
+        sound:sessionStorage.getItem('sound')?sessionStorage.getItem('sound'):'aaa',
         // value:''
     }
     render(){

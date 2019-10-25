@@ -14,17 +14,19 @@ class ProfileContainer extends Component{
             )
     }
     async componentDidMount(){
-        // let result=await http.post({
-        //     url:'http://10.9.20.181:8084/api/habit/time',
-        //     data:qs.stringify({
-        //         uId:localStorage.getItem('uId')
-        //     })
-        // })
-        // let rate=result.obj;
+        let result=await http.post({
+            url:'/api/habit/time1',
+            method:"POST",
+            data:qs.stringify({
+                // uId:1,
+                uId:localStorage.getItem('uId')
+            })
+        })
+        let rate=result.obj;
         let list=this.getshowlist();
-        // list.push({
-        //     rate
-        // })
+        list.push({
+            rate:rate+"%"
+        })
         this.setState({
             showlist:list
         })
