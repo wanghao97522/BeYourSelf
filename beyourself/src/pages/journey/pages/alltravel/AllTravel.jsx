@@ -20,9 +20,9 @@ export default class AllTravel extends Component {
                 <Travel>
                     <p>当前旅程</p>
                     <NavLink to='/asecrettravel'><TravelItem style={{background:`url(${trip}) no-repeat center top / 100%`}}></TravelItem></NavLink>
-                    <TravelItem style={{background:`url(${night}) no-repeat center top / 100%`}}></TravelItem>
-                    <TravelItem style={{background:`url(${focus}) no-repeat center top / 100%`}}></TravelItem>
-                    <TravelItem style={{background:`url(${healthy}) no-repeat center top / 100%`}}></TravelItem>
+                    <NavLink to='/night'><TravelItem style={{background:`url(${night}) no-repeat center top / 100%`}}></TravelItem></NavLink>
+                    <NavLink to='/focus'><TravelItem style={{background:`url(${focus}) no-repeat center top / 100%`}}></TravelItem></NavLink>
+                    <NavLink to='/healthy'><TravelItem style={{background:`url(${healthy}) no-repeat center top / 100%`}}></TravelItem></NavLink>
                 </Travel>
             </Container>
         )

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-// import bgImg from 'assets/images/journey/heshui-bj@2x.png'
-// import title from 'assets/images/journey/title@2x.png'
+
 
 const Body = styled.div`
     font-size: .14rem;
@@ -9,17 +8,19 @@ const Body = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
+    display: ${(props)=>(props.display==4?'block':'none')};
 `
-const Bg = styled.div`
+const Bg = styled.div`  
     height: 100%;
     width: 100%;
-    background: url(${(props)=> props.bgImg}) no-repeat center top / 100%; 
+    padding-top:.29rem;
+    background: url(${(props)=>props.bgImg}) no-repeat center top / 100%;
 `
 const Title = styled.div`  
     background: url(${(props)=>props.title}) no-repeat center top / 100%;
     height: .28rem;
     width: 1rem;
-    margin: .29rem 0 0 .14rem;
+    margin: 0 0 0 .14rem;
 `
 const DegreeOfCompletion = styled.div`
     height: .5rem;
@@ -42,19 +43,20 @@ const Word = styled.div`
     text-align: center;
 `
 const TaskList = styled.div`
+    margin-top: .46rem;
     display: flex;
     flex-direction: column;
     height: max-content;
     padding: .2rem 0;
     align-items: center;
     justify-content: center;
-    background-color: #3174CB;
+    background-color: #4BBD77;
 `
 const Task = styled.div`
     height: .87rem;
     width: .87rem;
     margin: .15rem 0;
-    background: #5A8FD5;
+    background: #4BBD77;
     border-radius: 50%;
     .enter_de{
         height: .18rem;
@@ -73,4 +75,4 @@ const Point = styled.div`
     background: white;
     border-radius: 50%; 
 `
-export { Body , Bg , Title , DegreeOfCompletion , Done , Word , TaskList , Task , Point }
+export { Body, Bg, Title , DegreeOfCompletion , Done , Word , TaskList , Task , Point }

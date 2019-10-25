@@ -19,8 +19,8 @@ export default class AllTravel extends Component {
                     一次神秘的旅行
                 </div>
                 <div className="top">其中</div>
-                <div className="middle">Y学习一整天如何保持精力充沛</div>
-                <NavLink to="/index/journey">
+                <div className="middle">学习一整天如何保持精力充沛</div>
+                <NavLink to="/index/journey/1">
                     <div className="bottom"><img src={play} alt=""/></div> 
                 </NavLink>
                 

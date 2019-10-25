@@ -32,10 +32,10 @@ function profileUI(props){
                     <p className="fin-top">10月{props.day}日完成了{props.showlist[props.day]?props.showlist[props.day].rate:'0%'}</p>
                     <p className="fin-bottom">今天表现呢不错还要继续加油哦!</p>
                     <div className="supplewrapper">
-                        <div className="supple">
+                        {/* <div className="supple">
                             <span>补签</span>
                             <span></span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="space">

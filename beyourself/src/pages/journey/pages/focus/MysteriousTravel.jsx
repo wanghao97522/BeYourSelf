@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Body, Bg, Title , DegreeOfCompletion, Done , Word, TaskList, Task, Point } from './m_travel';
-import heshui from 'assets/images/journey/heshui-jiesuo@2x.png'
-import zaocan from 'assets/images/journey/zaocan-weijiesuo@2x.png'
-import yundong from 'assets/images/journey/yundong-weijiesuo@2x.png'
-import tiaozhan from 'assets/images/journey/tiaozhan-weijiesuo@2x.png'
-import mixing from 'assets/images/journey/mixing-weijiesuo@2x.png'
+import heshui from 'assets/images/journey/daiban-jiesuo@2x.png'
+import zaocan from 'assets/images/journey/zhongyao-weijiesuo@2x.png'
+import yundong from 'assets/images/journey/zhixing-weijiesuo@2x.png'
+import tiaozhan from 'assets/images/journey/yingxiang-weijiesuo@2x.png'
+import mixing from 'assets/images/journey/lanbaoshi-weijiesuo@2x.png'
 import pressToEnter from 'assets/images/presstoenter.png'
 
+import axios from 'axios'
 
-
-import bgImg from 'assets/images/journey/heshui-bj@2x.png'
+import heshuibg from 'assets/images/journey/group-bj@2x.png'
 import title from 'assets/images/journey/title@2x.png'
 
 
 export default class MysteriousTravel extends Component {
     state={
-        imgList:[heshui,zaocan,yundong,tiaozhan,mixing]
+        rImgmax: 'heshuibg',
+        rB:0,
     }
     render() {
         return (
-            Object.keys(this.props.list).length!==0&&
-            <Body>
-                <Bg bgImg={bgImg}>
+            <Body display={this.props.display}>
+                <Bg bgImg={heshuibg}>
                     <Title title={title}></Title>
                     <DegreeOfCompletion>
                         <Done>
-                            <Word>0%</Word>
+                            <Word>{this.state.rB}%</Word>
                             <Word>完成</Word>
                         </Done>
                         <Done>
@@ -100,7 +100,18 @@ export default class MysteriousTravel extends Component {
         )
     }
 
-    componentDidMount(){
-        console.log(this.props.list)
-    }
+    
+    // componentDidMount(){
+    //     const uid = 1
+    //     axios({
+    //         method: 'get',
+    //         url: `/api/journey/get_all_travel?uId=${uid}`
+    //     }).then(async (res) => {
+    //         console.log(res.data.list[0].rImgmax);
+    //         await this.setState({
+    //             // rImgmax: res.data.list[0].rImgmax,
+    //             rB: res.data.list[0].rB
+    //         })
+    //     })
+    // }
 }

@@ -1,27 +1,22 @@
 import React, { Component } from 'react'
-import MysteriousTravel from './pages/mysterioustravel/MysteriousTravel';
-// import axios from 'axios'
+
+import Heshui from './pages/heshui/MysteriousTravel';
+import Night from './pages/night/MysteriousTravel';
+import Focus from './pages/focus/MysteriousTravel';
+import Healthy from './pages/healthy/MysteriousTravel';
 
 export default class Journey extends Component {
-    state = {
-        list:{}
-    }
     render() {
+        const pos = this.props.match.params.id;
+        // console.log(pos);
         return (
-            <MysteriousTravel list={this.state.list}></MysteriousTravel>
+            <>
+               <Heshui display={pos}></Heshui> 
+               <Night display={pos}></Night>
+               <Focus display={pos}></Focus>
+               <Healthy display={pos}></Healthy>
+            </>
+            
         )
-    }
-    componentDidMount(){
-        // let list = axios.get('/api')
-        //     .then(function (res) {
-        //         console.log( res.data);
-                
-        // })
-        this.setState({
-            list: {
-                aaa : 1
-            }
-        })
-        
     }
 }

@@ -1,28 +1,30 @@
 import React, { Component } from 'react'
 import { Route , Switch , Redirect  } from 'react-router-dom'
 import Index from './Index'
-
 import Page404 from './Page404'
-
+//home的组件
 import Habits from './home/habits/Habits'
 import AddTask from './home/task/AddTask'
 import AddTaskItem from './home/task/AddTaskItem'
 import ReEditTask from './home/task/ReEditTask'
 import OpenMyBT from './home/habits/OpenMyBT'
-
+//journey的组件
 import AllTravel from 'journey/pages/alltravel/AllTravel'
-import SecretTravel from 'journey/pages/asecrettravel/SecretTravel'
-
+import SecretTravel from 'journey/pages/alltravel/asecrettravel/SecretTravel'
+import Night from 'journey/pages/alltravel/night/SecretTravel'
+import Focus from 'journey/pages/alltravel/focus/SecretTravel'
+import Healthy from 'journey/pages/alltravel/healthy/SecretTravel'
 import Drink from 'journey/habits/Drink'
 import Challenge from 'journey/habits/task/Challenge'
 import Action from 'journey/habits/task/Action'
 import Breakfast from 'journey/habits/task/Breakfast'
-
+//growing的组件
 import Timeline from './growing/views/timeline/TimelineContainer';
 import Letter from './growing/views/letter/LetterContainer';
 import NewHabit from './growing/views/newhabit/NewSoundContainer';
 import SoundHabit from './growing/views/soundhabit/SoundHabitContainer';
 import SoundTip from './growing/views/soundtip/SoundTipContainer';
+import Selecttime from './growing/views/selecttime/SelectTimeContainer';
 //profile的组件
 import Setting from './profile/setting/Setting'
 import AboutUs from './profile/aboutUs/AboutUs'
@@ -59,6 +61,9 @@ export default class MyRouter extends Component {
                     <Route path='/action' component={Action} ></Route>
                     <Route path='/alltravel' component={AllTravel} ></Route>
                     <Route path='/asecrettravel' component={SecretTravel} ></Route>
+                    <Route path='/night' component={Night} ></Route>
+                    <Route path='/focus' component={Focus} ></Route>
+                    <Route path='/healthy' component={Healthy} ></Route>
                     <Route path='/breakfast' component={Breakfast} ></Route>
 
                     {/* growing的路由 */}
@@ -68,7 +73,7 @@ export default class MyRouter extends Component {
                     <Route path="/soundhabit" component={SoundHabit}></Route>
                     <Route path="/soundtip" component={SoundTip}></Route>
                     <Route path='/index' component={Index} ></Route>
-
+                    <Route path='/selecttime' component={Selecttime}></Route>
                     {/* profile的路由 */}
                     <Route path='/setting' component={Setting} ></Route>
                     <Route path='/aboutus' component={AboutUs}></Route>
@@ -86,6 +91,9 @@ export default class MyRouter extends Component {
                     <Route path='/verification' component={Verification}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
+                    {/* <Route path='/findpwd' component={FindPwd}></Route>
+                    <Route path='/code' component={FindPwd}></Route> */}
+                    
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>

@@ -6,16 +6,47 @@ import {SelectTimestyContainer,Title,TimeBox} from './selecttime';
 const now = new Date("2015-03-19 06:06");
 export default withRouter(
     (props)=>{
-        const [value] = useState(now);
-        function gotoindex(){
-            props.history.push('/index/home');
+        const [value,setvalue] = useState(now);
+        const [selectedweek,setselectedweek]=useState([]);
+        function handeltimechange(data){
+            setvalue(data);
+            let hour=data.getHours();
+            let minute =data.getMinutes();
+            let dataobj={
+                hour,
+                minute
+            }
+            sessionStorage.setItem("time",JSON.stringify(dataobj))
+        }
+        function handelWeekClick(value){
+            setselectedweek(oldState =>{
+                if(oldState.indexOf(value)===-1){
+                    sessionStorage.setItem("week",JSON.stringify([
+                        ...oldState,
+                        value
+                    ]));
+                    return [
+                        ...oldState,
+                        value
+                    ]
+                }else{
+                    oldState.splice(oldState.indexOf(value),1);
+                    sessionStorage.setItem("week",JSON.stringify([
+                        ...oldState
+                    ]));
+                    return [
+                        ...oldState
+                    ]
+                }
+            });
+            
         }
         return (
             <SelectTimestyContainer>
                 <Title>
                     <span>编辑提示音和习惯</span>
-                    <span onClick={()=>{gotoindex()}}>完成</span>
-                </Title>
+                    <span onClick={()=>{props.history.goBack()}}>完成</span>
+                </Title> 
                 <div className="timewrapper">
                     <TimeBox>
                         <DatePickerView
@@ -23,17 +54,17 @@ export default withRouter(
                         use12Hours={true}
                         locale={enUs}
                         value={value}
-                        // onChange={this.onChange}
-                        // onValueChange={this.onValueChange}
+                        onChange={(value)=>{handeltimechange(value)}}
+                        // onValueChange={(value)=>{handeltimechange(value)}}
                         />
                     </TimeBox>
                     <div className="weekwrapper">
                         <ul>
-                            {["一","二","三","四","五","六","日"].map((value,key)=>{
-                                return (
-                                    <li key={key}>{value}</li>
+                            {["一","二","三","四","五","六","日"].map((value,key)=>
+                                (
+                                    <li key={key} onClick={()=>handelWeekClick(value)} className={selectedweek.indexOf(value)===-1?"":"active"}>{value}</li>
                                 )
-                            })}
+                            )}
                         </ul>
                     </div>
                 </div>
