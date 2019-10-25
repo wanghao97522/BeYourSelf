@@ -42,6 +42,7 @@ import Login from './login/login/Login'
 import Register from './login/register/Register'
 import Verification from './login/verification/Verification'
 import SetPwd from './login/setpwd/SetPwd'
+import FindPwd from './login/findpwd/FindPwd'
 import RegSucc from './login/registersucc/RegisterSucc'
 export default class MyRouter extends Component {
     render() {
@@ -92,9 +93,7 @@ export default class MyRouter extends Component {
                     <Route path='/verification' component={Verification}></Route>
                     <Route path='/setpwd' component={SetPwd}></Route>
                     <Route path='/registersucc' component={RegSucc}></Route>
-                    {/* <Route path='/code' component={FindPwd}></Route>
                     <Route path='/findpwd' component={FindPwd}></Route>
-                    <Route path='/code' component={FindPwd}></Route> */}
                     <Redirect from='/' exact to='/index/home'></Redirect> 
                     <Route component={Page404} ></Route>
                 </Switch>
