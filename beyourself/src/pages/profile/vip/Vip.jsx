@@ -143,7 +143,8 @@ class Vip extends Component {
 
     async componentDidMount(){
         // console.log(http.getDATA);
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        const uId = localStorage.getItem('uId')
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let data = result.data.obj
         this.setState({
             vipPhoto:data.mImg,
@@ -173,6 +174,8 @@ class Vip extends Component {
     }
     
     async payForVIP(){
+        const uId = localStorage.getItem('uId')
+
         this.setState((prev)=>({
             showMask:true,
             isShowCodeBG:true
@@ -198,14 +201,14 @@ class Vip extends Component {
         let resultPost = await http.postData({
             url:'/api/mine/updateIsmember',
             data:querystring.stringify({
-                uId:1,
+                uId,
                 meId,
             }),
             method:'POST'
         })
         
         let resultGet = await http.getDATA({
-            url:'/api/mine/showSuperUser?uId=1',
+            url:`/api/mine/showSuperUser?uId=${uId}`,
         })
         let data = resultGet.data.obj
 

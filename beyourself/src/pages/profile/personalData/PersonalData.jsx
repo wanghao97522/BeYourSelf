@@ -5,6 +5,7 @@ import personalPhotoBG from 'assets/images/profile/touxiang-gerenziliao@2x.png'
 
 import { DatePicker } from 'antd-mobile';
 
+import { Toast } from 'antd-mobile';
 
 // import querystring from 'querystring'
 
@@ -121,7 +122,8 @@ class PersonalData extends Component {
 
     async componentDidMount(){
         // console.log(http.getDATA);
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        const uId = localStorage.getItem('uId')
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let data = result.data.obj
         this.setState({
             persoalPhoto:data.mImg,
@@ -148,9 +150,11 @@ class PersonalData extends Component {
         //     })
         // })
 
+        const uId = localStorage.getItem('uId')
+
         const formDate = new FormData()
         formDate.append('uploadname', file)
-        formDate.append('uId', '1')
+        formDate.append('uId', uId)
 
 
         let resultPOST =await http.postFile({
@@ -159,14 +163,13 @@ class PersonalData extends Component {
             data:formDate
         })
 
-        console.log(resultPOST);
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let imgUrl = result.data.obj.mImg
-        console.log(result);
 
         this.setState({
             persoalPhoto:imgUrl
         })
+        // Toast.success('上传成功', 1);
     }
 
     changIsShow(){
@@ -185,6 +188,8 @@ class PersonalData extends Component {
     }
 
     async changeNetName(){
+        const uId = localStorage.getItem('uId')
+
         this.setState({
             isShowMask:false,
             isShowContentNetName:false,
@@ -198,7 +203,7 @@ class PersonalData extends Component {
         let file = imgFile[0]
         const formDate = new FormData()
         formDate.append('uploadname',file)
-        formDate.append('uId', '1')
+        formDate.append('uId', uId)
         formDate.append('mNickname', netName)
         
         let resultPOST = await http.postFile({
@@ -206,7 +211,7 @@ class PersonalData extends Component {
             method:'POST',
             data:formDate
         })
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
 
         let data = result.data.obj
 
@@ -223,6 +228,7 @@ class PersonalData extends Component {
     }
 
     async pickSex(sex){
+        const uId = localStorage.getItem('uId')
         this.setState({
             // nowSex:sex,
             isShowMask:false,
@@ -234,7 +240,7 @@ class PersonalData extends Component {
         let file = imgFile[0]
         const formDate = new FormData()
         formDate.append('uploadname',file)
-        formDate.append('uId', '1')
+        formDate.append('uId', uId)
         formDate.append('mSex', sex)
         
         let resultPOST = await http.postFile({
@@ -242,17 +248,17 @@ class PersonalData extends Component {
             method:'POST',
             data:formDate
         })
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
 
         let data = result.data.obj
 
-        console.log(data);
         this.setState({
             nowSex:data.mSex
         })
     }
 
     async changeDate(date){
+        const uId = localStorage.getItem('uId')
         var birthday = this.format(date, 'yyyy.MM.dd');
         // this.setState({
         //     birthday:birthday
@@ -263,7 +269,7 @@ class PersonalData extends Component {
         let file = imgFile[0]
         const formDate = new FormData()
         formDate.append('uploadname',file)
-        formDate.append('uId', '1')
+        formDate.append('uId', uId)
         formDate.append('mBirthday', birthday)
         
         let resultPOST = await http.postFile({
@@ -271,7 +277,12 @@ class PersonalData extends Component {
             method:'POST',
             data:formDate
         })
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
+        let data = result.data.obj
+
+        this.setState({
+            birthday:data.mBirthday
+        })
     }
 
     // changePhoto(){

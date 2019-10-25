@@ -93,7 +93,8 @@ export default class Profile extends Component {
 
     async componentDidMount(){
         // console.log(http.getDATA);
-        let result = await http.getDATA({url:'/api/mine/findMine?uId=1'})
+        const uId = localStorage.getItem('uId')
+        let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let imgUrl = result.data.obj.mImg
         this.setState({
             userPhoto:imgUrl
