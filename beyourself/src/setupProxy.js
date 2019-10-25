@@ -4,7 +4,7 @@ module.exports = function (app) {
       proxy(
           '/api',
           {
-            target: 'http://10.9.20.181:8100',
+            target: 'http://10.60.15.132:8080',
             changeOrigin: true
           }
       ),
