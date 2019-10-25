@@ -169,7 +169,7 @@ class PersonalData extends Component {
         this.setState({
             persoalPhoto:imgUrl
         })
-        // Toast.success('上传成功', 1);
+        Toast.success('上传成功', 1);
     }
 
     changIsShow(){
@@ -218,6 +218,8 @@ class PersonalData extends Component {
         this.setState({
             netName:data.mNickname
         })
+        Toast.success('上传成功', 1);
+
     }
 
     changeSexMask(){
@@ -255,6 +257,8 @@ class PersonalData extends Component {
         this.setState({
             nowSex:data.mSex
         })
+        Toast.success('上传成功', 1);
+
     }
 
     async changeDate(date){
@@ -283,6 +287,8 @@ class PersonalData extends Component {
         this.setState({
             birthday:data.mBirthday
         })
+        Toast.success('上传成功', 1);
+
     }
 
     // changePhoto(){

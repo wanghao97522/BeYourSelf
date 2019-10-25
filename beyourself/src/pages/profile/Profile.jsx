@@ -16,7 +16,8 @@ export default class Profile extends Component {
     state={
         userName:'用户名',
         isVIP:0,
-        userPhoto:touxiang
+        userPhoto:touxiang,
+        perc:0
     }
 
 
@@ -36,7 +37,7 @@ export default class Profile extends Component {
                         <img src={shenmilvxing} alt=""/>
                         <h3>一次神秘的旅行</h3>
                         <h4>感觉精力充沛</h4>
-                        <span>3%</span>
+                        <span>{this.state.perc}%</span>
                     </div>
                     <div className="all_travel" onClick={()=>this.handleClick('/alltravel')}>
                         <div className='bg_icon'></div>
@@ -95,9 +96,12 @@ export default class Profile extends Component {
         // console.log(http.getDATA);
         const uId = localStorage.getItem('uId')
         let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
+        let perc = await http.getDATA({url:`/api/journey/get_all_travel?uId=${uId}`})
+
         let imgUrl = result.data.obj.mImg
         this.setState({
-            userPhoto:imgUrl
+            userPhoto:imgUrl,
+            perc:perc.list[0].rB
         })
     }
 
