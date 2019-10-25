@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import touxiangBG from 'assets/images/profile/touxiang-background@2x.png'
-import touxiang from 'assets/images/profile/touxiang@2x.png'
+
 import quanbuLC from 'assets/images/profile/quanbu-lucheng@2x.png'
 import denglu from 'assets/images/profile/denglu@2x.png'
 import shezhi from 'assets/images/profile/shezhi@2x.png'
@@ -23,8 +23,12 @@ const ProfileContainer = styled.div`
         .profile_photo{
             width:.6rem;
             height:.6rem;
-            background:url(${touxiang}) no-repeat center;
-            background-size:100% 100%;
+            border-radius:50%;
+            img{
+                width:100%;
+                height: 100%;
+                border-radius:50%;
+            }
             /* position: absolute;
             top:0;
             left: 0;
@@ -35,7 +39,7 @@ const ProfileContainer = styled.div`
         h3{
             width:100%;
             font-size:.16rem;
-            color:white;
+            color:${(props)=>(props.isVIP===1?'gold':'white')};
             font-weight:500;
             margin-top:.1rem;
             text-align:center;
