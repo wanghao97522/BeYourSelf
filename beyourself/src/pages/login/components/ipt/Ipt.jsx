@@ -7,7 +7,7 @@ export default class Ipt extends Component {
       <IptContainer>
           <span>{this.props.text}</span>
           <BorderedContainer>
-            <input type="text" maxLength="11" onChange={this.props.handleIpt} placeholder={this.props.pretext}/>
+            <input type={this.props.kind} maxLength="11" onChange={this.props.handleIpt} placeholder={this.props.pretext}/>
           </BorderedContainer>
       </IptContainer>
     );

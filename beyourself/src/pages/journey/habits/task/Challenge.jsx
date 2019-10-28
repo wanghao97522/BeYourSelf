@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Title, Container, TopDiv, BtmDiv } from '../components/drink_comp'
-import { ActionSheet, WingBlank, Button } from 'antd-mobile'
+import { ActionSheet, WingBlank, Button,Toast } from 'antd-mobile'
 import goBack from 'assets/images/return@2x.png'
 import DrinkWater from 'assets/images/journey/heshui-sg@2x.png'
 import axios from 'axios'
@@ -110,7 +110,8 @@ export default class Challenge extends Component {
                         ci: value
                     })
                 }).then((res) => {
-                    console.log(res.data.flag);
+                    console.log(res.data);
+                   if(res.data.flag===true){Toast.success('完成', 1)}
                     this.setState({
                         liClick1: false,
                         liClick2: true,
@@ -131,6 +132,7 @@ export default class Challenge extends Component {
                     })
                 }).then((res) => {
                     console.log(res.data.flag);
+                    if(res.data.flag===true){Toast.success('完成', 1)}
                     this.setState({
                         liClick1: false,
                         liClick2: false,
@@ -150,7 +152,8 @@ export default class Challenge extends Component {
                         ci: value
                     })
                 }).then((res) => {
-                    console.log(res.data.flag);
+                    console.log(res.data.res);
+                    if(res.data.flag===true){Toast.success('完成', 1)}
                     this.setState({
                         liClick1: false,
                         liClick2: false,

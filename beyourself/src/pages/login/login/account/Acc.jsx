@@ -28,10 +28,11 @@ export default class Ver extends Component {
     return (
       <AccountContainer>
           <Ipt text="+86" pretext="请输入手机" handleIpt={this.handleIpt.bind(this)}></Ipt>
-          <Ipt text="密码" pretext="请输入密码" handleIpt={this.handlePwd.bind(this)}></Ipt>
+          <Ipt text="密码" kind="password" pretext="请输入密码" handleIpt={this.handlePwd.bind(this)}></Ipt>
           <p>{this.state.isShow ?  '请输入正确的手机号' : ''}</p>
           {/* <p>{this.state.isRegister ?  '该账户未注册' : ''}</p> */}
           <p>{this.state.isRight ?  this.msg : ''}</p>
+          {/* <p>{this.msg}</p> */}
           <div className="btn">
             <LiButton innertext="登录" onClick={this.verification.bind(this)}></LiButton>
           </div>

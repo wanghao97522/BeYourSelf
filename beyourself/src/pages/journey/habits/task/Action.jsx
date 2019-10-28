@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Title, Container, TopDiv, BtmDiv } from '../components/drink_comp'
-import { DatePicker, List } from 'antd-mobile'
+import { DatePicker, List,Toast } from 'antd-mobile'
 import qs from 'querystring'
 import axios from 'axios'
+
+
 
 import goBack from 'assets/images/return@2x.png'
 import QianDao from 'assets/images/qiandao@2x.png'
@@ -73,6 +75,7 @@ export default class Action extends Component {
             })
         }).then((res) => {
             console.log(res);
+            Toast.success('完成', 1);
         })
     }
     // timestampFormat( timestamp ) {

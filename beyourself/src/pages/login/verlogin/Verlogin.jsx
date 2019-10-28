@@ -17,7 +17,7 @@ export default class Verification extends Component {
           valueC: "", //三
           valueD: "", //四
           isShow:false,
-          count:5,
+          count:30,
           getCodeChange:false
         }
       }
@@ -119,7 +119,7 @@ export default class Verification extends Component {
                     clearInterval(timer);
                     this.setState({
                         getCodeChange: true,
-                        count: 5
+                        count: 30
                     })
                 }
             })
@@ -136,7 +136,7 @@ export default class Verification extends Component {
                   clearInterval(timer);
                   this.setState({
                       getCodeChange: true,
-                      count: 5
+                      count: 30
                   })
               }
           })

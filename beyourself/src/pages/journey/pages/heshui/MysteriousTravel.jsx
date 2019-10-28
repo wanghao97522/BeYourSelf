@@ -16,23 +16,21 @@ import title from 'assets/images/journey/title@2x.png'
 
 export default class MysteriousTravel extends Component {
     state={
-        rImgmax: 'assets/images/journey/heshui-bj@2x.png',
+        rA:0,
         rB:0,
     }
     render() {
-        // console.log(this.props.display)
         return (
-            // Object.keys(this.state.list).length!==0&&
             <Body display={this.props.display}>
                 <Bg bgImg={heshuibg}> 
                     <Title title={title}></Title>
                     <DegreeOfCompletion>
                         <Done>
-                            <Word>{this.state.rB}%</Word>
+                            <Word>{this.state.rB<0?0:this.state.rB}%</Word>
                             <Word>完成</Word>
                         </Done>
                         <Done>
-                            <Word>0/15</Word>
+                            <Word>{this.state.rA}/15</Word>
                             <Word>成就实现</Word>
                         </Done>
                     </DegreeOfCompletion>
@@ -49,7 +47,7 @@ export default class MysteriousTravel extends Component {
                         
                         <Done>
                             <Word>喝水</Word>
-                            <Word>1/5成功</Word>
+                            <Word>{this.state.rA}/3成功</Word>
                         </Done>
                         <Point></Point>
                         <Point></Point>
@@ -104,16 +102,14 @@ export default class MysteriousTravel extends Component {
 
     
     componentDidMount(){
-        // const uid = 1
         const uid = localStorage.getItem('uId')
         axios({
             method: 'get',
             url: `/api/journey/get_all_travel?uId=${uid}`
         }).then(async (res) => {
-            console.log(res.data.list[0].rImgmax);
             await this.setState({
-                // rImgmax: res.data.list[0].rImgmax,
-                rB: res.data.list[0].rB
+                rA: res.data.list? res.data.list[0].rA:0,
+                rB: res.data.list? res.data.list[0].rB:0
             })
         })
     }

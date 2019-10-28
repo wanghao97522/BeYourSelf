@@ -37,7 +37,7 @@ export default class Profile extends Component {
                         <img src={shenmilvxing} alt=""/>
                         <h3>一次神秘的旅行</h3>
                         <h4>感觉精力充沛</h4>
-                        <span>{this.state.perc}%</span>
+                        <span>{this.state.perc<0?0:this.state.perc}%</span>
                     </div>
                     <div className="all_travel" onClick={()=>this.handleClick('/alltravel')}>
                         <div className='bg_icon'></div>
@@ -97,9 +97,10 @@ export default class Profile extends Component {
         const uId = localStorage.getItem('uId')
         let result = await http.getDATA({url:`/api/mine/findMine?uId=${uId}`})
         let perc = await http.getDATA({url:`/api/journey/get_all_travel?uId=${uId}`})
-        let percent = perc.list?perc.list[0].rB:0
-        let imgUrl = result.data.obj.mImg
-        let userName = result.data.obj.userName
+        console.log(perc);
+        let percent = perc.data.list?perc.data.list[0].rB:0
+        let imgUrl = result.data.obj?result.data.obj.mImg:this.state.userPhoto
+        let userName = result.data.obj?result.data.obj.mNickname:this.state.userName
         this.setState({
             userPhoto:imgUrl,
             perc:percent,
