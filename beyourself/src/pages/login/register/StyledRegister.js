@@ -18,14 +18,15 @@ const RegisterContainer = styled.div`
         margin-top:.41rem;
         margin-left:.2rem;
     }
-    div:nth-child(5){
+    div:nth-child(6){
         position: absolute;
         top:3.43rem;
         left:.15rem;
     }
     >p{
-        padding-top:.1rem;
-        margin-left:.3rem;
+        position:absolute;
+        top:2.36rem;
+        left:.3rem;
         font-size:.14rem;
         font-family:PingFangSC-Regular,PingFangSC;
         font-weight:400;

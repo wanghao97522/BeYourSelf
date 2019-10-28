@@ -9,16 +9,21 @@ import iconStop from 'assets/images/home/stop.png'
 import iconPass from 'assets/images/home/icon-tiaoguo@3x.png'
 import iconSleep from 'assets/images/home/icon-dadun@3x.png'
 
+import Bruno from 'assets/music/Bruno.mp3'
+import Freedom from 'assets/music/Freedom.mp3'
+import Lawrence from 'assets/music/Lawrence.mp3'
+import night from 'assets/music/night.mp3'
+
 
 let timer = null
 export default class OpenMyBT extends Component {
   state = {
     opacity: 1,
-    time: 57,
+    time: 60,
     paused: true,
     taskList: [
       {
-        tTimespan: 57
+        tTimespan: 60
       }
     ],
     orderNum: 0 ,
@@ -203,7 +208,7 @@ export default class OpenMyBT extends Component {
     },()=>{
       
       this.setState({
-        time: this.state.taskList.length > 0 ? this.state.taskList[this.state.orderNum].tTimespan : 57
+        time: this.state.taskList.length > 0 ? this.state.taskList[this.state.orderNum].tTimespan : 60
       })
     })
     

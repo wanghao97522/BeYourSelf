@@ -1,16 +1,34 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import LetterstyContainer from './letter';
+import {Toast } from 'antd-mobile'
+import axios from 'axios'
+import qs from 'querystring'
 export default withRouter((props)=>{
     function handelClick(){
         props.history.goBack();
+    }
+    function handelAdd(){
+        const uid = localStorage.getItem("uId")
+        axios({
+            method: 'post',
+            url: '/api/clockIn',
+            data: qs.stringify({
+                uId: uid,
+                routeId: 1,
+                taskId: 1
+            })
+        }).then((res) => {
+            console.log(res);
+            Toast.success('完成', 1);
+        })
     }
     return (
         <LetterstyContainer>
             <div className="bg">
                 <div className="bgtop">
                     <span onClick={()=>{handelClick()}}></span>
-                    <span></span>
+                    <span onClick={()=>{handelAdd()}}></span>
                 </div>
                 <div className="bgbottom">
                     <p>第一天:</p>

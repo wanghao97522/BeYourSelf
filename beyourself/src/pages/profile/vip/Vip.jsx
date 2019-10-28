@@ -186,9 +186,9 @@ class Vip extends Component {
                 isShowCodeBG:false,
                 payOk:true
             })
-        },5000)
+        },20000)
         
-        fetch('https://inuyasha.top/wapay',{
+        fetch('http://wanghao.group/wapay',{
             method:'POST'
         })
             .then(response=>response.json())
